@@ -8,21 +8,131 @@
 
 /* Begin PBXBuildFile section */
 		AF35405728748A1100A39E33 /* FlowerCodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35405628748A1100A39E33 /* FlowerCodeApp.swift */; };
-		AF35405928748A1100A39E33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35405828748A1100A39E33 /* ContentView.swift */; };
-		AF35405B28748A1200A39E33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF35405A28748A1200A39E33 /* Assets.xcassets */; };
-		AF35405E28748A1200A39E33 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF35405D28748A1200A39E33 /* Preview Assets.xcassets */; };
-		AF35406028748A1200A39E33 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35405F28748A1200A39E33 /* Persistence.swift */; };
 		AF35406328748A1200A39E33 /* FlowerCode.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF35406128748A1200A39E33 /* FlowerCode.xcdatamodeld */; };
+		AF3540BB28748AEE00A39E33 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35406C28748AED00A39E33 /* Document.swift */; };
+		AF3540BC28748AEE00A39E33 /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = AF35406D28748AED00A39E33 /* Experience.rcproject */; };
+		AF3540BD28748AEE00A39E33 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35406F28748AED00A39E33 /* UserModel.swift */; };
+		AF3540BE28748AEE00A39E33 /* RuntimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407028748AED00A39E33 /* RuntimeModel.swift */; };
+		AF3540BF28748AEE00A39E33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF35407128748AED00A39E33 /* Assets.xcassets */; };
+		AF3540C028748AEE00A39E33 /* FlowerWorksTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407428748AEE00A39E33 /* FlowerWorksTabBar.swift */; };
+		AF3540C128748AEE00A39E33 /* FloralWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407528748AEE00A39E33 /* FloralWorks.swift */; };
+		AF3540C228748AEE00A39E33 /* TopDesignList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407628748AEE00A39E33 /* TopDesignList.swift */; };
+		AF3540C328748AEE00A39E33 /* AdvancedDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407728748AEE00A39E33 /* AdvancedDesign.swift */; };
+		AF3540C428748AEE00A39E33 /* VerticalVaseForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407928748AEE00A39E33 /* VerticalVaseForm.swift */; };
+		AF3540C528748AEE00A39E33 /* BasicDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407A28748AEE00A39E33 /* BasicDesign.swift */; };
+		AF3540C628748AEE00A39E33 /* BasicDesignTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407B28748AEE00A39E33 /* BasicDesignTabBar.swift */; };
+		AF3540C728748AEE00A39E33 /* alta-essencial-wood-padrao-carvalho-taupo.png in Resources */ = {isa = PBXBuildFile; fileRef = AF35407F28748AEE00A39E33 /* alta-essencial-wood-padrao-carvalho-taupo.png */; };
+		AF3540C828748AEE00A39E33 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF35408028748AEE00A39E33 /* background.jpg */; };
+		AF3540C928748AEE00A39E33 /* Texture.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF35408128748AEE00A39E33 /* Texture.tga */; };
+		AF3540CA28748AEE00A39E33 /* scene.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF35408228748AEE00A39E33 /* scene.dae */; };
+		AF3540CB28748AEE00A39E33 /* petal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF35408428748AEE00A39E33 /* petal.jpg */; };
+		AF3540CC28748AEE00A39E33 /* baihe.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF35408528748AEE00A39E33 /* baihe.dae */; };
+		AF3540CD28748AEE00A39E33 /* pollen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF35408628748AEE00A39E33 /* pollen.jpg */; };
+		AF3540CE28748AEE00A39E33 /* stem.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF35408728748AEE00A39E33 /* stem.jpg */; };
+		AF3540D028748AEE00A39E33 /* Leaf 4.png in Resources */ = {isa = PBXBuildFile; fileRef = AF35408A28748AEE00A39E33 /* Leaf 4.png */; };
+		AF3540D128748AEE00A39E33 /* Leaf 2.png in Resources */ = {isa = PBXBuildFile; fileRef = AF35408B28748AEE00A39E33 /* Leaf 2.png */; };
+		AF3540D228748AEE00A39E33 /* Leaf 3.png in Resources */ = {isa = PBXBuildFile; fileRef = AF35408C28748AEE00A39E33 /* Leaf 3.png */; };
+		AF3540D328748AEE00A39E33 /* Leaf 1.png in Resources */ = {isa = PBXBuildFile; fileRef = AF35408D28748AEE00A39E33 /* Leaf 1.png */; };
+		AF3540D428748AEE00A39E33 /* youjiali.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF35408E28748AEE00A39E33 /* youjiali.dae */; };
+		AF3540DA28748AEE00A39E33 /* ArrangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409528748AEE00A39E33 /* ArrangeView.swift */; };
+		AF3540DB28748AEE00A39E33 /* FlowerCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409628748AEE00A39E33 /* FlowerCreation.swift */; };
+		AF3540DC28748AEE00A39E33 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409728748AEE00A39E33 /* ARView.swift */; };
+		AF3540DD28748AEE00A39E33 /* UserEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409A28748AEE00A39E33 /* UserEvents.swift */; };
+		AF3540DE28748AEE00A39E33 /* CameraActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409B28748AEE00A39E33 /* CameraActions.swift */; };
+		AF3540DF28748AEE00A39E33 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409C28748AEE00A39E33 /* CameraViewController.swift */; };
+		AF3540E028748AEE00A39E33 /* CameraViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409D28748AEE00A39E33 /* CameraViewControllerDelegate.swift */; };
+		AF3540E128748AEE00A39E33 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409E28748AEE00A39E33 /* CameraView.swift */; };
+		AF3540E228748AEE00A39E33 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409F28748AEE00A39E33 /* ImagePicker.swift */; };
+		AF3540E328748AEE00A39E33 /* Flower5.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A028748AEE00A39E33 /* Flower5.mlmodel */; };
+		AF3540E428748AEE00A39E33 /* FlowerIdentificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A128748AEE00A39E33 /* FlowerIdentificationView.swift */; };
+		AF3540E528748AEE00A39E33 /* MyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A228748AEE00A39E33 /* MyImageView.swift */; };
+		AF3540E628748AEE00A39E33 /* CameraInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A328748AEE00A39E33 /* CameraInterfaceView.swift */; };
+		AF3540E728748AEE00A39E33 /* MLResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A428748AEE00A39E33 /* MLResultView.swift */; };
+		AF3540E828748AEE00A39E33 /* CommunityDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A628748AEE00A39E33 /* CommunityDiscovery.swift */; };
+		AF3540E928748AEE00A39E33 /* CommunityDiscussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A728748AEE00A39E33 /* CommunityDiscussion.swift */; };
+		AF3540EA28748AEE00A39E33 /* CommunityDiscussionTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A828748AEE00A39E33 /* CommunityDiscussionTabBar.swift */; };
+		AF3540EB28748AEE00A39E33 /* MassMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540AC28748AEE00A39E33 /* MassMaterial.swift */; };
+		AF3540EC28748AEE00A39E33 /* ScatteredMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540AD28748AEE00A39E33 /* ScatteredMaterial.swift */; };
+		AF3540ED28748AEE00A39E33 /* LinearMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540AE28748AEE00A39E33 /* LinearMaterial.swift */; };
+		AF3540EE28748AEE00A39E33 /* SpecialShapeMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540AF28748AEE00A39E33 /* SpecialShapeMaterial.swift */; };
+		AF3540EF28748AEE00A39E33 /* FlowerMapTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540B028748AEE00A39E33 /* FlowerMapTabBar.swift */; };
+		AF3540F028748AEE00A39E33 /* FlowerMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540B128748AEE00A39E33 /* FlowerMap.swift */; };
+		AF3540F128748AEE00A39E33 /* FlowerKnowledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540B328748AEE00A39E33 /* FlowerKnowledge.swift */; };
+		AF3540F228748AEE00A39E33 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540B528748AEE00A39E33 /* LoginView.swift */; };
+		AF3540F328748AEE00A39E33 /* MainViewTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540B628748AEE00A39E33 /* MainViewTabBar.swift */; };
+		AF3540F428748AEE00A39E33 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540B728748AEE00A39E33 /* MainView.swift */; };
+		AF3540F528748AEE00A39E33 /* PersonalCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540B928748AEE00A39E33 /* PersonalCenter.swift */; };
+		AF3540F828748BA500A39E33 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF3540F728748BA500A39E33 /* Preview Assets.xcassets */; };
+		AF3540FA28748BF200A39E33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540F928748BF200A39E33 /* ContentView.swift */; };
+		AF3540FC28748C3A00A39E33 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540FB28748C3A00A39E33 /* Persistence.swift */; };
+		AF3540FF287490E300A39E33 /* huatong.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF3540FE287490E300A39E33 /* huatong.dae */; };
+		AF3541042874916100A39E33 /* Concrete01 [softsaaz.ir].jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF3541022874916100A39E33 /* Concrete01 [softsaaz.ir].jpg */; };
+		AF3541052874916100A39E33 /* huaping.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF3541032874916100A39E33 /* huaping.dae */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AF35405328748A1100A39E33 /* FlowerCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowerCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF35405628748A1100A39E33 /* FlowerCodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCodeApp.swift; sourceTree = "<group>"; };
-		AF35405828748A1100A39E33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		AF35405A28748A1200A39E33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AF35405D28748A1200A39E33 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AF35405F28748A1200A39E33 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		AF35406228748A1200A39E33 /* FlowerCode.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlowerCode.xcdatamodel; sourceTree = "<group>"; };
+		AF35406C28748AED00A39E33 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		AF35406D28748AED00A39E33 /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
+		AF35406F28748AED00A39E33 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		AF35407028748AED00A39E33 /* RuntimeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuntimeModel.swift; sourceTree = "<group>"; };
+		AF35407128748AED00A39E33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF35407428748AEE00A39E33 /* FlowerWorksTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerWorksTabBar.swift; sourceTree = "<group>"; };
+		AF35407528748AEE00A39E33 /* FloralWorks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloralWorks.swift; sourceTree = "<group>"; };
+		AF35407628748AEE00A39E33 /* TopDesignList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopDesignList.swift; sourceTree = "<group>"; };
+		AF35407728748AEE00A39E33 /* AdvancedDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedDesign.swift; sourceTree = "<group>"; };
+		AF35407928748AEE00A39E33 /* VerticalVaseForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalVaseForm.swift; sourceTree = "<group>"; };
+		AF35407A28748AEE00A39E33 /* BasicDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicDesign.swift; sourceTree = "<group>"; };
+		AF35407B28748AEE00A39E33 /* BasicDesignTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicDesignTabBar.swift; sourceTree = "<group>"; };
+		AF35407F28748AEE00A39E33 /* alta-essencial-wood-padrao-carvalho-taupo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alta-essencial-wood-padrao-carvalho-taupo.png"; sourceTree = "<group>"; };
+		AF35408028748AEE00A39E33 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		AF35408128748AEE00A39E33 /* Texture.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Texture.tga; sourceTree = "<group>"; };
+		AF35408228748AEE00A39E33 /* scene.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = scene.dae; sourceTree = "<group>"; };
+		AF35408428748AEE00A39E33 /* petal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = petal.jpg; sourceTree = "<group>"; };
+		AF35408528748AEE00A39E33 /* baihe.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = baihe.dae; sourceTree = "<group>"; };
+		AF35408628748AEE00A39E33 /* pollen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pollen.jpg; sourceTree = "<group>"; };
+		AF35408728748AEE00A39E33 /* stem.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stem.jpg; sourceTree = "<group>"; };
+		AF35408A28748AEE00A39E33 /* Leaf 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Leaf 4.png"; sourceTree = "<group>"; };
+		AF35408B28748AEE00A39E33 /* Leaf 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Leaf 2.png"; sourceTree = "<group>"; };
+		AF35408C28748AEE00A39E33 /* Leaf 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Leaf 3.png"; sourceTree = "<group>"; };
+		AF35408D28748AEE00A39E33 /* Leaf 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Leaf 1.png"; sourceTree = "<group>"; };
+		AF35408E28748AEE00A39E33 /* youjiali.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = youjiali.dae; sourceTree = "<group>"; };
+		AF35409528748AEE00A39E33 /* ArrangeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrangeView.swift; sourceTree = "<group>"; };
+		AF35409628748AEE00A39E33 /* FlowerCreation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerCreation.swift; sourceTree = "<group>"; };
+		AF35409728748AEE00A39E33 /* ARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
+		AF35409A28748AEE00A39E33 /* UserEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEvents.swift; sourceTree = "<group>"; };
+		AF35409B28748AEE00A39E33 /* CameraActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraActions.swift; sourceTree = "<group>"; };
+		AF35409C28748AEE00A39E33 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		AF35409D28748AEE00A39E33 /* CameraViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewControllerDelegate.swift; sourceTree = "<group>"; };
+		AF35409E28748AEE00A39E33 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		AF35409F28748AEE00A39E33 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		AF3540A028748AEE00A39E33 /* Flower5.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Flower5.mlmodel; sourceTree = "<group>"; };
+		AF3540A128748AEE00A39E33 /* FlowerIdentificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerIdentificationView.swift; sourceTree = "<group>"; };
+		AF3540A228748AEE00A39E33 /* MyImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyImageView.swift; sourceTree = "<group>"; };
+		AF3540A328748AEE00A39E33 /* CameraInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraInterfaceView.swift; sourceTree = "<group>"; };
+		AF3540A428748AEE00A39E33 /* MLResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLResultView.swift; sourceTree = "<group>"; };
+		AF3540A628748AEE00A39E33 /* CommunityDiscovery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityDiscovery.swift; sourceTree = "<group>"; };
+		AF3540A728748AEE00A39E33 /* CommunityDiscussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityDiscussion.swift; sourceTree = "<group>"; };
+		AF3540A828748AEE00A39E33 /* CommunityDiscussionTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityDiscussionTabBar.swift; sourceTree = "<group>"; };
+		AF3540AC28748AEE00A39E33 /* MassMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassMaterial.swift; sourceTree = "<group>"; };
+		AF3540AD28748AEE00A39E33 /* ScatteredMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScatteredMaterial.swift; sourceTree = "<group>"; };
+		AF3540AE28748AEE00A39E33 /* LinearMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearMaterial.swift; sourceTree = "<group>"; };
+		AF3540AF28748AEE00A39E33 /* SpecialShapeMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialShapeMaterial.swift; sourceTree = "<group>"; };
+		AF3540B028748AEE00A39E33 /* FlowerMapTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerMapTabBar.swift; sourceTree = "<group>"; };
+		AF3540B128748AEE00A39E33 /* FlowerMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerMap.swift; sourceTree = "<group>"; };
+		AF3540B328748AEE00A39E33 /* FlowerKnowledge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerKnowledge.swift; sourceTree = "<group>"; };
+		AF3540B528748AEE00A39E33 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		AF3540B628748AEE00A39E33 /* MainViewTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewTabBar.swift; sourceTree = "<group>"; };
+		AF3540B728748AEE00A39E33 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		AF3540B928748AEE00A39E33 /* PersonalCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalCenter.swift; sourceTree = "<group>"; };
+		AF3540F728748BA500A39E33 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AF3540F928748BF200A39E33 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AF3540FB28748C3A00A39E33 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		AF3540FE287490E300A39E33 /* huatong.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = huatong.dae; sourceTree = "<group>"; };
+		AF3541022874916100A39E33 /* Concrete01 [softsaaz.ir].jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Concrete01 [softsaaz.ir].jpg"; sourceTree = "<group>"; };
+		AF3541032874916100A39E33 /* huaping.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = huaping.dae; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,22 +165,245 @@
 		AF35405528748A1100A39E33 /* FlowerCode */ = {
 			isa = PBXGroup;
 			children = (
+				AF35407128748AED00A39E33 /* Assets.xcassets */,
+				AF35406D28748AED00A39E33 /* Experience.rcproject */,
+				AF35406E28748AED00A39E33 /* Model */,
+				AF35406B28748AED00A39E33 /* ViewModel */,
+				AF35407228748AEE00A39E33 /* View */,
 				AF35405628748A1100A39E33 /* FlowerCodeApp.swift */,
-				AF35405828748A1100A39E33 /* ContentView.swift */,
-				AF35405A28748A1200A39E33 /* Assets.xcassets */,
-				AF35405F28748A1200A39E33 /* Persistence.swift */,
+				AF3540F928748BF200A39E33 /* ContentView.swift */,
+				AF3540FB28748C3A00A39E33 /* Persistence.swift */,
 				AF35406128748A1200A39E33 /* FlowerCode.xcdatamodeld */,
-				AF35405C28748A1200A39E33 /* Preview Content */,
+				AF3540F628748BA500A39E33 /* Preview Content */,
 			);
 			path = FlowerCode;
 			sourceTree = "<group>";
 		};
-		AF35405C28748A1200A39E33 /* Preview Content */ = {
+		AF35406B28748AED00A39E33 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				AF35405D28748A1200A39E33 /* Preview Assets.xcassets */,
+				AF35406C28748AED00A39E33 /* Document.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF35406E28748AED00A39E33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AF35406F28748AED00A39E33 /* UserModel.swift */,
+				AF35407028748AED00A39E33 /* RuntimeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AF35407228748AEE00A39E33 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF35407328748AEE00A39E33 /* FlowerWorks */,
+				AF35407C28748AEE00A39E33 /* FloralCreation */,
+				AF3540A528748AEE00A39E33 /* CommunityDiscussion */,
+				AF3540A928748AEE00A39E33 /* FlowerKnowledge */,
+				AF3540B428748AEE00A39E33 /* MainView */,
+				AF3540B828748AEE00A39E33 /* PersonalCenter */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF35407328748AEE00A39E33 /* FlowerWorks */ = {
+			isa = PBXGroup;
+			children = (
+				AF35407428748AEE00A39E33 /* FlowerWorksTabBar.swift */,
+				AF35407528748AEE00A39E33 /* FloralWorks.swift */,
+				AF35407628748AEE00A39E33 /* TopDesignList.swift */,
+				AF35407728748AEE00A39E33 /* AdvancedDesign.swift */,
+				AF35407828748AEE00A39E33 /* BasicDesign */,
+			);
+			path = FlowerWorks;
+			sourceTree = "<group>";
+		};
+		AF35407828748AEE00A39E33 /* BasicDesign */ = {
+			isa = PBXGroup;
+			children = (
+				AF35407928748AEE00A39E33 /* VerticalVaseForm.swift */,
+				AF35407A28748AEE00A39E33 /* BasicDesign.swift */,
+				AF35407B28748AEE00A39E33 /* BasicDesignTabBar.swift */,
+			);
+			path = BasicDesign;
+			sourceTree = "<group>";
+		};
+		AF35407C28748AEE00A39E33 /* FloralCreation */ = {
+			isa = PBXGroup;
+			children = (
+				AF35407D28748AEE00A39E33 /* ArrangeView */,
+				AF35409528748AEE00A39E33 /* ArrangeView.swift */,
+				AF35409628748AEE00A39E33 /* FlowerCreation.swift */,
+				AF35409728748AEE00A39E33 /* ARView.swift */,
+				AF35409828748AEE00A39E33 /* FlowerIdentification */,
+			);
+			path = FloralCreation;
+			sourceTree = "<group>";
+		};
+		AF35407D28748AEE00A39E33 /* ArrangeView */ = {
+			isa = PBXGroup;
+			children = (
+				AF3541012874916100A39E33 /* bottle */,
+				AF3540FD287490C500A39E33 /* huatong */,
+				AF35407E28748AEE00A39E33 /* Scene */,
+				AF35408328748AEE00A39E33 /* BaiHe */,
+				AF35408928748AEE00A39E33 /* YouJiaLi */,
+			);
+			path = ArrangeView;
+			sourceTree = "<group>";
+		};
+		AF35407E28748AEE00A39E33 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				AF35407F28748AEE00A39E33 /* alta-essencial-wood-padrao-carvalho-taupo.png */,
+				AF35408028748AEE00A39E33 /* background.jpg */,
+				AF35408128748AEE00A39E33 /* Texture.tga */,
+				AF35408228748AEE00A39E33 /* scene.dae */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		AF35408328748AEE00A39E33 /* BaiHe */ = {
+			isa = PBXGroup;
+			children = (
+				AF35408428748AEE00A39E33 /* petal.jpg */,
+				AF35408528748AEE00A39E33 /* baihe.dae */,
+				AF35408628748AEE00A39E33 /* pollen.jpg */,
+				AF35408728748AEE00A39E33 /* stem.jpg */,
+			);
+			path = BaiHe;
+			sourceTree = "<group>";
+		};
+		AF35408928748AEE00A39E33 /* YouJiaLi */ = {
+			isa = PBXGroup;
+			children = (
+				AF35408A28748AEE00A39E33 /* Leaf 4.png */,
+				AF35408B28748AEE00A39E33 /* Leaf 2.png */,
+				AF35408C28748AEE00A39E33 /* Leaf 3.png */,
+				AF35408D28748AEE00A39E33 /* Leaf 1.png */,
+				AF35408E28748AEE00A39E33 /* youjiali.dae */,
+			);
+			path = YouJiaLi;
+			sourceTree = "<group>";
+		};
+		AF35409828748AEE00A39E33 /* FlowerIdentification */ = {
+			isa = PBXGroup;
+			children = (
+				AF35409928748AEE00A39E33 /* Camera */,
+				AF35409F28748AEE00A39E33 /* ImagePicker.swift */,
+				AF3540A028748AEE00A39E33 /* Flower5.mlmodel */,
+				AF3540A128748AEE00A39E33 /* FlowerIdentificationView.swift */,
+				AF3540A228748AEE00A39E33 /* MyImageView.swift */,
+				AF3540A328748AEE00A39E33 /* CameraInterfaceView.swift */,
+				AF3540A428748AEE00A39E33 /* MLResultView.swift */,
+			);
+			path = FlowerIdentification;
+			sourceTree = "<group>";
+		};
+		AF35409928748AEE00A39E33 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				AF35409A28748AEE00A39E33 /* UserEvents.swift */,
+				AF35409B28748AEE00A39E33 /* CameraActions.swift */,
+				AF35409C28748AEE00A39E33 /* CameraViewController.swift */,
+				AF35409D28748AEE00A39E33 /* CameraViewControllerDelegate.swift */,
+				AF35409E28748AEE00A39E33 /* CameraView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		AF3540A528748AEE00A39E33 /* CommunityDiscussion */ = {
+			isa = PBXGroup;
+			children = (
+				AF3540A628748AEE00A39E33 /* CommunityDiscovery.swift */,
+				AF3540A728748AEE00A39E33 /* CommunityDiscussion.swift */,
+				AF3540A828748AEE00A39E33 /* CommunityDiscussionTabBar.swift */,
+			);
+			path = CommunityDiscussion;
+			sourceTree = "<group>";
+		};
+		AF3540A928748AEE00A39E33 /* FlowerKnowledge */ = {
+			isa = PBXGroup;
+			children = (
+				AF3540AB28748AEE00A39E33 /* FlowerMap */,
+				AF3540AA28748AEE00A39E33 /* FlowerMaintenance */,
+				AF3540B228748AEE00A39E33 /* TrimAndSculpt */,
+				AF3540B328748AEE00A39E33 /* FlowerKnowledge.swift */,
+			);
+			path = FlowerKnowledge;
+			sourceTree = "<group>";
+		};
+		AF3540AA28748AEE00A39E33 /* FlowerMaintenance */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FlowerMaintenance;
+			sourceTree = "<group>";
+		};
+		AF3540AB28748AEE00A39E33 /* FlowerMap */ = {
+			isa = PBXGroup;
+			children = (
+				AF3540AC28748AEE00A39E33 /* MassMaterial.swift */,
+				AF3540AD28748AEE00A39E33 /* ScatteredMaterial.swift */,
+				AF3540AE28748AEE00A39E33 /* LinearMaterial.swift */,
+				AF3540AF28748AEE00A39E33 /* SpecialShapeMaterial.swift */,
+				AF3540B028748AEE00A39E33 /* FlowerMapTabBar.swift */,
+				AF3540B128748AEE00A39E33 /* FlowerMap.swift */,
+			);
+			path = FlowerMap;
+			sourceTree = "<group>";
+		};
+		AF3540B228748AEE00A39E33 /* TrimAndSculpt */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TrimAndSculpt;
+			sourceTree = "<group>";
+		};
+		AF3540B428748AEE00A39E33 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				AF3540B528748AEE00A39E33 /* LoginView.swift */,
+				AF3540B628748AEE00A39E33 /* MainViewTabBar.swift */,
+				AF3540B728748AEE00A39E33 /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		AF3540B828748AEE00A39E33 /* PersonalCenter */ = {
+			isa = PBXGroup;
+			children = (
+				AF3540B928748AEE00A39E33 /* PersonalCenter.swift */,
+			);
+			path = PersonalCenter;
+			sourceTree = "<group>";
+		};
+		AF3540F628748BA500A39E33 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AF3540F728748BA500A39E33 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AF3540FD287490C500A39E33 /* huatong */ = {
+			isa = PBXGroup;
+			children = (
+				AF3540FE287490E300A39E33 /* huatong.dae */,
+			);
+			path = huatong;
+			sourceTree = "<group>";
+		};
+		AF3541012874916100A39E33 /* bottle */ = {
+			isa = PBXGroup;
+			children = (
+				AF3541022874916100A39E33 /* Concrete01 [softsaaz.ir].jpg */,
+				AF3541032874916100A39E33 /* huaping.dae */,
+			);
+			path = bottle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,8 +464,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF35405E28748A1200A39E33 /* Preview Assets.xcassets in Resources */,
-				AF35405B28748A1200A39E33 /* Assets.xcassets in Resources */,
+				AF3540FF287490E300A39E33 /* huatong.dae in Resources */,
+				AF3540CC28748AEE00A39E33 /* baihe.dae in Resources */,
+				AF3540F828748BA500A39E33 /* Preview Assets.xcassets in Resources */,
+				AF3540CD28748AEE00A39E33 /* pollen.jpg in Resources */,
+				AF3540C928748AEE00A39E33 /* Texture.tga in Resources */,
+				AF3540BF28748AEE00A39E33 /* Assets.xcassets in Resources */,
+				AF3540D328748AEE00A39E33 /* Leaf 1.png in Resources */,
+				AF3541042874916100A39E33 /* Concrete01 [softsaaz.ir].jpg in Resources */,
+				AF3540D128748AEE00A39E33 /* Leaf 2.png in Resources */,
+				AF3540D228748AEE00A39E33 /* Leaf 3.png in Resources */,
+				AF3540D028748AEE00A39E33 /* Leaf 4.png in Resources */,
+				AF3541052874916100A39E33 /* huaping.dae in Resources */,
+				AF3540D428748AEE00A39E33 /* youjiali.dae in Resources */,
+				AF3540C728748AEE00A39E33 /* alta-essencial-wood-padrao-carvalho-taupo.png in Resources */,
+				AF3540C828748AEE00A39E33 /* background.jpg in Resources */,
+				AF3540CB28748AEE00A39E33 /* petal.jpg in Resources */,
+				AF3540CE28748AEE00A39E33 /* stem.jpg in Resources */,
+				AF3540CA28748AEE00A39E33 /* scene.dae in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,10 +492,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF35406028748A1200A39E33 /* Persistence.swift in Sources */,
+				AF3540F128748AEE00A39E33 /* FlowerKnowledge.swift in Sources */,
+				AF3540F328748AEE00A39E33 /* MainViewTabBar.swift in Sources */,
+				AF3540BB28748AEE00A39E33 /* Document.swift in Sources */,
+				AF3540ED28748AEE00A39E33 /* LinearMaterial.swift in Sources */,
+				AF3540EA28748AEE00A39E33 /* CommunityDiscussionTabBar.swift in Sources */,
+				AF3540C128748AEE00A39E33 /* FloralWorks.swift in Sources */,
+				AF3540E228748AEE00A39E33 /* ImagePicker.swift in Sources */,
+				AF3540EE28748AEE00A39E33 /* SpecialShapeMaterial.swift in Sources */,
+				AF3540BC28748AEE00A39E33 /* Experience.rcproject in Sources */,
+				AF3540FC28748C3A00A39E33 /* Persistence.swift in Sources */,
+				AF3540EF28748AEE00A39E33 /* FlowerMapTabBar.swift in Sources */,
+				AF3540DA28748AEE00A39E33 /* ArrangeView.swift in Sources */,
+				AF3540F528748AEE00A39E33 /* PersonalCenter.swift in Sources */,
+				AF3540C028748AEE00A39E33 /* FlowerWorksTabBar.swift in Sources */,
+				AF3540E528748AEE00A39E33 /* MyImageView.swift in Sources */,
+				AF3540DE28748AEE00A39E33 /* CameraActions.swift in Sources */,
 				AF35406328748A1200A39E33 /* FlowerCode.xcdatamodeld in Sources */,
-				AF35405928748A1100A39E33 /* ContentView.swift in Sources */,
+				AF3540BD28748AEE00A39E33 /* UserModel.swift in Sources */,
+				AF3540E728748AEE00A39E33 /* MLResultView.swift in Sources */,
 				AF35405728748A1100A39E33 /* FlowerCodeApp.swift in Sources */,
+				AF3540E828748AEE00A39E33 /* CommunityDiscovery.swift in Sources */,
+				AF3540DF28748AEE00A39E33 /* CameraViewController.swift in Sources */,
+				AF3540DC28748AEE00A39E33 /* ARView.swift in Sources */,
+				AF3540DB28748AEE00A39E33 /* FlowerCreation.swift in Sources */,
+				AF3540C628748AEE00A39E33 /* BasicDesignTabBar.swift in Sources */,
+				AF3540EC28748AEE00A39E33 /* ScatteredMaterial.swift in Sources */,
+				AF3540E128748AEE00A39E33 /* CameraView.swift in Sources */,
+				AF3540BE28748AEE00A39E33 /* RuntimeModel.swift in Sources */,
+				AF3540C528748AEE00A39E33 /* BasicDesign.swift in Sources */,
+				AF3540E328748AEE00A39E33 /* Flower5.mlmodel in Sources */,
+				AF3540C228748AEE00A39E33 /* TopDesignList.swift in Sources */,
+				AF3540E428748AEE00A39E33 /* FlowerIdentificationView.swift in Sources */,
+				AF3540C428748AEE00A39E33 /* VerticalVaseForm.swift in Sources */,
+				AF3540E028748AEE00A39E33 /* CameraViewControllerDelegate.swift in Sources */,
+				AF3540C328748AEE00A39E33 /* AdvancedDesign.swift in Sources */,
+				AF3540F028748AEE00A39E33 /* FlowerMap.swift in Sources */,
+				AF3540EB28748AEE00A39E33 /* MassMaterial.swift in Sources */,
+				AF3540F428748AEE00A39E33 /* MainView.swift in Sources */,
+				AF3540E928748AEE00A39E33 /* CommunityDiscussion.swift in Sources */,
+				AF3540FA28748BF200A39E33 /* ContentView.swift in Sources */,
+				AF3540E628748AEE00A39E33 /* CameraInterfaceView.swift in Sources */,
+				AF3540F228748AEE00A39E33 /* LoginView.swift in Sources */,
+				AF3540DD28748AEE00A39E33 /* UserEvents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +666,9 @@
 				DEVELOPMENT_TEAM = TXH6MFC7F9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "花间小作想使用你的摄像头";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "花间小作想使用你的麦克风";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "花间小作想访问你的相册";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -289,7 +680,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tongji.edu.cn.FlowerCode;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FlowerCode;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -307,6 +698,9 @@
 				DEVELOPMENT_TEAM = TXH6MFC7F9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "花间小作想使用你的摄像头";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "花间小作想使用你的麦克风";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "花间小作想访问你的相册";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -318,7 +712,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tongji.edu.cn.FlowerCode;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FlowerCode;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
