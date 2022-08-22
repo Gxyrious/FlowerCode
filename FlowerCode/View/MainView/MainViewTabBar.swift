@@ -63,7 +63,7 @@ struct MainViewTabBar: View {
                         }
                         .background(alignment: .center) {
                             Circle()
-                                .fill(Color("TabBarColor"))
+                                .fill(Color("grass"))
                         }
                     }
                     .offset(x: 0, y: -19)
@@ -112,7 +112,7 @@ struct MainViewTabBar: View {
         .frame(height: 60, alignment: .top)
         .padding(.bottom, 30)
         .padding([.horizontal], 5)
-        .background(Color("TabBarColor"))
+        .background(Color("grass"))
     }
 }
 //

@@ -21,16 +21,15 @@ struct FloralWorks: View {
                 FlowerWorksTabBar(curTab: $curTab)
             }
             TabView(selection: $curTab) {
-                BasicDesign(isTabViewHidden: $isTabBarHidden)
+                WorkList(isTabViewHidden: $isTabBarHidden,items:basicworks)
                     .tag(FlowerWorksTap.basicDesign)
-                AdvancedDesign()
+                WorkList(isTabViewHidden: $isTabBarHidden,items:basicworks)
                     .tag(FlowerWorksTap.advancedDesign)
-                TopDesignList()
+                WorkList(isTabViewHidden: $isTabBarHidden,items:basicworks)
                     .tag(FlowerWorksTap.topDesignList)
             }
         }
         .background(Color(red: 0.906, green: 0.910, blue: 0.882))
-
     }
 }
 

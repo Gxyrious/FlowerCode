@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BasicDesignTabBar: View {
+struct WorkDetailTabBar: View {
     @Binding var curTab: BasicDesignTab
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -23,8 +23,10 @@ struct BasicDesignTabBar: View {
                     .font(.system(size: textSize))
                     .frame(width: textWidth, height: textHeight * 1.4, alignment: .bottom)
                     .padding(.bottom, 30)
-                    .padding([.leading, .trailing])
+                    .padding([.leading, .trailing],25)
             }
+            
+            Spacer()
             
             Button {
                 curTab = .keyPoints
@@ -33,8 +35,10 @@ struct BasicDesignTabBar: View {
                     .font(.system(size: textSize))
                     .frame(width: textWidth, height: textHeight)
                     .padding([.top, .bottom], 20)
-                    .padding([.leading, .trailing])
+                    .padding([.leading, .trailing],25)
             }
+            
+            Spacer()
             
             Button {
                 curTab = .designProcess
@@ -43,18 +47,9 @@ struct BasicDesignTabBar: View {
                     .font(.system(size: textSize))
                     .frame(width: textWidth, height: textHeight)
                     .padding([.top, .bottom], 20)
-                    .padding([.leading, .trailing])
+                    .padding([.leading, .trailing],25)
             }
             
-            Button {
-                curTab = .comments
-            } label: {
-                Text(BasicDesignTab.comments.rawValue)
-                    .font(.system(size: textSize))
-                    .frame(width: textWidth, height: textHeight * 2, alignment: .top)
-                    .padding(.top, 20)
-                    .padding([.leading, .trailing])
-            }
         }
         .foregroundColor(Color(white: 1))
         .background(Color(red: 0.404, green: 0.533, blue: 0.477))
@@ -71,9 +66,9 @@ struct BasicDesignTabBar: View {
     }
 }
 
-//struct BasicDesignTabBar_Previews: PreviewProvider {
+//struct WorkDetailTabBar_Previews: PreviewProvider {
 //    static var previews: some View {
-//        BasicDesignTabBar()
+//        WorkDetailTabBar()
 //    }
 //}
 
@@ -81,5 +76,4 @@ enum BasicDesignTab: String, CaseIterable {
     case basicIntroduction = "基本介绍"
     case keyPoints = "插制要点"
     case designProcess = "插制过程"
-    case comments = "评论"
 }

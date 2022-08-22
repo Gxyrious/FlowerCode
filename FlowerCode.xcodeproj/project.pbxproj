@@ -7,6 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F0E502228B0DC0100B87B11 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E502128B0DC0100B87B11 /* Flower.swift */; };
+		9F0E502428B0DD4400B87B11 /* FlowerDate.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F0E502328B0DD4400B87B11 /* FlowerDate.json */; };
+		9F0E502628B0DEF200B87B11 /* FlowerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E502528B0DEF200B87B11 /* FlowerItem.swift */; };
+		9F0E502828B0E14C00B87B11 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E502728B0E14C00B87B11 /* Pattern.swift */; };
+		9F0E502A28B0E1CF00B87B11 /* PatternData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F0E502928B0E1CF00B87B11 /* PatternData.json */; };
+		9F0E502C28B0EF2D00B87B11 /* FlowerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E502B28B0EF2D00B87B11 /* FlowerList.swift */; };
+		9F0E503028B10DF800B87B11 /* FlowerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E502F28B10DF800B87B11 /* FlowerDetail.swift */; };
+		9F29DDD528AE904700D7175C /* TrimAndSculptTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29DDD428AE904700D7175C /* TrimAndSculptTabBar.swift */; };
+		9F29DDD728AE913200D7175C /* TrimAndSculpt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29DDD628AE913200D7175C /* TrimAndSculpt.swift */; };
+		9F29DDDD28AEA7B900D7175C /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29DDDC28AEA7B900D7175C /* InfoRow.swift */; };
+		9F29DDDF28AEA7EC00D7175C /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29DDDE28AEA7EC00D7175C /* Info.swift */; };
+		9F29DDE128AF33EC00D7175C /* InfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29DDE028AF33EC00D7175C /* InfoList.swift */; };
+		9F29DDEA28AF555C00D7175C /* InfoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F29DDE928AF555C00D7175C /* InfoData.json */; };
+		9F29DDEC28AF689500D7175C /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29DDEB28AF689500D7175C /* ModelData.swift */; };
+		9F2CA40128AF7F29007BCFE8 /* InfoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CA40028AF7F29007BCFE8 /* InfoDetail.swift */; };
+		9F76E40428B0C198006404E4 /* TipItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F76E40328B0C198006404E4 /* TipItem.swift */; };
+		9F76E40628B0C2C3006404E4 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F76E40528B0C2C3006404E4 /* Tip.swift */; };
+		9F76E40828B0C3EB006404E4 /* TipData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F76E40728B0C3EB006404E4 /* TipData.json */; };
+		9F76E40A28B0C5A6006404E4 /* TipRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F76E40928B0C5A6006404E4 /* TipRow.swift */; };
+		9F76E40C28B0C7BC006404E4 /* FlowerMaintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F76E40B28B0C7BC006404E4 /* FlowerMaintenance.swift */; };
+		9F76E40E28B0CA08006404E4 /* TipDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F76E40D28B0CA08006404E4 /* TipDetail.swift */; };
+		9FD5F55B28B1D9CA00983E1C /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5F55A28B1D9CA00983E1C /* Work.swift */; };
+		9FD5F55F28B1DC3D00983E1C /* Vase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5F55E28B1DC3D00983E1C /* Vase.swift */; };
+		9FD5F56128B1DD0200983E1C /* BasicWorksDate.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FD5F56028B1DD0200983E1C /* BasicWorksDate.json */; };
+		9FD5F56328B2135D00983E1C /* VaseDate.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FD5F56228B2135D00983E1C /* VaseDate.json */; };
+		9FD5F56528B21A3700983E1C /* WorkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5F56428B21A3700983E1C /* WorkItem.swift */; };
+		9FE5DB5328B28134004AE5FB /* WorkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE5DB5228B28134004AE5FB /* WorkDetail.swift */; };
+		9FE5DB5528B28B4D004AE5FB /* WorkIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE5DB5428B28B4D004AE5FB /* WorkIntro.swift */; };
+		9FE5DB5728B324B4004AE5FB /* WorkKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE5DB5628B324B4004AE5FB /* WorkKey.swift */; };
+		9FE5DB5928B327EE004AE5FB /* WorkProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE5DB5828B327EE004AE5FB /* WorkProcess.swift */; };
 		AF35405728748A1100A39E33 /* FlowerCodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35405628748A1100A39E33 /* FlowerCodeApp.swift */; };
 		AF35406328748A1200A39E33 /* FlowerCode.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF35406128748A1200A39E33 /* FlowerCode.xcdatamodeld */; };
 		AF3540BB28748AEE00A39E33 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35406C28748AED00A39E33 /* Document.swift */; };
@@ -16,11 +46,8 @@
 		AF3540BF28748AEE00A39E33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF35407128748AED00A39E33 /* Assets.xcassets */; };
 		AF3540C028748AEE00A39E33 /* FlowerWorksTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407428748AEE00A39E33 /* FlowerWorksTabBar.swift */; };
 		AF3540C128748AEE00A39E33 /* FloralWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407528748AEE00A39E33 /* FloralWorks.swift */; };
-		AF3540C228748AEE00A39E33 /* TopDesignList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407628748AEE00A39E33 /* TopDesignList.swift */; };
-		AF3540C328748AEE00A39E33 /* AdvancedDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407728748AEE00A39E33 /* AdvancedDesign.swift */; };
-		AF3540C428748AEE00A39E33 /* VerticalVaseForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407928748AEE00A39E33 /* VerticalVaseForm.swift */; };
-		AF3540C528748AEE00A39E33 /* BasicDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407A28748AEE00A39E33 /* BasicDesign.swift */; };
-		AF3540C628748AEE00A39E33 /* BasicDesignTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407B28748AEE00A39E33 /* BasicDesignTabBar.swift */; };
+		AF3540C528748AEE00A39E33 /* WorkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407A28748AEE00A39E33 /* WorkList.swift */; };
+		AF3540C628748AEE00A39E33 /* WorkDetailTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407B28748AEE00A39E33 /* WorkDetailTabBar.swift */; };
 		AF3540C728748AEE00A39E33 /* alta-essencial-wood-padrao-carvalho-taupo.png in Resources */ = {isa = PBXBuildFile; fileRef = AF35407F28748AEE00A39E33 /* alta-essencial-wood-padrao-carvalho-taupo.png */; };
 		AF3540C828748AEE00A39E33 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF35408028748AEE00A39E33 /* background.jpg */; };
 		AF3540C928748AEE00A39E33 /* Texture.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF35408128748AEE00A39E33 /* Texture.tga */; };
@@ -51,10 +78,6 @@
 		AF3540E828748AEE00A39E33 /* CommunityDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A628748AEE00A39E33 /* CommunityDiscovery.swift */; };
 		AF3540E928748AEE00A39E33 /* CommunityDiscussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A728748AEE00A39E33 /* CommunityDiscussion.swift */; };
 		AF3540EA28748AEE00A39E33 /* CommunityDiscussionTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A828748AEE00A39E33 /* CommunityDiscussionTabBar.swift */; };
-		AF3540EB28748AEE00A39E33 /* MassMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540AC28748AEE00A39E33 /* MassMaterial.swift */; };
-		AF3540EC28748AEE00A39E33 /* ScatteredMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540AD28748AEE00A39E33 /* ScatteredMaterial.swift */; };
-		AF3540ED28748AEE00A39E33 /* LinearMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540AE28748AEE00A39E33 /* LinearMaterial.swift */; };
-		AF3540EE28748AEE00A39E33 /* SpecialShapeMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540AF28748AEE00A39E33 /* SpecialShapeMaterial.swift */; };
 		AF3540EF28748AEE00A39E33 /* FlowerMapTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540B028748AEE00A39E33 /* FlowerMapTabBar.swift */; };
 		AF3540F028748AEE00A39E33 /* FlowerMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540B128748AEE00A39E33 /* FlowerMap.swift */; };
 		AF3540F128748AEE00A39E33 /* FlowerKnowledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540B328748AEE00A39E33 /* FlowerKnowledge.swift */; };
@@ -71,6 +94,36 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F0E502128B0DC0100B87B11 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
+		9F0E502328B0DD4400B87B11 /* FlowerDate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FlowerDate.json; sourceTree = "<group>"; };
+		9F0E502528B0DEF200B87B11 /* FlowerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerItem.swift; sourceTree = "<group>"; };
+		9F0E502728B0E14C00B87B11 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
+		9F0E502928B0E1CF00B87B11 /* PatternData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PatternData.json; sourceTree = "<group>"; };
+		9F0E502B28B0EF2D00B87B11 /* FlowerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerList.swift; sourceTree = "<group>"; };
+		9F0E502F28B10DF800B87B11 /* FlowerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerDetail.swift; sourceTree = "<group>"; };
+		9F29DDD428AE904700D7175C /* TrimAndSculptTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimAndSculptTabBar.swift; sourceTree = "<group>"; };
+		9F29DDD628AE913200D7175C /* TrimAndSculpt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimAndSculpt.swift; sourceTree = "<group>"; };
+		9F29DDDC28AEA7B900D7175C /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
+		9F29DDDE28AEA7EC00D7175C /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		9F29DDE028AF33EC00D7175C /* InfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoList.swift; sourceTree = "<group>"; };
+		9F29DDE928AF555C00D7175C /* InfoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = InfoData.json; sourceTree = "<group>"; };
+		9F29DDEB28AF689500D7175C /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		9F2CA40028AF7F29007BCFE8 /* InfoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDetail.swift; sourceTree = "<group>"; };
+		9F76E40328B0C198006404E4 /* TipItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipItem.swift; sourceTree = "<group>"; };
+		9F76E40528B0C2C3006404E4 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
+		9F76E40728B0C3EB006404E4 /* TipData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TipData.json; sourceTree = "<group>"; };
+		9F76E40928B0C5A6006404E4 /* TipRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipRow.swift; sourceTree = "<group>"; };
+		9F76E40B28B0C7BC006404E4 /* FlowerMaintenance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerMaintenance.swift; sourceTree = "<group>"; };
+		9F76E40D28B0CA08006404E4 /* TipDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipDetail.swift; sourceTree = "<group>"; };
+		9FD5F55A28B1D9CA00983E1C /* Work.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
+		9FD5F55E28B1DC3D00983E1C /* Vase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vase.swift; sourceTree = "<group>"; };
+		9FD5F56028B1DD0200983E1C /* BasicWorksDate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BasicWorksDate.json; sourceTree = "<group>"; };
+		9FD5F56228B2135D00983E1C /* VaseDate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VaseDate.json; sourceTree = "<group>"; };
+		9FD5F56428B21A3700983E1C /* WorkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkItem.swift; sourceTree = "<group>"; };
+		9FE5DB5228B28134004AE5FB /* WorkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDetail.swift; sourceTree = "<group>"; };
+		9FE5DB5428B28B4D004AE5FB /* WorkIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkIntro.swift; sourceTree = "<group>"; };
+		9FE5DB5628B324B4004AE5FB /* WorkKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkKey.swift; sourceTree = "<group>"; };
+		9FE5DB5828B327EE004AE5FB /* WorkProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkProcess.swift; sourceTree = "<group>"; };
 		AF35405328748A1100A39E33 /* FlowerCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowerCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF35405628748A1100A39E33 /* FlowerCodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCodeApp.swift; sourceTree = "<group>"; };
 		AF35406228748A1200A39E33 /* FlowerCode.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlowerCode.xcdatamodel; sourceTree = "<group>"; };
@@ -81,11 +134,8 @@
 		AF35407128748AED00A39E33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF35407428748AEE00A39E33 /* FlowerWorksTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerWorksTabBar.swift; sourceTree = "<group>"; };
 		AF35407528748AEE00A39E33 /* FloralWorks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloralWorks.swift; sourceTree = "<group>"; };
-		AF35407628748AEE00A39E33 /* TopDesignList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopDesignList.swift; sourceTree = "<group>"; };
-		AF35407728748AEE00A39E33 /* AdvancedDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedDesign.swift; sourceTree = "<group>"; };
-		AF35407928748AEE00A39E33 /* VerticalVaseForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalVaseForm.swift; sourceTree = "<group>"; };
-		AF35407A28748AEE00A39E33 /* BasicDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicDesign.swift; sourceTree = "<group>"; };
-		AF35407B28748AEE00A39E33 /* BasicDesignTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicDesignTabBar.swift; sourceTree = "<group>"; };
+		AF35407A28748AEE00A39E33 /* WorkList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkList.swift; sourceTree = "<group>"; };
+		AF35407B28748AEE00A39E33 /* WorkDetailTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkDetailTabBar.swift; sourceTree = "<group>"; };
 		AF35407F28748AEE00A39E33 /* alta-essencial-wood-padrao-carvalho-taupo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alta-essencial-wood-padrao-carvalho-taupo.png"; sourceTree = "<group>"; };
 		AF35408028748AEE00A39E33 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		AF35408128748AEE00A39E33 /* Texture.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Texture.tga; sourceTree = "<group>"; };
@@ -116,10 +166,6 @@
 		AF3540A628748AEE00A39E33 /* CommunityDiscovery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityDiscovery.swift; sourceTree = "<group>"; };
 		AF3540A728748AEE00A39E33 /* CommunityDiscussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityDiscussion.swift; sourceTree = "<group>"; };
 		AF3540A828748AEE00A39E33 /* CommunityDiscussionTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityDiscussionTabBar.swift; sourceTree = "<group>"; };
-		AF3540AC28748AEE00A39E33 /* MassMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassMaterial.swift; sourceTree = "<group>"; };
-		AF3540AD28748AEE00A39E33 /* ScatteredMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScatteredMaterial.swift; sourceTree = "<group>"; };
-		AF3540AE28748AEE00A39E33 /* LinearMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearMaterial.swift; sourceTree = "<group>"; };
-		AF3540AF28748AEE00A39E33 /* SpecialShapeMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialShapeMaterial.swift; sourceTree = "<group>"; };
 		AF3540B028748AEE00A39E33 /* FlowerMapTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerMapTabBar.swift; sourceTree = "<group>"; };
 		AF3540B128748AEE00A39E33 /* FlowerMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerMap.swift; sourceTree = "<group>"; };
 		AF3540B328748AEE00A39E33 /* FlowerKnowledge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerKnowledge.swift; sourceTree = "<group>"; };
@@ -146,6 +192,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F29DDE328AF35D300D7175C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9FD5F56228B2135D00983E1C /* VaseDate.json */,
+				9FD5F56028B1DD0200983E1C /* BasicWorksDate.json */,
+				9F0E502328B0DD4400B87B11 /* FlowerDate.json */,
+				9F0E502928B0E1CF00B87B11 /* PatternData.json */,
+				9F76E40728B0C3EB006404E4 /* TipData.json */,
+				9F29DDE928AF555C00D7175C /* InfoData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9F76E40228B0C16F006404E4 /* FlowerMaintenance */ = {
+			isa = PBXGroup;
+			children = (
+				9F76E40328B0C198006404E4 /* TipItem.swift */,
+				9F76E40928B0C5A6006404E4 /* TipRow.swift */,
+				9F76E40D28B0CA08006404E4 /* TipDetail.swift */,
+				9F76E40B28B0C7BC006404E4 /* FlowerMaintenance.swift */,
+			);
+			path = FlowerMaintenance;
+			sourceTree = "<group>";
+		};
 		AF35404A28748A1100A39E33 = {
 			isa = PBXGroup;
 			children = (
@@ -190,8 +260,16 @@
 		AF35406E28748AED00A39E33 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9F29DDE328AF35D300D7175C /* Resources */,
 				AF35406F28748AED00A39E33 /* UserModel.swift */,
 				AF35407028748AED00A39E33 /* RuntimeModel.swift */,
+				9F29DDDE28AEA7EC00D7175C /* Info.swift */,
+				9F76E40528B0C2C3006404E4 /* Tip.swift */,
+				9F0E502728B0E14C00B87B11 /* Pattern.swift */,
+				9F0E502128B0DC0100B87B11 /* Flower.swift */,
+				9FD5F55A28B1D9CA00983E1C /* Work.swift */,
+				9F29DDEB28AF689500D7175C /* ModelData.swift */,
+				9FD5F55E28B1DC3D00983E1C /* Vase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,23 +290,17 @@
 		AF35407328748AEE00A39E33 /* FlowerWorks */ = {
 			isa = PBXGroup;
 			children = (
+				AF35407A28748AEE00A39E33 /* WorkList.swift */,
+				9FD5F56428B21A3700983E1C /* WorkItem.swift */,
+				AF35407B28748AEE00A39E33 /* WorkDetailTabBar.swift */,
+				9FE5DB5228B28134004AE5FB /* WorkDetail.swift */,
+				9FE5DB5428B28B4D004AE5FB /* WorkIntro.swift */,
+				9FE5DB5628B324B4004AE5FB /* WorkKey.swift */,
+				9FE5DB5828B327EE004AE5FB /* WorkProcess.swift */,
 				AF35407428748AEE00A39E33 /* FlowerWorksTabBar.swift */,
 				AF35407528748AEE00A39E33 /* FloralWorks.swift */,
-				AF35407628748AEE00A39E33 /* TopDesignList.swift */,
-				AF35407728748AEE00A39E33 /* AdvancedDesign.swift */,
-				AF35407828748AEE00A39E33 /* BasicDesign */,
 			);
 			path = FlowerWorks;
-			sourceTree = "<group>";
-		};
-		AF35407828748AEE00A39E33 /* BasicDesign */ = {
-			isa = PBXGroup;
-			children = (
-				AF35407928748AEE00A39E33 /* VerticalVaseForm.swift */,
-				AF35407A28748AEE00A39E33 /* BasicDesign.swift */,
-				AF35407B28748AEE00A39E33 /* BasicDesignTabBar.swift */,
-			);
-			path = BasicDesign;
 			sourceTree = "<group>";
 		};
 		AF35407C28748AEE00A39E33 /* FloralCreation */ = {
@@ -328,30 +400,22 @@
 		AF3540A928748AEE00A39E33 /* FlowerKnowledge */ = {
 			isa = PBXGroup;
 			children = (
+				9F76E40228B0C16F006404E4 /* FlowerMaintenance */,
 				AF3540AB28748AEE00A39E33 /* FlowerMap */,
-				AF3540AA28748AEE00A39E33 /* FlowerMaintenance */,
 				AF3540B228748AEE00A39E33 /* TrimAndSculpt */,
 				AF3540B328748AEE00A39E33 /* FlowerKnowledge.swift */,
 			);
 			path = FlowerKnowledge;
 			sourceTree = "<group>";
 		};
-		AF3540AA28748AEE00A39E33 /* FlowerMaintenance */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FlowerMaintenance;
-			sourceTree = "<group>";
-		};
 		AF3540AB28748AEE00A39E33 /* FlowerMap */ = {
 			isa = PBXGroup;
 			children = (
-				AF3540AC28748AEE00A39E33 /* MassMaterial.swift */,
-				AF3540AD28748AEE00A39E33 /* ScatteredMaterial.swift */,
-				AF3540AE28748AEE00A39E33 /* LinearMaterial.swift */,
-				AF3540AF28748AEE00A39E33 /* SpecialShapeMaterial.swift */,
 				AF3540B028748AEE00A39E33 /* FlowerMapTabBar.swift */,
 				AF3540B128748AEE00A39E33 /* FlowerMap.swift */,
+				9F0E502528B0DEF200B87B11 /* FlowerItem.swift */,
+				9F0E502B28B0EF2D00B87B11 /* FlowerList.swift */,
+				9F0E502F28B10DF800B87B11 /* FlowerDetail.swift */,
 			);
 			path = FlowerMap;
 			sourceTree = "<group>";
@@ -359,6 +423,11 @@
 		AF3540B228748AEE00A39E33 /* TrimAndSculpt */ = {
 			isa = PBXGroup;
 			children = (
+				9F29DDD428AE904700D7175C /* TrimAndSculptTabBar.swift */,
+				9F29DDDC28AEA7B900D7175C /* InfoRow.swift */,
+				9F29DDE028AF33EC00D7175C /* InfoList.swift */,
+				9F2CA40028AF7F29007BCFE8 /* InfoDetail.swift */,
+				9F29DDD628AE913200D7175C /* TrimAndSculpt.swift */,
 			);
 			path = TrimAndSculpt;
 			sourceTree = "<group>";
@@ -469,7 +538,12 @@
 				AF3540F828748BA500A39E33 /* Preview Assets.xcassets in Resources */,
 				AF3540CD28748AEE00A39E33 /* pollen.jpg in Resources */,
 				AF3540C928748AEE00A39E33 /* Texture.tga in Resources */,
+				9F29DDEA28AF555C00D7175C /* InfoData.json in Resources */,
+				9F0E502428B0DD4400B87B11 /* FlowerDate.json in Resources */,
 				AF3540BF28748AEE00A39E33 /* Assets.xcassets in Resources */,
+				9FD5F56128B1DD0200983E1C /* BasicWorksDate.json in Resources */,
+				9F0E502A28B0E1CF00B87B11 /* PatternData.json in Resources */,
+				9F76E40828B0C3EB006404E4 /* TipData.json in Resources */,
 				AF3540D328748AEE00A39E33 /* Leaf 1.png in Resources */,
 				AF3541042874916100A39E33 /* Concrete01 [softsaaz.ir].jpg in Resources */,
 				AF3540D128748AEE00A39E33 /* Leaf 2.png in Resources */,
@@ -477,6 +551,7 @@
 				AF3540D028748AEE00A39E33 /* Leaf 4.png in Resources */,
 				AF3541052874916100A39E33 /* huaping.dae in Resources */,
 				AF3540D428748AEE00A39E33 /* youjiali.dae in Resources */,
+				9FD5F56328B2135D00983E1C /* VaseDate.json in Resources */,
 				AF3540C728748AEE00A39E33 /* alta-essencial-wood-padrao-carvalho-taupo.png in Resources */,
 				AF3540C828748AEE00A39E33 /* background.jpg in Resources */,
 				AF3540CB28748AEE00A39E33 /* petal.jpg in Resources */,
@@ -493,46 +568,63 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF3540F128748AEE00A39E33 /* FlowerKnowledge.swift in Sources */,
+				9F29DDE128AF33EC00D7175C /* InfoList.swift in Sources */,
 				AF3540F328748AEE00A39E33 /* MainViewTabBar.swift in Sources */,
+				9F29DDD528AE904700D7175C /* TrimAndSculptTabBar.swift in Sources */,
 				AF3540BB28748AEE00A39E33 /* Document.swift in Sources */,
-				AF3540ED28748AEE00A39E33 /* LinearMaterial.swift in Sources */,
+				9F2CA40128AF7F29007BCFE8 /* InfoDetail.swift in Sources */,
 				AF3540EA28748AEE00A39E33 /* CommunityDiscussionTabBar.swift in Sources */,
+				9F0E503028B10DF800B87B11 /* FlowerDetail.swift in Sources */,
+				9F76E40E28B0CA08006404E4 /* TipDetail.swift in Sources */,
+				9FE5DB5928B327EE004AE5FB /* WorkProcess.swift in Sources */,
 				AF3540C128748AEE00A39E33 /* FloralWorks.swift in Sources */,
+				9FD5F55F28B1DC3D00983E1C /* Vase.swift in Sources */,
 				AF3540E228748AEE00A39E33 /* ImagePicker.swift in Sources */,
-				AF3540EE28748AEE00A39E33 /* SpecialShapeMaterial.swift in Sources */,
 				AF3540BC28748AEE00A39E33 /* Experience.rcproject in Sources */,
 				AF3540FC28748C3A00A39E33 /* Persistence.swift in Sources */,
+				9F0E502228B0DC0100B87B11 /* Flower.swift in Sources */,
+				9F0E502628B0DEF200B87B11 /* FlowerItem.swift in Sources */,
 				AF3540EF28748AEE00A39E33 /* FlowerMapTabBar.swift in Sources */,
+				9F29DDDD28AEA7B900D7175C /* InfoRow.swift in Sources */,
 				AF3540DA28748AEE00A39E33 /* ArrangeView.swift in Sources */,
+				9F76E40A28B0C5A6006404E4 /* TipRow.swift in Sources */,
 				AF3540F528748AEE00A39E33 /* PersonalCenter.swift in Sources */,
 				AF3540C028748AEE00A39E33 /* FlowerWorksTabBar.swift in Sources */,
 				AF3540E528748AEE00A39E33 /* MyImageView.swift in Sources */,
 				AF3540DE28748AEE00A39E33 /* CameraActions.swift in Sources */,
+				9FE5DB5728B324B4004AE5FB /* WorkKey.swift in Sources */,
+				9F0E502828B0E14C00B87B11 /* Pattern.swift in Sources */,
+				9F76E40428B0C198006404E4 /* TipItem.swift in Sources */,
 				AF35406328748A1200A39E33 /* FlowerCode.xcdatamodeld in Sources */,
 				AF3540BD28748AEE00A39E33 /* UserModel.swift in Sources */,
 				AF3540E728748AEE00A39E33 /* MLResultView.swift in Sources */,
 				AF35405728748A1100A39E33 /* FlowerCodeApp.swift in Sources */,
+				9F76E40C28B0C7BC006404E4 /* FlowerMaintenance.swift in Sources */,
+				9FD5F56528B21A3700983E1C /* WorkItem.swift in Sources */,
 				AF3540E828748AEE00A39E33 /* CommunityDiscovery.swift in Sources */,
 				AF3540DF28748AEE00A39E33 /* CameraViewController.swift in Sources */,
 				AF3540DC28748AEE00A39E33 /* ARView.swift in Sources */,
 				AF3540DB28748AEE00A39E33 /* FlowerCreation.swift in Sources */,
-				AF3540C628748AEE00A39E33 /* BasicDesignTabBar.swift in Sources */,
-				AF3540EC28748AEE00A39E33 /* ScatteredMaterial.swift in Sources */,
+				9F29DDEC28AF689500D7175C /* ModelData.swift in Sources */,
+				AF3540C628748AEE00A39E33 /* WorkDetailTabBar.swift in Sources */,
 				AF3540E128748AEE00A39E33 /* CameraView.swift in Sources */,
+				9F29DDDF28AEA7EC00D7175C /* Info.swift in Sources */,
 				AF3540BE28748AEE00A39E33 /* RuntimeModel.swift in Sources */,
-				AF3540C528748AEE00A39E33 /* BasicDesign.swift in Sources */,
+				9FE5DB5328B28134004AE5FB /* WorkDetail.swift in Sources */,
+				AF3540C528748AEE00A39E33 /* WorkList.swift in Sources */,
 				AF3540E328748AEE00A39E33 /* Flower5.mlmodel in Sources */,
-				AF3540C228748AEE00A39E33 /* TopDesignList.swift in Sources */,
+				9FE5DB5528B28B4D004AE5FB /* WorkIntro.swift in Sources */,
 				AF3540E428748AEE00A39E33 /* FlowerIdentificationView.swift in Sources */,
-				AF3540C428748AEE00A39E33 /* VerticalVaseForm.swift in Sources */,
+				9F0E502C28B0EF2D00B87B11 /* FlowerList.swift in Sources */,
 				AF3540E028748AEE00A39E33 /* CameraViewControllerDelegate.swift in Sources */,
-				AF3540C328748AEE00A39E33 /* AdvancedDesign.swift in Sources */,
+				9F29DDD728AE913200D7175C /* TrimAndSculpt.swift in Sources */,
+				9FD5F55B28B1D9CA00983E1C /* Work.swift in Sources */,
 				AF3540F028748AEE00A39E33 /* FlowerMap.swift in Sources */,
-				AF3540EB28748AEE00A39E33 /* MassMaterial.swift in Sources */,
 				AF3540F428748AEE00A39E33 /* MainView.swift in Sources */,
 				AF3540E928748AEE00A39E33 /* CommunityDiscussion.swift in Sources */,
 				AF3540FA28748BF200A39E33 /* ContentView.swift in Sources */,
 				AF3540E628748AEE00A39E33 /* CameraInterfaceView.swift in Sources */,
+				9F76E40628B0C2C3006404E4 /* Tip.swift in Sources */,
 				AF3540F228748AEE00A39E33 /* LoginView.swift in Sources */,
 				AF3540DD28748AEE00A39E33 /* UserEvents.swift in Sources */,
 			);
@@ -674,6 +766,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -706,6 +799,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

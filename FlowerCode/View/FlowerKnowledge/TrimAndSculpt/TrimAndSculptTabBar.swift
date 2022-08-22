@@ -1,82 +1,77 @@
 //
-//  FlowerMapTabBar.swift
-//  FLORALCREATION
+//  TrimAndSculptTabBar.swift
+//  FlowerCode
 //
-//  Created by 刘畅 on 2022/5/13.
+//  Created by 昏影终 on 2022/8/18.
 //
 
 import SwiftUI
 
-struct FlowerMapTabBar: View {
-    @Binding var curTab: FlowerMapTab
+struct TrimAndSculptTabBar: View {
+    @Binding var curTab: TrimAndSculptTab
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     
     var body: some View {
         let textWidth: CGFloat = 20
         let textHeight: CGFloat = 100
         let textSize: CGFloat = 18
-        VStack(spacing: 0) {
-//            Button {
-//                self.presentationMode.wrappedValue.dismiss()
-//            } label: {
-//                Image("flower_map_back")
-//            }
+        VStack(alignment: .center, spacing: 10) {
             Button {
-                curTab = .massMaterial
+                curTab = .basicPrinciple
             } label: {
-                Text("团状花材")
+                Text("基本原理")
                     .font(.system(size: textSize))
-                    .frame(width: textWidth)
+                    .frame(width: textWidth, height: textHeight, alignment: .bottom)
                     .padding([.leading, .trailing],25)
             }
             Spacer()
             Button {
-                curTab = .linearMaterial
+                curTab = .basicForm
             } label: {
-                Text("线状花材")
+                Text("基本形式")
                     .font(.system(size: textSize))
                     .frame(width: textWidth, height: textHeight)
                     .padding([.leading, .trailing],25)
             }
             Spacer()
             Button {
-                curTab = .scatteredMaterial
+                curTab = .arrangeCategory
             } label: {
-                Text("散状花材")
+                Text("插花类别")
                     .font(.system(size: textSize))
-                    .frame(width: textWidth)
-                    .padding([.leading, .trailing],25)
+                    .frame(width: textWidth, height: textHeight)
+                    .padding([.leading, .trailing])
             }
             Spacer()
             Button {
-                curTab = .specialShapeMaterial
+                curTab = .makeTechnique
             } label: {
-                Text("特殊形状花材")
+                Text("制作技巧")
                     .font(.system(size: textSize))
-                    .frame(width: textWidth)
-                    .padding([.leading, .trailing],25)
+                    .frame(width: textWidth, height: textHeight)
+                    .padding([.leading, .trailing])
             }
         }
-        .foregroundColor(Color("secondaryText"))
+        .foregroundColor(.white)
+        .background(Color("cyan"))
         .navigationBarTitleDisplayMode(.inline)
-        .background(Color(red: 0.808, green: 0.706, blue: 0.682))
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
                     self.presentationMode.wrappedValue.dismiss()
                 } label: {
-                    Image("flower_map_back")
+                    Image("back_item_white")
                 }
             }
         }
 
     }
 }
-
-//struct FlowerMapTabBar_Previews: PreviewProvider {
-//    @State var curTab: FlowerMapTab = .massMaterial
+//
+//struct TrimAndSculptTabBar_Previews: PreviewProvider {
 //    static var previews: some View {
-//        FlowerMapTabBar(curTab: $curTab)
+//        TrimAndSculptTabBar()
 //    }
 //}

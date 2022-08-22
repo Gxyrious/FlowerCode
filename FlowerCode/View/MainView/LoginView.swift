@@ -100,7 +100,7 @@ struct LoginView: View {
                 }
             }
         }
-        .background(Color("LoginViewColor"))
+        .background(Color("cyan"))
     }
 }
 
