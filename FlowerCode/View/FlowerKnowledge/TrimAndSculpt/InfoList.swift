@@ -11,11 +11,13 @@ struct InfoList: View {
     var items: [Info]
 
     var body: some View {
-                    List(items) { info in
-                        InfoRow(info:info)
-                    }
-                    .colorMultiply(Color(red: 0.914, green: 0.933, blue: 0.875))
-                    .padding(.top,0)
+        NavigationView {
+            List(items) {
+                InfoRow(info:$0)
+            }
+            .colorMultiply(Color(red: 0.914, green: 0.933, blue: 0.875))
+            .padding(.top,0)
+        }
     }
 }
 
