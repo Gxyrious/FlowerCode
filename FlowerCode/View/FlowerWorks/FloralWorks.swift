@@ -10,34 +10,42 @@ import UIKit
 
 struct FloralWorks: View {
     
-    init() {
-        UITabBar.appearance().isHidden = true
-    }
+//    init() {
+//        UITabBar.appearance().isHidden = true
+//    }
     @State var curTab: FlowerWorksTap = .basicDesign
     @State var isTabBarHidden: Bool = false
+    @Binding var isTabViewHidden: Bool
+
     var body: some View {
+        NavigationView {
         VStack {
             if !isTabBarHidden {
                 FlowerWorksTabBar(curTab: $curTab)
             }
             TabView(selection: $curTab) {
-                WorkList(isTabViewHidden: $isTabBarHidden,items:basicworks)
+                WorkList(isTabBarHidden:$isTabBarHidden, isTabViewHidden: $isTabViewHidden,items:basicworks)
+                    .ignoresSafeArea(.all)
                     .tag(FlowerWorksTap.basicDesign)
-                WorkList(isTabViewHidden: $isTabBarHidden,items:basicworks)
+                WorkList(isTabBarHidden:$isTabBarHidden, isTabViewHidden: $isTabViewHidden,items:advancedworks)
+                    .ignoresSafeArea(.all)
                     .tag(FlowerWorksTap.advancedDesign)
-                WorkList(isTabViewHidden: $isTabBarHidden,items:basicworks)
+                WorkList(isTabBarHidden:$isTabBarHidden, isTabViewHidden: $isTabViewHidden,items:basicworks)
                     .tag(FlowerWorksTap.topDesignList)
+                    .ignoresSafeArea(.all)
             }
+            .ignoresSafeArea(.all)
+
         }
-        .background(Color(red: 0.906, green: 0.910, blue: 0.882))
+    }
     }
 }
 
-struct FloralWorks_Previews: PreviewProvider {
-    static var previews: some View {
-        FloralWorks()
-    }
-}
+//struct FloralWorks_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FloralWorks()
+//    }
+//}
 
 enum FlowerWorksTap: String, CaseIterable {
     case basicDesign = "基础花作"

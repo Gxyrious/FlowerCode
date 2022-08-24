@@ -10,7 +10,8 @@ import SwiftUI
 struct TipRow: View {
     var categoryName: String
     var items: [Tip]
-    
+    @EnvironmentObject var modelData: ModelData
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(categoryName)
@@ -23,6 +24,12 @@ struct TipRow: View {
                     ForEach(items) { tip in
                         NavigationLink {
                             TipDetail(tip:tip)
+                                .onAppear{
+                                    modelData.tabBarHidden()
+                                }
+                                .onDisappear {
+                                    modelData.tabBarShown()
+                                }
                         } label: {
                             TipItem(tip: tip)
                         }

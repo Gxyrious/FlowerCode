@@ -11,7 +11,8 @@ struct FlowerList: View {
     var pattern:Pattern
     var items:[Flower]
     var gridItemLayout = Array(repeating: GridItem(.flexible(), spacing: 0, alignment: .center), count: 2)
-    
+    @EnvironmentObject var modelData: ModelData
+
 
     var body: some View {
         ScrollView(.vertical) {
@@ -36,7 +37,14 @@ struct FlowerList: View {
                 .foregroundColor(Color("secondaryText"))
             LazyVGrid(columns: gridItemLayout) {
                 ForEach(items){flower in
-                    NavigationLink(destination: FlowerDetail(flower: flower)) {
+                    NavigationLink(destination: FlowerDetail(flower: flower)
+                        .onAppear{
+                            modelData.tabBarHidden()
+                        }
+                        .onDisappear {
+                            modelData.tabBarShown()
+                        }
+                    ) {
                         FlowerItem(flower:flower)
                     }
                 }

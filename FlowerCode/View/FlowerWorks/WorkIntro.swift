@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WorkIntro: View {
     var work: Work
+    @EnvironmentObject var modelData: ModelData
 
     var body: some View {
         ZStack {
@@ -75,6 +76,12 @@ struct WorkIntro: View {
                         ForEach(work.floNames,id: \.self){name in
                             VStack(alignment: .center){
                                 NavigationLink(destination: FlowerDetail(flower: nameFlowerDic[name]!)
+                                    .onAppear{
+                                        modelData.tabBarHidden()
+                                    }
+                                    .onDisappear {
+                                        modelData.tabBarShown()
+                                    }
                                 ) {
                                     Image((nameFlowerDic[name]?.imageName)!)
                                         .resizable()

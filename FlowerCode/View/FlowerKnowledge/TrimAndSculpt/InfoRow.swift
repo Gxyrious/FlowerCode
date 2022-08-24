@@ -9,9 +9,17 @@ import SwiftUI
 
 struct InfoRow: View {
     var info:Info
-    
+    @EnvironmentObject var modelData: ModelData
+
     var body: some View {
-        NavigationLink(destination: InfoDetail(info:info)) {
+        NavigationLink(destination: InfoDetail(info:info)
+            .onAppear{
+                modelData.tabBarHidden()
+            }
+            .onDisappear {
+                modelData.tabBarShown()
+            }
+        ) {
             HStack {
                 Text(info.title)
                 Spacer()

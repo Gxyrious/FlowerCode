@@ -8,12 +8,24 @@
 import Foundation
 import Combine
 
+//声明一个新的model type，它符合ObservableObject的协议。
+class ModelData: ObservableObject {
+    @Published var isShowTabBar: Bool=true
+    
+    func tabBarHidden(){
+        isShowTabBar=false
+    }
+    func tabBarShown(){
+        isShowTabBar=true
+    }
+}
 var infos: [Info] = load("InfoData.json")
 var tips: [Tip] = load("TipData.json")
 var flowers: [Flower] = load("FlowerDate.json")
 var patterns: [Pattern] = load("PatternData.json")
 var vases:[Vase]=load("VaseDate.json")
 var basicworks:[Work]=load("BasicWorksDate.json")
+var advancedworks:[Work]=load("BasicWorksDate.json")
 
 var categories: [String: [Info]] {
     Dictionary(

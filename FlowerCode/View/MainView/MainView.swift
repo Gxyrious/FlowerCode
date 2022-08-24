@@ -13,13 +13,15 @@ struct MainView: View {
     }
     @State var curTab: MainViewTab = .floralKnowledge
     @State var isTabViewHidden: Bool = false
+    @EnvironmentObject var modelData: ModelData
+
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 TabView(selection: $curTab) {
                     FlowerKnowledge(isTabViewHidden: $isTabViewHidden)
                         .tag(MainViewTab.floralKnowledge)
-                    FloralWorks()
+                    FloralWorks(isTabViewHidden: $isTabViewHidden)
                         .tag(MainViewTab.floralWorks)
                     FlowerCreation(isTabViewHidden: $isTabViewHidden)
                         .tag(MainViewTab.floralCreation)
@@ -31,7 +33,7 @@ struct MainView: View {
             }
             VStack {
                 Spacer()
-                if !isTabViewHidden {
+                if !isTabViewHidden && modelData.isShowTabBar {
                     MainViewTabBar(curTab: $curTab)
                 }
             }
