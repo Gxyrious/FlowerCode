@@ -31,7 +31,7 @@ struct WorkList: View {
                             {
                                 WorkItem(work:work)
                             }
-
+                            .isDetailLink(false)
                         }
                     }
                 }

@@ -94,6 +94,7 @@ struct FlowerKnowledge: View {
                                     .font(.system(size: 24))
                             }
                         }
+                        .isDetailLink(false)
                         .foregroundColor(Color(red: 0.237, green: 0.237, blue: 0.237))
                         .padding([.leading], 5)
                     }
@@ -106,7 +107,7 @@ struct FlowerKnowledge: View {
                 Image("floral_knowledge_background_4")
                                 .frame(width: widthOfFatherView, height: heightOfFatherView * 2, alignment: .trailing)
             }
-            .background(Color("background"))
+            .background(Color("bgColor"))
         }
     }
 }

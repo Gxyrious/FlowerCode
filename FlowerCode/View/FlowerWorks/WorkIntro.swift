@@ -74,7 +74,8 @@ struct WorkIntro: View {
                     HStack{
                         ForEach(work.floNames,id: \.self){name in
                             VStack(alignment: .center){
-                                NavigationLink(destination: FlowerDetail(flower: nameFlowerDic[name]!)) {
+                                NavigationLink(destination: FlowerDetail(flower: nameFlowerDic[name]!)
+                                ) {
                                     Image((nameFlowerDic[name]?.imageName)!)
                                         .resizable()
                                         .clipShape(Circle())
