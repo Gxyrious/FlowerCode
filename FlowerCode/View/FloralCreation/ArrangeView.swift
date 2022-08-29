@@ -11,7 +11,9 @@ import SceneKit
 import QuartzCore
 
 struct ArrangeView: UIViewRepresentable {
-    @Binding var scene: SCNScene
+//    @Binding var scene: SCNScene
+    @EnvironmentObject var modelData: ModelData
+    
 //    @Binding var nodesSelected: [String:Bool]
     var view = SCNView()
     var cameraFrontNode = SCNNode()
@@ -30,22 +32,26 @@ struct ArrangeView: UIViewRepresentable {
    
     func makeUIView(context: Context) -> SCNView {
         // 初始化
-        view.scene = scene
+        view.scene = modelData.scene
         view.autoenablesDefaultLighting = true
         view.allowsCameraControl = true
         // 添加创作背景板
         let aroundSceneFile = SCNScene(named: "CreateScene.dae")!
-        let aroundScene = aroundSceneFile.rootNode.childNode(withName: "Greenhouse", recursively: true)!
+        let aroundScene = aroundSceneFile.rootNode.childNode(withName: "Sketchfab_model", recursively: true)!
         aroundScene.name = "around-scene"
-        scene.rootNode.addChildNode(aroundScene)
+//        aroundScene.position = SCNVector3(1.39995,0.14792,-0.90486)
+        print("-aroundScene-")
+        print(aroundScene.position)
+        print(aroundScene.rotation)
+        modelData.scene.rootNode.addChildNode(aroundScene)
         
         // 花瓶
         let vaseScene = SCNScene(named: "huaping.dae")!
         let vase = vaseScene.rootNode.childNode(withName: "huaping", recursively: true)!
         vase.name = "huaping"
         vase.scale=SCNVector3(4,4,4)
-        vase.position=SCNVector3(-1.5,-0.2,0.84) // 左右 上下 前后
-        scene.rootNode.addChildNode(vase)
+        vase.position=SCNVector3(0,0,0) // 左右 上下 前后
+        modelData.scene.rootNode.addChildNode(vase)
 
         // 花桶
 //        let bottleScene = SCNScene(named: "huatong.dae")
@@ -66,6 +72,9 @@ struct ArrangeView: UIViewRepresentable {
         cameraSideNode.position = modelCameraSizeNode!.position
         cameraSideNode.rotation = modelCameraSizeNode!.rotation
 //        view.pointOfView = cameraSideNode
+        print("-modelCameraSizeNode-")
+        print(modelCameraSizeNode!.position)
+        print(modelCameraSizeNode!.rotation)
         
         // 正面镜头
         let modelCameraFrontNode = aroundSceneFile.rootNode.childNode(withName: "Camera_front", recursively: true)
@@ -73,6 +82,9 @@ struct ArrangeView: UIViewRepresentable {
         cameraFrontNode.position = modelCameraFrontNode!.position
         cameraFrontNode.rotation = modelCameraFrontNode!.rotation
         view.pointOfView = cameraFrontNode
+        print("-modelCameraFrontNode-")
+        print(modelCameraFrontNode!.position)
+        print(modelCameraFrontNode!.rotation)
         // 盘子
 //        guard let panzi=scene.rootNode.childNode(withName: "Cube", recursively: true) else { return view }
 //        print("panzi")
@@ -96,8 +108,8 @@ struct ArrangeView: UIViewRepresentable {
         frontLightNode.position = modelFrontLightNode.position
         frontLightNode.rotation = modelFrontLightNode.rotation
 
-        scene.rootNode.addChildNode(sideLightNode)
-        scene.rootNode.addChildNode(frontLightNode)
+        modelData.scene.rootNode.addChildNode(sideLightNode)
+        modelData.scene.rootNode.addChildNode(frontLightNode)
         
         
         // 添加手势检测
@@ -105,13 +117,13 @@ struct ArrangeView: UIViewRepresentable {
             context.coordinator,
             action: #selector(context.coordinator.handlePan(_:))
         )
-//        view.addGestureRecognizer(panGesture)
+        view.addGestureRecognizer(panGesture)
         
         tapGesture.addTarget(
             context.coordinator,
             action: #selector(context.coordinator.handleTap(_:))
         )
-//        view.addGestureRecognizer(tapGesture)
+        view.addGestureRecognizer(tapGesture)
         
         /// 创建UIButton实例用于旋转镜头
         buttonOne.frame = CGRect(x:280,y:50,width:80,height:30)//设置按钮背景色
@@ -231,7 +243,7 @@ struct ArrangeView: UIViewRepresentable {
 
         
         // 设置背景
-        scene.background.contents=UIImage(named: "background.jpg")
+        modelData.scene.background.contents=UIImage(named: "background.jpg")
         
         // 设置代理
         view.delegate = context.coordinator
@@ -245,7 +257,7 @@ struct ArrangeView: UIViewRepresentable {
     }
     
     func makeCoordinator() -> ArrangeView.Coordinator {
-        Coordinator(self, scene: $scene)
+        Coordinator(self, scene: $modelData.scene)
     }
     
     class Coordinator: NSObject, SCNSceneRendererDelegate {
@@ -355,9 +367,14 @@ struct ArrangeView: UIViewRepresentable {
             let hitResults = parent.view.hitTest(location,options: nil)
             if hitResults.count > 0 {
                 let resultName = hitResults[0].node.name!
-                if resultName == "huatong" || resultName == "huaping" || resultName == "Rustic" || resultName == "Cube" {
-                    return
+                print("-resultName- = \(resultName)")
+//                if resultName == "Sketchfab_model"  {
+//                    return
+//                }
+                if parent.modelData.sceneChildren.contains(resultName) {
+                    parent.modelData.selectedNodeName = resultName
                 }
+                else { return }
                 // 去除了上述Node后，这里肯定存在
 //                for key in parent.nodesSelected.keys {
 //                    if key.hasPrefix(resultName) {
@@ -403,7 +420,12 @@ struct ArrangeView: UIViewRepresentable {
 //                }
 //            }
 //            if name == nil { return }
-//            let node = parent.scene.rootNode.childNode(withName: name!, recursively: true)!
+            print("selectedNodeName=\(parent.modelData.selectedNodeName)")
+            print(parent.modelData.sceneChildren)
+            let node = parent.modelData.scene.rootNode.childNode(withName: parent.modelData.selectedNodeName, recursively: true) ?? nil
+            if node == nil {
+                return
+            }
 
             let location = panGesture.location(in: parent.view) // 点击位置，二维
             let hitNodeResult = parent.view.hitTest(location, options: nil).first ?? nil
@@ -433,11 +455,12 @@ struct ArrangeView: UIViewRepresentable {
                     worldTouchPosition.z - lastPanLocation.z
                 )
                 
-//                node.runAction(SCNAction.move(by: movementVector, duration: 0))
+                node!.runAction(SCNAction.move(by: movementVector, duration: 0))
                 self.lastPanLocation = worldTouchPosition
 
             case .ended:
                 print("ended")
+                print(node!.position)
             default:
                 break
             }

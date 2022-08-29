@@ -7,10 +7,19 @@
 
 import Foundation
 import Combine
+import SceneKit
 
 //声明一个新的model type，它符合ObservableObject的协议。
 class ModelData: ObservableObject {
     @Published var isShowTabBar: Bool=true
+    
+    @Published var scene: SCNScene = SCNScene()
+    
+    var selectedNodeName: String = ""
+    
+    var sceneChildren = [String]()
+    
+    var flower_number: [String:Int] = ["baihe":0,"youjiali":0,"meigui":0]
     
     func tabBarHidden(){
         isShowTabBar=false
@@ -18,6 +27,7 @@ class ModelData: ObservableObject {
     func tabBarShown(){
         isShowTabBar=true
     }
+    
 }
 var infos: [Info] = load("InfoData.json")
 var tips: [Tip] = load("TipData.json")

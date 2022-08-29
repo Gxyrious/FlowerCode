@@ -9,14 +9,19 @@ import SwiftUI
 import SceneKit
 
 let material_scale_in_modification: [String:Float] = ["baihe": 10, "youjiali": 0.4]
-let material_scale_in_3d: [String:Float] = ["baihe": 0.3, "youjiali":0.3]
-let material_position_in_3d: [String:SCNVector3] = ["baihe": SCNVector3(-0.675,1,0.1), "youjiali": SCNVector3(-0.25,1,0.1)]
+let material_scale_in_3d: [String:Float] = ["baihe": 2, "youjiali":0.3]
+let material_position_in_3d: [String:SCNVector3] = ["baihe": SCNVector3(0,0,-0.5), "youjiali": SCNVector3(0,0,0)]
 let material_position_in_modification: [String:SCNVector3] = ["baihe": SCNVector3(0.2,0,0), "youjiali": SCNVector3(-1.1,0.2,0)]
+
+//var flower_number: [String:Int] = ["baihe":0,"meigui":0,"youjiali":0]
 
 struct FlowerCreation: View {
     @Binding var isTabViewHidden: Bool
     @State var scene: SCNScene = SCNScene()
-    @State var nodesSelected = [String:Bool]()
+    
+    @EnvironmentObject var modelData: ModelData
+    
+//    @State var nodesSelected = [String:Bool]()
     // sheet栏对应State变量
     @State var showFlowerChoice: Bool = false
     @State var showVaseChoice: Bool = false
@@ -46,7 +51,7 @@ struct FlowerCreation: View {
                 VStack(spacing: 0) {
                     ZStack {
                         ArrangeView(
-                            scene: $scene
+//                            scene: $scene
 //                            nodesSelected: $nodesSelected,
 //                            rotateAngles: valueOfBones
                         ) // 传入
@@ -78,27 +83,27 @@ struct FlowerCreation: View {
                         }
                         .offset(x: widthOfFatherView * 0.38, y: -heightOfFatherView * 0.28)
                         .sheet(isPresented: $showIdentificationView) {
-                            FlowerIdentificationView(
-                                scene: $scene,
-                                nodesSelected: $nodesSelected,
-                                showIdentificationView: $showIdentificationView)
+//                            FlowerIdentificationView(
+//                                scene: $modelData.scene,
+//                                nodesSelected: $nodesSelected,
+//                                showIdentificationView: $showIdentificationView)
                         }
                         Button {
                             // 自动生成
-                            let baihe1 = scene.rootNode.childNode(withName: "baihe-1", recursively: true)
-                            let baihe2 = scene.rootNode.childNode(withName: "baihe-2", recursively: true)
-                            let baihe3 = scene.rootNode.childNode(withName: "baihe-3", recursively: true)
-                            let youjiali = scene.rootNode.childNode(withName: "youjiali-1", recursively: true)
-                            withAnimation(.easeInOut(duration: 2.0)) {
-                                baihe1?.position = SCNVector3(0.29,0.8,-0.05)
-                                baihe2?.position = SCNVector3(0.27,0.7,-0.05)
-                                baihe3?.position = SCNVector3(0.27,1.0,-0.05)
-                                baihe1?.rotation = SCNVector4(0,1,0,.pi * Double(40) / 180)
-                                baihe2?.rotation = SCNVector4(0,1,0,.pi * Double(-40) / 180)
-                                baihe3?.rotation = SCNVector4(0,1,0,.pi * Double(0) / 180)
-                                youjiali?.position = SCNVector3(0.25,1.0,-0.05)
-                                youjiali?.rotation = SCNVector4(0,1,0,.pi * Double(0) / 180)
-                            }
+//                            let baihe1 = scene.rootNode.childNode(withName: "baihe-1", recursively: true)
+//                            let baihe2 = scene.rootNode.childNode(withName: "baihe-2", recursively: true)
+//                            let baihe3 = scene.rootNode.childNode(withName: "baihe-3", recursively: true)
+//                            let youjiali = scene.rootNode.childNode(withName: "youjiali-1", recursively: true)
+//                            withAnimation(.easeInOut(duration: 2.0)) {
+//                                baihe1?.position = SCNVector3(0.29,0.8,-0.05)
+//                                baihe2?.position = SCNVector3(0.27,0.7,-0.05)
+//                                baihe3?.position = SCNVector3(0.27,1.0,-0.05)
+//                                baihe1?.rotation = SCNVector4(0,1,0,.pi * Double(40) / 180)
+//                                baihe2?.rotation = SCNVector4(0,1,0,.pi * Double(-40) / 180)
+//                                baihe3?.rotation = SCNVector4(0,1,0,.pi * Double(0) / 180)
+//                                youjiali?.position = SCNVector3(0.25,1.0,-0.05)
+//                                youjiali?.rotation = SCNVector4(0,1,0,.pi * Double(0) / 180)
+//                            }
 
                         } label: {
                             Image("auto_generate")
@@ -153,14 +158,14 @@ struct FlowerCreation: View {
                                         if selectedMaterial == "baihe" {
                                             MaterialModification(
                                                 myScene: $selectionScene,
-                                                valueOfBones: $valueOfBones,
+//                                                valueOfBones: $valueOfBones,
                                                 materialName: selectedMaterial!
                                             )
                                         }
                                         else if selectedMaterial == "youjiali" {
                                             MaterialModification(
                                                 myScene: $selectionScene,
-                                                valueOfBones: $valueOfBones,
+//                                                valueOfBones: $valueOfBones,
                                                 materialName: selectedMaterial!
                                             )
                                         }
@@ -172,28 +177,41 @@ struct FlowerCreation: View {
                                         }
                                         Spacer()
                                         Button {
-                                            var child = selectionScene?.rootNode.childNode(withName: "main", recursively: true)
+//                                            print(selectionScene!)
+                                            var child = selectionScene?.rootNode.childNode(withName: "baihe", recursively: true)
                                             if child == nil && selectionScene != nil {
                                                 child = selectionScene?.rootNode
                                             }
                                             if child != nil {
                                                 let name = selectedMaterial!
-                                                var i = 1
-                                                while nodesSelected.keys.contains("\(name)-\(i)") {
-                                                    i += 1
-                                                }
-                                                child?.name = "\(name)-\(i)"
+//                                                var i = 1
+//                                                while nodesSelected.keys.contains("\(name)-\(i)") {
+//                                                    i += 1
+//                                                }
+//                                                child?.name = "\(name)-\(i)"
+                                                modelData.flower_number[name]! += 1
+                                                let childName = "\(name)-\(modelData.flower_number[name]!)"
                                                 
-                                                let size: Float? = material_scale_in_3d[selectedMaterial!] ?? nil
-                                                if size != nil {
-                                                    child?.scale = SCNVector3(size!,size!,size!)
-                                                }
-                                                child?.position = material_position_in_3d[selectedMaterial!] ?? SCNVector3(0,0,0)
-                                                scene.rootNode.addChildNode(child!)
+                                                child?.name = childName
+                                                modelData.sceneChildren.append(childName)
+                                                
+//                                                let size: Float? = material_scale_in_3d[selectedMaterial!] ?? nil
+//                                                if size != nil {
+//                                                    child?.scale = SCNVector3(size!,size!,size!)
+//                                                }
+//                                                child?.position = material_position_in_3d[selectedMaterial!] ?? SCNVector3(0,0,0)
+//                                                child?.rotation = SCNVector4(0,1,0,.pi)
+                                                child?.scale = SCNVector3(0.8,0.8,0.8)
+                                                child?.position = SCNVector3(-0.27987584,1.5099589,-0.38946623)
+//                                                child?.rotation = SCNVector4(0,0,1,3.14/2)
+                                                modelData.scene.rootNode.addChildNode(child!)
                                                 showFlowerChoice = false
-                                                nodesSelected.updateValue(false, forKey: "\(name)-\(i)")
+//                                                nodesSelected.updateValue(false, forKey: "\(name)-\(i)")
                                                 selectedMaterial = nil
-                                                print("nodesSelected = \(nodesSelected)")
+//                                                print("nodesSelected = \(nodesSelected)")
+                                                print(modelData.scene.rootNode.childNodes)
+                                                print(modelData.flower_number)
+                                                print(modelData.sceneChildren)
                                             }
                                         } label: {
                                             Text("确认")
@@ -257,17 +275,17 @@ struct MaterialModification: UIViewRepresentable {
     
     
     @Binding var myScene: SCNScene?
-    @Binding var valueOfBones: BoneValues
+//    @Binding var valueOfBones: BoneValues
     
-    var progressBar1 = UIStackView()
-    var progressBar2 = UIStackView()
-    var progressBar3 = UIStackView()
+//    var progressBar1 = UIStackView()
+//    var progressBar2 = UIStackView()
+//    var progressBar3 = UIStackView()
 
     var cameraFrameNode = SCNNode(geometry: SCNFloor())
     var view = SCNView()
-    var pgView1 = UIProgressView()
-    var pgView2 = UIProgressView()
-    var pgView3 = UIProgressView()
+//    var pgView1 = UIProgressView()
+//    var pgView2 = UIProgressView()
+//    var pgView3 = UIProgressView()
     let materialName: String
     
     func makeUIView(context: Context) -> some UIView {
@@ -299,131 +317,131 @@ struct MaterialModification: UIViewRepresentable {
         omniLightNode.position=SCNVector3(x:0,y:8,z:5)
         myScene?.rootNode.addChildNode(omniLightNode)
         // ==================================================
-        self.progressBar1.axis = .horizontal
-        progressBar1.distribution = .fill
-        progressBar1.spacing = 10
-        self.progressBar1.frame = CGRect(x: 40, y: 400, width: 300, height: 20)
+//        self.progressBar1.axis = .horizontal
+//        progressBar1.distribution = .fill
+//        progressBar1.spacing = 10
+//        self.progressBar1.frame = CGRect(x: 40, y: 400, width: 300, height: 20)
 
-        let uiButtonMinus1 = UIButton(type: UIButton.ButtonType.system)
-        uiButtonMinus1.setBackgroundImage(
-            UIImage(systemName: "minus.circle")?
-                .withTintColor(
-                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
-                    renderingMode: .alwaysOriginal
-                ),
-            for: .normal
-        )
-        uiButtonMinus1.addTarget(
-            context.coordinator,
-            action: #selector(context.coordinator.minusAngle1),
-            for: .touchUpInside)
-        progressBar1.addArrangedSubview(uiButtonMinus1)
+//        let uiButtonMinus1 = UIButton(type: UIButton.ButtonType.system)
+//        uiButtonMinus1.setBackgroundImage(
+//            UIImage(systemName: "minus.circle")?
+//                .withTintColor(
+//                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
+//                    renderingMode: .alwaysOriginal
+//                ),
+//            for: .normal
+//        )
+//        uiButtonMinus1.addTarget(
+//            context.coordinator,
+//            action: #selector(context.coordinator.minusAngle1),
+//            for: .touchUpInside)
+//        progressBar1.addArrangedSubview(uiButtonMinus1)
 
-        pgView1.setProgress((Float(valueOfBones.valueOfBone1) + 180) / 360, animated: false)
-        pgView1.transform = CGAffineTransform(scaleX: 1.0,y: 0.2)
-        pgView1.progressTintColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
+//        pgView1.setProgress((Float(valueOfBones.valueOfBone1) + 180) / 360, animated: false)
+//        pgView1.transform = CGAffineTransform(scaleX: 1.0,y: 0.2)
+//        pgView1.progressTintColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
         
-        self.progressBar1.addArrangedSubview(pgView1)
+//        self.progressBar1.addArrangedSubview(pgView1)
         
-        let uiButtonPlus1 = UIButton(type: UIButton.ButtonType.system)
-        uiButtonPlus1.setBackgroundImage(
-            UIImage(systemName: "plus.circle")?
-                .withTintColor(
-                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
-                    renderingMode: .alwaysOriginal
-                ),
-            for: .normal)
-        uiButtonPlus1.addTarget(
-            context.coordinator,
-            action: #selector(context.coordinator.plusAngle1),
-            for: .touchUpInside
-        )
-        progressBar1.addArrangedSubview(uiButtonPlus1)
-        view.addSubview(progressBar1)
+//        let uiButtonPlus1 = UIButton(type: UIButton.ButtonType.system)
+//        uiButtonPlus1.setBackgroundImage(
+//            UIImage(systemName: "plus.circle")?
+//                .withTintColor(
+//                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
+//                    renderingMode: .alwaysOriginal
+//                ),
+//            for: .normal)
+//        uiButtonPlus1.addTarget(
+//            context.coordinator,
+//            action: #selector(context.coordinator.plusAngle1),
+//            for: .touchUpInside
+//        )
+//        progressBar1.addArrangedSubview(uiButtonPlus1)
+//        view.addSubview(progressBar1)
         // ==================================================
-        self.progressBar2.axis = .horizontal
-        progressBar2.distribution = .fill
-        progressBar2.spacing = 10
-        self.progressBar2.frame = CGRect(x: 40, y: 440, width: 300, height: 20)
+//        self.progressBar2.axis = .horizontal
+//        progressBar2.distribution = .fill
+//        progressBar2.spacing = 10
+//        self.progressBar2.frame = CGRect(x: 40, y: 440, width: 300, height: 20)
 
-        let uiButtonMinus2 = UIButton(type: UIButton.ButtonType.system)
-        uiButtonMinus2.setBackgroundImage(
-            UIImage(systemName: "minus.circle")?
-                .withTintColor(
-                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
-                    renderingMode: .alwaysOriginal
-                ),
-            for: .normal
-        )
-        uiButtonMinus2.addTarget(
-            context.coordinator,
-            action: #selector(context.coordinator.minusAngle2),
-            for: .touchUpInside)
-        progressBar2.addArrangedSubview(uiButtonMinus2)
+//        let uiButtonMinus2 = UIButton(type: UIButton.ButtonType.system)
+//        uiButtonMinus2.setBackgroundImage(
+//            UIImage(systemName: "minus.circle")?
+//                .withTintColor(
+//                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
+//                    renderingMode: .alwaysOriginal
+//                ),
+//            for: .normal
+//        )
+//        uiButtonMinus2.addTarget(
+//            context.coordinator,
+//            action: #selector(context.coordinator.minusAngle2),
+//            for: .touchUpInside)
+//        progressBar2.addArrangedSubview(uiButtonMinus2)
 
-        pgView2.setProgress((Float(valueOfBones.valueOfBone2) + 180) / 360, animated: false)
-        pgView2.transform = CGAffineTransform(scaleX: 1.0,y: 0.2)
-        pgView2.progressTintColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
+//        pgView2.setProgress((Float(valueOfBones.valueOfBone2) + 180) / 360, animated: false)
+//        pgView2.transform = CGAffineTransform(scaleX: 1.0,y: 0.2)
+//        pgView2.progressTintColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
         
-        self.progressBar2.addArrangedSubview(pgView2)
+//        self.progressBar2.addArrangedSubview(pgView2)
         
-        let uiButtonPlus2 = UIButton(type: UIButton.ButtonType.system)
-        uiButtonPlus2.setBackgroundImage(
-            UIImage(systemName: "plus.circle")?
-                .withTintColor(
-                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
-                    renderingMode: .alwaysOriginal
-                ),
-            for: .normal)
-        uiButtonPlus2.addTarget(
-            context.coordinator,
-            action: #selector(context.coordinator.plusAngle2),
-            for: .touchUpInside
-        )
-        progressBar2.addArrangedSubview(uiButtonPlus2)
-        view.addSubview(progressBar2)
+//        let uiButtonPlus2 = UIButton(type: UIButton.ButtonType.system)
+//        uiButtonPlus2.setBackgroundImage(
+//            UIImage(systemName: "plus.circle")?
+//                .withTintColor(
+//                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
+//                    renderingMode: .alwaysOriginal
+//                ),
+//            for: .normal)
+//        uiButtonPlus2.addTarget(
+//            context.coordinator,
+//            action: #selector(context.coordinator.plusAngle2),
+//            for: .touchUpInside
+//        )
+//        progressBar2.addArrangedSubview(uiButtonPlus2)
+//        view.addSubview(progressBar2)
         // ==================================================
-        self.progressBar3.axis = .horizontal
-        progressBar3.distribution = .fill
-        progressBar3.spacing = 10
-        self.progressBar3.frame = CGRect(x: 40, y: 480, width: 300, height: 20)
+//        self.progressBar3.axis = .horizontal
+//        progressBar3.distribution = .fill
+//        progressBar3.spacing = 10
+//        self.progressBar3.frame = CGRect(x: 40, y: 480, width: 300, height: 20)
 
-        let uiButtonMinus3 = UIButton(type: UIButton.ButtonType.system)
-        uiButtonMinus3.setBackgroundImage(
-            UIImage(systemName: "minus.circle")?
-                .withTintColor(
-                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
-                    renderingMode: .alwaysOriginal
-                ),
-            for: .normal
-        )
-        uiButtonMinus3.addTarget(
-            context.coordinator,
-            action: #selector(context.coordinator.minusAngle3),
-            for: .touchUpInside)
-        progressBar3.addArrangedSubview(uiButtonMinus3)
-
-        pgView3.setProgress((Float(valueOfBones.valueOfBone3) + 180) / 360, animated: false)
-        pgView3.transform = CGAffineTransform(scaleX: 1.0,y: 0.2)
-        pgView3.progressTintColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
-        
-        self.progressBar3.addArrangedSubview(pgView3)
-        
-        let uiButtonPlus3 = UIButton(type: UIButton.ButtonType.system)
-        uiButtonPlus3.setBackgroundImage(
-            UIImage(systemName: "plus.circle")?
-                .withTintColor(
-                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
-                    renderingMode: .alwaysOriginal
-                ),
-            for: .normal)
-        uiButtonPlus3.addTarget(
-            context.coordinator,
-            action: #selector(context.coordinator.plusAngle3),
-            for: .touchUpInside
-        )
-        progressBar3.addArrangedSubview(uiButtonPlus3)
-        view.addSubview(progressBar3)
+//        let uiButtonMinus3 = UIButton(type: UIButton.ButtonType.system)
+//        uiButtonMinus3.setBackgroundImage(
+//            UIImage(systemName: "minus.circle")?
+//                .withTintColor(
+//                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
+//                    renderingMode: .alwaysOriginal
+//                ),
+//            for: .normal
+//        )
+//        uiButtonMinus3.addTarget(
+//            context.coordinator,
+//            action: #selector(context.coordinator.minusAngle3),
+//            for: .touchUpInside)
+//        progressBar3.addArrangedSubview(uiButtonMinus3)
+//
+//        pgView3.setProgress((Float(valueOfBones.valueOfBone3) + 180) / 360, animated: false)
+//        pgView3.transform = CGAffineTransform(scaleX: 1.0,y: 0.2)
+//        pgView3.progressTintColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
+//
+//        self.progressBar3.addArrangedSubview(pgView3)
+//
+//        let uiButtonPlus3 = UIButton(type: UIButton.ButtonType.system)
+//        uiButtonPlus3.setBackgroundImage(
+//            UIImage(systemName: "plus.circle")?
+//                .withTintColor(
+//                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
+//                    renderingMode: .alwaysOriginal
+//                ),
+//            for: .normal)
+//        uiButtonPlus3.addTarget(
+//            context.coordinator,
+//            action: #selector(context.coordinator.plusAngle3),
+//            for: .touchUpInside
+//        )
+//        progressBar3.addArrangedSubview(uiButtonPlus3)
+//        view.addSubview(progressBar3)
         
         return view
     }
@@ -440,81 +458,81 @@ struct MaterialModification: UIViewRepresentable {
             self.parent = parent
         }
         // ==================================================
-        @objc func minusAngle1() {
-            parent.valueOfBones.valueOfBone1 -= 10
-            if parent.valueOfBones.valueOfBone1 < -180 {
-                parent.valueOfBones.valueOfBone1 = -180
-            }
+//        @objc func minusAngle1() {
+//            parent.valueOfBones.valueOfBone1 -= 10
+//            if parent.valueOfBones.valueOfBone1 < -180 {
+//                parent.valueOfBones.valueOfBone1 = -180
+//            }
             // 设置进度条
-            parent.pgView1.setProgress((Float(parent.valueOfBones.valueOfBone1+180)/360), animated: true)
+//            parent.pgView1.setProgress((Float(parent.valueOfBones.valueOfBone1+180)/360), animated: true)
             // 设置花材
-            guard let bone1 = parent.view.scene?.rootNode.childNode(withName: "Bone", recursively: true) else { return }
+//            guard let bone1 = parent.view.scene?.rootNode.childNode(withName: "Bone", recursively: true) else { return }
             
-            bone1.rotation = SCNVector4(0,1,0,.pi * Double(parent.valueOfBones.valueOfBone1) / 180.0)
-            print(parent.valueOfBones.valueOfBone1)
-            print("成功旋转")
-        }
-        @objc func plusAngle1() {
-            parent.valueOfBones.valueOfBone1 += 10
-            if parent.valueOfBones.valueOfBone1 > 180 {
-                parent.valueOfBones.valueOfBone1 = 180
-            }
-            // 设置进度条
-            parent.pgView1.setProgress((Float(parent.valueOfBones.valueOfBone1+180)/360), animated: true)
-            // 设置花材
-            guard let bone1 = parent.view.scene?.rootNode.childNode(withName: "Bone", recursively: true) else { return }
-            bone1.rotation = SCNVector4(0,1,0, .pi * Double(parent.valueOfBones.valueOfBone1) / 180.0)
-        }
+//            bone1.rotation = SCNVector4(0,1,0,.pi * Double(parent.valueOfBones.valueOfBone1) / 180.0)
+//            print(parent.valueOfBones.valueOfBone1)
+//            print("成功旋转")
+//        }
+//        @objc func plusAngle1() {
+//            parent.valueOfBones.valueOfBone1 += 10
+//            if parent.valueOfBones.valueOfBone1 > 180 {
+//                parent.valueOfBones.valueOfBone1 = 180
+//            }
+//            // 设置进度条
+//            parent.pgView1.setProgress((Float(parent.valueOfBones.valueOfBone1+180)/360), animated: true)
+//            // 设置花材
+//            guard let bone1 = parent.view.scene?.rootNode.childNode(withName: "Bone", recursively: true) else { return }
+//            bone1.rotation = SCNVector4(0,1,0, .pi * Double(parent.valueOfBones.valueOfBone1) / 180.0)
+//        }
         // ==================================================
-        @objc func minusAngle2() {
-            parent.valueOfBones.valueOfBone2 -= 10
-            if parent.valueOfBones.valueOfBone2 < -180 {
-                parent.valueOfBones.valueOfBone2 = -180
-            }
-            // 设置进度条
-            parent.pgView2.setProgress((Float(parent.valueOfBones.valueOfBone2+180)/360), animated: true)
-            // 设置花材
-            guard let bone2 = parent.view.scene?.rootNode.childNode(withName: "Bone-001", recursively: true) else { return }
-            bone2.rotation = SCNVector4(0,1,0,.pi * Double(parent.valueOfBones.valueOfBone2) / 180.0)
-            print(parent.valueOfBones.valueOfBone2)
-            print("成功旋转")
-        }
-        @objc func plusAngle2() {
-            parent.valueOfBones.valueOfBone2 += 10
-            if parent.valueOfBones.valueOfBone2 > 180 {
-                parent.valueOfBones.valueOfBone2 = 180
-            }
-            // 设置进度条
-            parent.pgView2.setProgress((Float(parent.valueOfBones.valueOfBone2+180)/360), animated: true)
-            // 设置花材
-            guard let bone2 = parent.view.scene?.rootNode.childNode(withName: "Bone-001", recursively: true) else { return }
-            bone2.rotation = SCNVector4(0,1,0,.pi * Double(parent.valueOfBones.valueOfBone2) / 180.0)
-        }
+//        @objc func minusAngle2() {
+//            parent.valueOfBones.valueOfBone2 -= 10
+//            if parent.valueOfBones.valueOfBone2 < -180 {
+//                parent.valueOfBones.valueOfBone2 = -180
+//            }
+//            // 设置进度条
+//            parent.pgView2.setProgress((Float(parent.valueOfBones.valueOfBone2+180)/360), animated: true)
+//            // 设置花材
+//            guard let bone2 = parent.view.scene?.rootNode.childNode(withName: "Bone-001", recursively: true) else { return }
+//            bone2.rotation = SCNVector4(0,1,0,.pi * Double(parent.valueOfBones.valueOfBone2) / 180.0)
+//            print(parent.valueOfBones.valueOfBone2)
+//            print("成功旋转")
+//        }
+//        @objc func plusAngle2() {
+//            parent.valueOfBones.valueOfBone2 += 10
+//            if parent.valueOfBones.valueOfBone2 > 180 {
+//                parent.valueOfBones.valueOfBone2 = 180
+//            }
+//            // 设置进度条
+//            parent.pgView2.setProgress((Float(parent.valueOfBones.valueOfBone2+180)/360), animated: true)
+//            // 设置花材
+//            guard let bone2 = parent.view.scene?.rootNode.childNode(withName: "Bone-001", recursively: true) else { return }
+//            bone2.rotation = SCNVector4(0,1,0,.pi * Double(parent.valueOfBones.valueOfBone2) / 180.0)
+//        }
         // ==================================================
-        @objc func minusAngle3() {
-            parent.valueOfBones.valueOfBone3 -= 10
-            if parent.valueOfBones.valueOfBone3 < -180 {
-                parent.valueOfBones.valueOfBone3 = -180
-            }
-            // 设置进度条
-            parent.pgView3.setProgress((Float(parent.valueOfBones.valueOfBone3+180)/360), animated: true)
-            // 设置花材
-            guard let bone3 = parent.view.scene?.rootNode.childNode(withName: "Bone-002", recursively: true) else { return }
-            bone3.rotation = SCNVector4(0,1,0,.pi * Double(parent.valueOfBones.valueOfBone3) / 180.0)
-            print(parent.valueOfBones.valueOfBone3)
-            print("成功旋转")
-        }
-        @objc func plusAngle3() {
-            parent.valueOfBones.valueOfBone3 += 10
-            if parent.valueOfBones.valueOfBone3 > 180 {
-                parent.valueOfBones.valueOfBone3 = 180
-            }
-            // 设置进度条
-            parent.pgView3.setProgress((Float(parent.valueOfBones.valueOfBone3+180)/360), animated: true)
-            // 设置花材
-            guard let bone3 = parent.view.scene?.rootNode.childNode(withName: "Bone-002", recursively: true) else { return }
-            bone3.rotation = SCNVector4(0,1,0,.pi * Double(parent.valueOfBones.valueOfBone3) / 180.0)
-        }
+//        @objc func minusAngle3() {
+//            parent.valueOfBones.valueOfBone3 -= 10
+//            if parent.valueOfBones.valueOfBone3 < -180 {
+//                parent.valueOfBones.valueOfBone3 = -180
+//            }
+//            // 设置进度条
+//            parent.pgView3.setProgress((Float(parent.valueOfBones.valueOfBone3+180)/360), animated: true)
+//            // 设置花材
+//            guard let bone3 = parent.view.scene?.rootNode.childNode(withName: "Bone-002", recursively: true) else { return }
+//            bone3.rotation = SCNVector4(0,1,0,.pi * Double(parent.valueOfBones.valueOfBone3) / 180.0)
+//            print(parent.valueOfBones.valueOfBone3)
+//            print("成功旋转")
+//        }
+//        @objc func plusAngle3() {
+//            parent.valueOfBones.valueOfBone3 += 10
+//            if parent.valueOfBones.valueOfBone3 > 180 {
+//                parent.valueOfBones.valueOfBone3 = 180
+//            }
+//            // 设置进度条
+//            parent.pgView3.setProgress((Float(parent.valueOfBones.valueOfBone3+180)/360), animated: true)
+//            // 设置花材
+//            guard let bone3 = parent.view.scene?.rootNode.childNode(withName: "Bone-002", recursively: true) else { return }
+//            bone3.rotation = SCNVector4(0,1,0,.pi * Double(parent.valueOfBones.valueOfBone3) / 180.0)
+//        }
     }
 }
 
