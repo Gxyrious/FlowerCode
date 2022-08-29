@@ -12,76 +12,106 @@ import QuartzCore
 
 struct ArrangeView: UIViewRepresentable {
     @Binding var scene: SCNScene
-    @Binding var nodesSelected: [String:Bool]
+//    @Binding var nodesSelected: [String:Bool]
     var view = SCNView()
-    var cameraFrameNode = SCNNode(geometry: SCNFloor())
+    var cameraFrontNode = SCNNode()
+    var cameraSideNode = SCNNode()
     var buttonOne = UIButton(type:UIButton.ButtonType.system)//设置按钮位置与尺寸
     var buttonTwo = UIButton(type:UIButton.ButtonType.system)//设置按钮位置与尺寸
     var panGesture=UIPanGestureRecognizer() // 移动手势
     var tapGesture=UITapGestureRecognizer() // 触碰手势
-    var progressBar1 = UIStackView()
-    var progressBar2 = UIStackView()
-    var pgView1 = UIProgressView()
-    var pgView2 = UIProgressView()
-    var rotateAngle: Float = 0 // 范围[-180,180]
-    var nodeScale: Float = 1.1
-    var rotateAngles: BoneValues
+//    var progressBar1 = UIStackView()
+//    var progressBar2 = UIStackView()
+//    var pgView1 = UIProgressView()
+//    var pgView2 = UIProgressView()
+//    var rotateAngle: Float = 0 // 范围[-180,180]
+//    var nodeScale: Float = 1.1
+//    var rotateAngles: BoneValues
    
     func makeUIView(context: Context) -> SCNView {
         // 初始化
         view.scene = scene
         view.autoenablesDefaultLighting = true
         view.allowsCameraControl = true
+        // 添加创作背景板
+        let aroundSceneFile = SCNScene(named: "CreateScene.dae")!
+        let aroundScene = aroundSceneFile.rootNode.childNode(withName: "Greenhouse", recursively: true)!
+        aroundScene.name = "around-scene"
+        scene.rootNode.addChildNode(aroundScene)
         
         // 花瓶
-        let vaseScene = SCNScene(named: "huaping.dae")
-        guard let vase = vaseScene?.rootNode.childNode(withName: "huaping", recursively: true) else { return view }
+        let vaseScene = SCNScene(named: "huaping.dae")!
+        let vase = vaseScene.rootNode.childNode(withName: "huaping", recursively: true)!
         vase.name = "huaping"
-        vase.scale=SCNVector3(2.5,2.5,2.5)
-        vase.position=SCNVector3(0.3,0.65,0) // 左右 上下 前后
+        vase.scale=SCNVector3(4,4,4)
+        vase.position=SCNVector3(-1.5,-0.2,0.84) // 左右 上下 前后
         scene.rootNode.addChildNode(vase)
 
         // 花桶
-        let bottleScene = SCNScene(named: "huatong.dae")
-        guard let bottle = bottleScene?.rootNode.childNode(withName: "huatong", recursively: true) else { return view }
-        bottle.name = "huatong"
-        bottle.scale = SCNVector3(0.1,0.1,0.1)
-        bottle.position = SCNVector3(-0.58,0.9,0.1)
-        scene.rootNode.addChildNode(bottle)
+//        let bottleScene = SCNScene(named: "huatong.dae")
+//        guard let bottle = bottleScene?.rootNode.childNode(withName: "huatong", recursively: true) else { return view }
+//        bottle.name = "huatong"
+//        bottle.scale = SCNVector3(0.1,0.1,0.1)
+//        bottle.position = SCNVector3(-0.58,0.9,0.1)
+//        scene.rootNode.addChildNode(bottle)
         
-        // 镜头
-        cameraFrameNode.isHidden = true
-        cameraFrameNode.camera = SCNCamera()
-        view.pointOfView = cameraFrameNode
-        cameraFrameNode.position = SCNVector3(x: 0, y: 1, z: 3)
+        // 侧面镜头
+        let modelCameraSizeNode = aroundSceneFile.rootNode.childNode(withName: "Camera_side", recursively: true)
+//        cameraFrameNode.camera = background_file?.rootNode.camera
+//        cameraSideNode.isHidden = true
+//        view.pointOfView = cameraSideNode
+//        cameraFrameNode.isHidden = true
+        cameraSideNode.camera = SCNCamera()
+//        cameraFrameNode.position = SCNVector3(x: 0, y: 1, z: 3)
+        cameraSideNode.position = modelCameraSizeNode!.position
+        cameraSideNode.rotation = modelCameraSizeNode!.rotation
+//        view.pointOfView = cameraSideNode
         
+        // 正面镜头
+        let modelCameraFrontNode = aroundSceneFile.rootNode.childNode(withName: "Camera_front", recursively: true)
+        cameraFrontNode.camera = SCNCamera()
+        cameraFrontNode.position = modelCameraFrontNode!.position
+        cameraFrontNode.rotation = modelCameraFrontNode!.rotation
+        view.pointOfView = cameraFrontNode
         // 盘子
-        guard let panzi=scene.rootNode.childNode(withName: "Cube", recursively: true) else { return view }
+//        guard let panzi=scene.rootNode.childNode(withName: "Cube", recursively: true) else { return view }
 //        print("panzi")
-        print(panzi.position)
-        view.allowsCameraControl = false
+//        print(panzi.position)
         
         //点光源
         let omniLight=SCNLight()
         omniLight.type=SCNLight.LightType.omni
         omniLight.color=UIColor(white:1.0,alpha:1.0)
-        let omniLightNode=SCNNode()
-        omniLightNode.light=omniLight
-        omniLightNode.position=SCNVector3(x:0,y:8,z:5)
-        scene.rootNode.addChildNode(omniLightNode)
+        
+        let modelSideLightNode = aroundSceneFile.rootNode.childNode(withName: "Light-001", recursively: true)!
+        let modelFrontLightNode = aroundSceneFile.rootNode.childNode(withName: "Light", recursively: true)!
+        
+        let sideLightNode = SCNNode()
+        sideLightNode.light = omniLight
+        sideLightNode.position=modelSideLightNode.position
+        sideLightNode.rotation=modelSideLightNode.rotation
+        
+        let frontLightNode = SCNNode()
+        frontLightNode.light = omniLight
+        frontLightNode.position = modelFrontLightNode.position
+        frontLightNode.rotation = modelFrontLightNode.rotation
+
+        scene.rootNode.addChildNode(sideLightNode)
+        scene.rootNode.addChildNode(frontLightNode)
+        
         
         // 添加手势检测
         panGesture.addTarget(
             context.coordinator,
             action: #selector(context.coordinator.handlePan(_:))
         )
-        view.addGestureRecognizer(panGesture)
+//        view.addGestureRecognizer(panGesture)
         
         tapGesture.addTarget(
             context.coordinator,
             action: #selector(context.coordinator.handleTap(_:))
         )
-        view.addGestureRecognizer(tapGesture)
+//        view.addGestureRecognizer(tapGesture)
         
         /// 创建UIButton实例用于旋转镜头
         buttonOne.frame = CGRect(x:280,y:50,width:80,height:30)//设置按钮背景色
@@ -108,10 +138,10 @@ struct ArrangeView: UIViewRepresentable {
         )
         
         // 创建进度条调整花的旋转问题
-        progressBar1.axis = .horizontal
-        progressBar1.distribution = .fill
-        progressBar1.spacing = 10
-        progressBar1.frame = CGRect(x: 45, y: 660, width: 300, height: 20)
+//        progressBar1.axis = .horizontal
+//        progressBar1.distribution = .fill
+//        progressBar1.spacing = 10
+//        progressBar1.frame = CGRect(x: 45, y: 660, width: 300, height: 20)
         // -----
         // minus按钮
         let uiButtonMinus1 = UIButton(type: UIButton.ButtonType.custom)
@@ -123,17 +153,17 @@ struct ArrangeView: UIViewRepresentable {
                 ),
             for: .normal
         )
-        uiButtonMinus1.addTarget(
-            context.coordinator,
-            action: #selector(context.coordinator.minusAngle),
-            for: .touchUpInside
-        )
-        progressBar1.addArrangedSubview(uiButtonMinus1)
-        // 进度条
-        pgView1.setProgress((rotateAngle + 180) / 360, animated: false)
-        pgView1.transform = CGAffineTransform(scaleX: 1.0,y: 0.2)
-        pgView1.progressTintColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
-        progressBar1.addArrangedSubview(pgView1)
+//        uiButtonMinus1.addTarget(
+//            context.coordinator,
+//            action: #selector(context.coordinator.minusAngle),
+//            for: .touchUpInside
+//        )
+//        progressBar1.addArrangedSubview(uiButtonMinus1)
+//        // 进度条
+//        pgView1.setProgress((rotateAngle + 180) / 360, animated: false)
+//        pgView1.transform = CGAffineTransform(scaleX: 1.0,y: 0.2)
+//        pgView1.progressTintColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
+//        progressBar1.addArrangedSubview(pgView1)
         // plus按钮
         let uiButtonPlus1 = UIButton(type: UIButton.ButtonType.system)
         uiButtonPlus1.setBackgroundImage(
@@ -144,18 +174,18 @@ struct ArrangeView: UIViewRepresentable {
                 ),
             for: .normal
         )
-        uiButtonPlus1.addTarget(
-            context.coordinator,
-            action: #selector(context.coordinator.plusAngle),
-            for: .touchUpInside
-        )
-        progressBar1.addArrangedSubview(uiButtonPlus1)
+//        uiButtonPlus1.addTarget(
+//            context.coordinator,
+//            action: #selector(context.coordinator.plusAngle),
+//            for: .touchUpInside
+//        )
+//        progressBar1.addArrangedSubview(uiButtonPlus1)
         // -----
         // 创建进度条调整花的旋转问题
-        progressBar2.axis = .horizontal
-        progressBar2.distribution = .fill
-        progressBar2.spacing = 10
-        progressBar2.frame = CGRect(x: 45, y: 700, width: 300, height: 20)
+//        progressBar2.axis = .horizontal
+//        progressBar2.distribution = .fill
+//        progressBar2.spacing = 10
+//        progressBar2.frame = CGRect(x: 45, y: 700, width: 300, height: 20)
         // minus按钮
         let uiButtonMinus2 = UIButton(type: UIButton.ButtonType.custom)
         uiButtonMinus2.setBackgroundImage(
@@ -166,17 +196,17 @@ struct ArrangeView: UIViewRepresentable {
                 ),
             for: .normal
         )
-        uiButtonMinus2.addTarget(
-            context.coordinator,
-            action: #selector(context.coordinator.minusScale),
-            for: .touchUpInside
-        )
-        progressBar2.addArrangedSubview(uiButtonMinus2)
+//        uiButtonMinus2.addTarget(
+//            context.coordinator,
+//            action: #selector(context.coordinator.minusScale),
+//            for: .touchUpInside
+//        )
+//        progressBar2.addArrangedSubview(uiButtonMinus2)
         // 进度条
-        pgView2.setProgress((nodeScale + 180) / 360, animated: false)
-        pgView2.transform = CGAffineTransform(scaleX: 1.0,y: 0.2)
-        pgView2.progressTintColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
-        progressBar2.addArrangedSubview(pgView2)
+//        pgView2.setProgress((nodeScale + 180) / 360, animated: false)
+//        pgView2.transform = CGAffineTransform(scaleX: 1.0,y: 0.2)
+//        pgView2.progressTintColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
+//        progressBar2.addArrangedSubview(pgView2)
         // plus按钮
         let uiButtonPlus2 = UIButton(type: UIButton.ButtonType.system)
         uiButtonPlus2.setBackgroundImage(
@@ -187,17 +217,17 @@ struct ArrangeView: UIViewRepresentable {
                 ),
             for: .normal
         )
-        uiButtonPlus2.addTarget(
-            context.coordinator,
-            action: #selector(context.coordinator.plusScale),
-            for: .touchUpInside
-        )
-        progressBar2.addArrangedSubview(uiButtonPlus2)
+//        uiButtonPlus2.addTarget(
+//            context.coordinator,
+//            action: #selector(context.coordinator.plusScale),
+//            for: .touchUpInside
+//        )
+//        progressBar2.addArrangedSubview(uiButtonPlus2)
         // -----
         
         // 添加到view
-        self.view.addSubview(progressBar1)
-        self.view.addSubview(progressBar2)
+//        self.view.addSubview(progressBar1)
+//        self.view.addSubview(progressBar2)
 
         
         // 设置背景
@@ -238,80 +268,86 @@ struct ArrangeView: UIViewRepresentable {
         var f1 = false
         var f2 = false
         
-        @objc func minusAngle() {
-            var selectedChild: String? = nil
-            for key in parent.nodesSelected.keys {
-                if parent.nodesSelected[key] == true {
-                    selectedChild = key
-                }
-            }
-            if selectedChild == nil { return }
-            guard let child = parent.view.scene?.rootNode.childNode(withName: selectedChild!, recursively: true) else { return }
-            parent.rotateAngle -= 10
-            if parent.rotateAngle < -180 { parent.rotateAngle = -180 }
-            parent.pgView1.setProgress((parent.rotateAngle + 180) / 360, animated: false)
-            child.rotation = SCNVector4(0,1,0,.pi * parent.rotateAngle / 180.0)
-            print("rotate-angle=\(parent.rotateAngle)")
-        }
+//        @objc func minusAngle() {
+//            var selectedChild: String? = nil
+//            for key in parent.nodesSelected.keys {
+//                if parent.nodesSelected[key] == true {
+//                    selectedChild = key
+//                }
+//            }
+//            if selectedChild == nil { return }
+//            guard let child = parent.view.scene?.rootNode.childNode(withName: selectedChild!, recursively: true) else { return }
+//            parent.rotateAngle -= 10
+//            if parent.rotateAngle < -180 { parent.rotateAngle = -180 }
+//            parent.pgView1.setProgress((parent.rotateAngle + 180) / 360, animated: false)
+//            child.rotation = SCNVector4(0,1,0,.pi * parent.rotateAngle / 180.0)
+//            print("rotate-angle=\(parent.rotateAngle)")
+//        }
         
-        @objc func plusAngle() {
-            var selectedChild: String? = nil
-            for key in parent.nodesSelected.keys {
-                if parent.nodesSelected[key] == true {
-                    selectedChild = key
-                }
-            }
-            if selectedChild == nil { return }
-            guard let child = parent.view.scene?.rootNode.childNode(withName: selectedChild!, recursively: true) else { return }
-            parent.rotateAngle += 10
-            if parent.rotateAngle > 180 { parent.rotateAngle = 180 }
-            parent.pgView1.setProgress((parent.rotateAngle + 180) / 360, animated: false)
-            child.rotation = SCNVector4(0,1,0,.pi * parent.rotateAngle / 180.0)
-            print("rotate-angle=\(parent.rotateAngle)")
-        }
+//        @objc func plusAngle() {
+//            var selectedChild: String? = nil
+//            for key in parent.nodesSelected.keys {
+//                if parent.nodesSelected[key] == true {
+//                    selectedChild = key
+//                }
+//            }
+//            if selectedChild == nil { return }
+//            guard let child = parent.view.scene?.rootNode.childNode(withName: selectedChild!, recursively: true) else { return }
+//            parent.rotateAngle += 10
+//            if parent.rotateAngle > 180 { parent.rotateAngle = 180 }
+//            parent.pgView1.setProgress((parent.rotateAngle + 180) / 360, animated: false)
+//            child.rotation = SCNVector4(0,1,0,.pi * parent.rotateAngle / 180.0)
+//            print("rotate-angle=\(parent.rotateAngle)")
+//        }
         
-        @objc func minusScale() {
-            var selectedChild: String? = nil
-            for key in parent.nodesSelected.keys {
-                if parent.nodesSelected[key] == true {
-                    selectedChild = key
-                }
-            }
-            if selectedChild == nil { return }
-            guard let child = parent.view.scene?.rootNode.childNode(withName: selectedChild!, recursively: true) else { return }
-            parent.nodeScale = child.scale.z
-            parent.nodeScale -= 0.1
-            if parent.nodeScale < 0.1 { parent.nodeScale = 0.1 }
-            parent.pgView2.setProgress((parent.nodeScale - 0.1) / 2, animated: false)
-            child.scale = SCNVector3(parent.nodeScale,parent.nodeScale,parent.nodeScale)
-            print("node-scale=\(parent.nodeScale)")
-        }
+//        @objc func minusScale() {
+//            var selectedChild: String? = nil
+//            for key in parent.nodesSelected.keys {
+//                if parent.nodesSelected[key] == true {
+//                    selectedChild = key
+//                }
+//            }
+//            if selectedChild == nil { return }
+//            guard let child = parent.view.scene?.rootNode.childNode(withName: selectedChild!, recursively: true) else { return }
+//            parent.nodeScale = child.scale.z
+//            parent.nodeScale -= 0.1
+//            if parent.nodeScale < 0.1 { parent.nodeScale = 0.1 }
+//            parent.pgView2.setProgress((parent.nodeScale - 0.1) / 2, animated: false)
+//            child.scale = SCNVector3(parent.nodeScale,parent.nodeScale,parent.nodeScale)
+//            print("node-scale=\(parent.nodeScale)")
+//        }
         
-        @objc func plusScale() {
-            var selectedChild: String? = nil
-            for key in parent.nodesSelected.keys {
-                if parent.nodesSelected[key] == true {
-                    selectedChild = key
-                }
-            }
-            if selectedChild == nil { return }
-            guard let child = parent.view.scene?.rootNode.childNode(withName: selectedChild!, recursively: true) else { return }
-            parent.nodeScale = child.scale.z
-            parent.nodeScale += 0.1
-            if parent.rotateAngle > 2.1 { parent.nodeScale = 2.1 }
-            parent.pgView2.setProgress((parent.nodeScale - 0.1) / 2, animated: false)
-            child.scale = SCNVector3(parent.nodeScale,parent.nodeScale,parent.nodeScale)
-            print("node-scale=\(parent.nodeScale)")
-        }
+//        @objc func plusScale() {
+//            var selectedChild: String? = nil
+//            for key in parent.nodesSelected.keys {
+//                if parent.nodesSelected[key] == true {
+//                    selectedChild = key
+//                }
+//            }
+//            if selectedChild == nil { return }
+//            guard let child = parent.view.scene?.rootNode.childNode(withName: selectedChild!, recursively: true) else { return }
+//            parent.nodeScale = child.scale.z
+//            parent.nodeScale += 0.1
+//            if parent.rotateAngle > 2.1 { parent.nodeScale = 2.1 }
+//            parent.pgView2.setProgress((parent.nodeScale - 0.1) / 2, animated: false)
+//            child.scale = SCNVector3(parent.nodeScale,parent.nodeScale,parent.nodeScale)
+//            print("node-scale=\(parent.nodeScale)")
+//        }
         
         @objc func buttonOnetouchBegin(){
+            parent.view.pointOfView = parent.cameraFrontNode
             parent.view.allowsCameraControl = true
-            parent.view.removeGestureRecognizer(parent.panGesture)
+//            parent.view.removeGestureRecognizer(parent.panGesture)
+            
+            print("buttonOnetouchBegin")
         }
         
         @objc func buttonTwotouchBegin(){
-            parent.view.allowsCameraControl = false
-            parent.view.addGestureRecognizer(parent.panGesture)
+            parent.view.pointOfView = parent.cameraSideNode
+            parent.view.allowsCameraControl = true
+//            parent.view.addGestureRecognizer(parent.panGesture)
+            
+            print("buttonTwotouchBegin")
         }
         
         @objc func handleTap(_ tapGesture: UITapGestureRecognizer) {
@@ -323,17 +359,17 @@ struct ArrangeView: UIViewRepresentable {
                     return
                 }
                 // 去除了上述Node后，这里肯定存在
-                for key in parent.nodesSelected.keys {
-                    if key.hasPrefix(resultName) {
-                        print("selected node found : \(key)")
-                        parent.nodesSelected[key] = true
-                    }
-                    else {
-                        parent.nodesSelected[key] = false
-                    }
-                }
-                print("resultName = \(resultName)")
-                print(parent.nodesSelected)
+//                for key in parent.nodesSelected.keys {
+//                    if key.hasPrefix(resultName) {
+//                        print("selected node found : \(key)")
+//                        parent.nodesSelected[key] = true
+//                    }
+//                    else {
+//                        parent.nodesSelected[key] = false
+//                    }
+//                }
+//                print("resultName = \(resultName)")
+//                print(parent.nodesSelected)
                 let material = hitResults[0].node.geometry!.firstMaterial!
                 
                 // highlight it
@@ -359,15 +395,15 @@ struct ArrangeView: UIViewRepresentable {
         @objc func handlePan(_ panGesture: UIPanGestureRecognizer){
             // Getting nodes from MainScene.scn
 //            guard let drawingNode = parent.scene.rootNode.childNode(withName: "drawingNode", recursively: true) else { return }
-            var name: String? = nil
-            for (key,value) in parent.nodesSelected {
-                if value == true {
-                    name = key
-                    break
-                }
-            }
-            if name == nil { return }
-            let node = parent.scene.rootNode.childNode(withName: name!, recursively: true)!
+//            var name: String? = nil
+//            for (key,value) in parent.nodesSelected {
+//                if value == true {
+//                    name = key
+//                    break
+//                }
+//            }
+//            if name == nil { return }
+//            let node = parent.scene.rootNode.childNode(withName: name!, recursively: true)!
 
             let location = panGesture.location(in: parent.view) // 点击位置，二维
             let hitNodeResult = parent.view.hitTest(location, options: nil).first ?? nil
@@ -381,10 +417,10 @@ struct ArrangeView: UIViewRepresentable {
                     print("--no node--")
                 }
                 else {
-                    print("node:\(String(describing: name))")
+//                    print("node:\(String(describing: name))")
                     lastPanLocation = hitNodeResult!.worldCoordinates
                     panStartZ = CGFloat(parent.view.projectPoint(lastPanLocation).z)
-                    parent.nodesSelected[name!] = true
+//                    parent.nodesSelected[name!] = true
                 }
                 
             case .changed:
@@ -397,7 +433,7 @@ struct ArrangeView: UIViewRepresentable {
                     worldTouchPosition.z - lastPanLocation.z
                 )
                 
-                node.runAction(SCNAction.move(by: movementVector, duration: 0))
+//                node.runAction(SCNAction.move(by: movementVector, duration: 0))
                 self.lastPanLocation = worldTouchPosition
 
             case .ended:

@@ -20,9 +20,9 @@ struct FloralWorks: View {
     var body: some View {
         NavigationView {
         VStack {
-            if !isTabBarHidden {
-                FlowerWorksTabBar(curTab: $curTab)
-            }
+//            if !isTabBarHidden {
+            FlowerWorksTabBar(curTab: $curTab)
+//            }
             TabView(selection: $curTab) {
                 WorkList(isTabBarHidden:$isTabBarHidden, isTabViewHidden: $isTabViewHidden,items:basicworks)
                     .ignoresSafeArea(.all)

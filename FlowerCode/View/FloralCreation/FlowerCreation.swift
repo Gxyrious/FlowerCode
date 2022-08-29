@@ -15,7 +15,7 @@ let material_position_in_modification: [String:SCNVector3] = ["baihe": SCNVector
 
 struct FlowerCreation: View {
     @Binding var isTabViewHidden: Bool
-    @State var scene: SCNScene = SCNScene(named: "scene.dae")!
+    @State var scene: SCNScene = SCNScene()
     @State var nodesSelected = [String:Bool]()
     // sheet栏对应State变量
     @State var showFlowerChoice: Bool = false
@@ -46,9 +46,9 @@ struct FlowerCreation: View {
                 VStack(spacing: 0) {
                     ZStack {
                         ArrangeView(
-                            scene: $scene,
-                            nodesSelected: $nodesSelected,
-                            rotateAngles: valueOfBones
+                            scene: $scene
+//                            nodesSelected: $nodesSelected,
+//                            rotateAngles: valueOfBones
                         ) // 传入
                         Button {
                             self.isTabViewHidden = false

@@ -29,9 +29,6 @@ struct PersonalCenter: View {
                         }
                     }
                     
-                    Image("user_basic_data")
-                        .padding(.top, 5)
-                    
                     Image("current_level")
                     
                     HStack {
@@ -62,7 +59,6 @@ struct PersonalCenter: View {
                     .background(Color(white: 1))
                     .cornerRadius(15)
                     .frame(width: widthOfFatherView * 0.9)
-                    .offset(x: -10)
                     
                     NavigationLink {
                         Text("历史花作主界面")
@@ -91,11 +87,11 @@ struct PersonalCenter: View {
                                     .padding(.trailing, 150)
                             }
                             .padding(30)
+                            .frame(width: widthOfFatherView * 0.9)
                             .background(Color(white: 1))
                         }
-                        .frame(width: widthOfFatherView * 0.9)
                         .cornerRadius(15)
-                        .offset(x: -10)
+                        .frame(width: widthOfFatherView * 0.9)
                         .padding(.top, 10)
                     }
                     
@@ -113,7 +109,6 @@ struct PersonalCenter: View {
                         .foregroundColor(Color(white: 0))
                         .background(Color(white: 1))
                         .cornerRadius(15)
-                        .offset(x: -10)
                         .padding(.top, 10)
                     }
 
@@ -131,7 +126,6 @@ struct PersonalCenter: View {
                         .foregroundColor(Color(white: 0))
                         .background(Color(white: 1))
                         .cornerRadius(15)
-                        .offset(x: -10)
                         .padding(.top, 10)
                     }
 
