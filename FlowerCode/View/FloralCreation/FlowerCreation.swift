@@ -64,7 +64,7 @@ struct FlowerCreation: View {
                         Button {
                             self.showARView = true
                         } label: {
-                            Text("显示AR")
+                            Text("显示AR") 
                                 .padding(6)
                                 .padding(.horizontal, 10)
                                 .font(.system(size: 15))
@@ -73,7 +73,11 @@ struct FlowerCreation: View {
                         }
                         .offset(x: -widthOfFatherView * 0.2, y: -heightOfFatherView * 0.405)
                         .sheet(isPresented: $showARView) {
-                            ARFlowerView()
+                            VStack {
+                                ARView()
+                                Text("HELLOWORLD")
+                            }
+                            
                         }
                         
                         Button {
@@ -132,7 +136,7 @@ struct FlowerCreation: View {
                                         Image("material_2").padding(10)
                                     }
                                     Button {
-                                        selectedMaterial = "HaiYu"
+                                        selectedMaterial = "haiyu"
                                     } label: {
                                         Image("material_3").padding(10)
                                     }
@@ -178,7 +182,7 @@ struct FlowerCreation: View {
                                         Spacer()
                                         Button {
 //                                            print(selectionScene!)
-                                            var child = selectionScene?.rootNode.childNode(withName: "baihe", recursively: true)
+                                            var child = selectionScene?.rootNode.childNode(withName: "main", recursively: true)
                                             if child == nil && selectionScene != nil {
                                                 child = selectionScene?.rootNode
                                             }
@@ -201,8 +205,8 @@ struct FlowerCreation: View {
 //                                                }
 //                                                child?.position = material_position_in_3d[selectedMaterial!] ?? SCNVector3(0,0,0)
 //                                                child?.rotation = SCNVector4(0,1,0,.pi)
-                                                child?.scale = SCNVector3(0.8,0.8,0.8)
-                                                child?.position = SCNVector3(-0.27987584,1.5099589,-0.38946623)
+//                                                child?.scale = SCNVector3(0.8,0.8,0.8)
+//                                                child?.position = SCNVector3(-0.27987584,1.5099589,-0.38946623)
 //                                                child?.rotation = SCNVector4(0,0,1,3.14/2)
                                                 modelData.scene.rootNode.addChildNode(child!)
                                                 showFlowerChoice = false

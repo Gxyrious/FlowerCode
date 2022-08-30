@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct PersonalCenter: View {
-    let nickname: String = "山寺桃花"
-    let signature: String = "荷風飲清露 不覺已沾衣"
+    
+    @EnvironmentObject var modelData: ModelData
+
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
@@ -21,10 +22,10 @@ struct PersonalCenter: View {
                         VStack {
                             Image("user_head_portrait")
                                 .padding(.top, 30)
-                            Text(nickname)
+                            Text(modelData.username)
                                 .foregroundColor(Color(white: 1))
                                 .padding(.vertical, 2)
-                            Text(signature)
+                            Text(modelData.signature)
                                 .foregroundColor(Color(white: 0.7))
                         }
                     }

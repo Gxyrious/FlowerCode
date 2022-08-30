@@ -15,11 +15,31 @@ class ModelData: ObservableObject {
     
     @Published var scene: SCNScene = SCNScene()
     
+    @Published var isLoggedIn: Bool = false
+    
+    @Published var alertSuccessLogIn: Bool = false
+    
+    @Published var alertSuccessRegister: Bool = false
+
+    @Published var alertFailLogIn: Bool = false
+    
+    @Published var alertFailRegister: Bool = false
+    
+    @Published var alertUnknown: Bool = false
+    
+    @Published var alertIllegal: Bool = false
+
+    var username = ""
+    
+    var password = ""
+    
+    var signature = "修改你的个性签名（还没做）"
+    
     var selectedNodeName: String = ""
     
     var sceneChildren = [String]()
     
-    var flower_number: [String:Int] = ["baihe":0,"youjiali":0,"meigui":0]
+    var flower_number: [String:Int] = ["baihe":0,"youjiali":0,"haiyu":0,"meigui":0]
     
     func tabBarHidden(){
         isShowTabBar=false

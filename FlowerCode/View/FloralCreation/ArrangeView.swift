@@ -117,13 +117,13 @@ struct ArrangeView: UIViewRepresentable {
             context.coordinator,
             action: #selector(context.coordinator.handlePan(_:))
         )
-        view.addGestureRecognizer(panGesture)
+//        view.addGestureRecognizer(panGesture)
         
         tapGesture.addTarget(
             context.coordinator,
             action: #selector(context.coordinator.handleTap(_:))
         )
-        view.addGestureRecognizer(tapGesture)
+//        view.addGestureRecognizer(tapGesture)
         
         /// 创建UIButton实例用于旋转镜头
         buttonOne.frame = CGRect(x:280,y:50,width:80,height:30)//设置按钮背景色
