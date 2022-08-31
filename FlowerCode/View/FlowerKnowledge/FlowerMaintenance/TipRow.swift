@@ -25,10 +25,10 @@ struct TipRow: View {
                         NavigationLink {
                             TipDetail(tip:tip)
                                 .onAppear{
-                                    document.tabBarHidden()
+                                    document.isShowTabBar = false
                                 }
                                 .onDisappear {
-                                    document.tabBarShown()
+                                    document.isShowTabBar = true
                                 }
                         } label: {
                             TipItem(tip: tip)

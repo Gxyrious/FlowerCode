@@ -32,15 +32,15 @@ class FCDocument: ObservableObject {
     
     @Published public var alert = AlertInfo()
     
+    @Published var isShowTabBar = true
+    
+    @Published var isLoggedIn = false
+    
     var listSceneChildren: [FCModel.ModelNode] { fcModel.listSceneChildren }
     
     var selectedNodeName: String { fcModel.selectedNodeName }
     
     var flowerName: [String:Int] { fcModel.flower_number }
-    
-    var isShowTabBar: Bool { fcModel.isShowTabBar }
-    
-    var isLoggedIn: Bool { fcModel.isLoggedIn }
     
     var username: String { fcModel.userInfo.username }
     
@@ -56,7 +56,7 @@ class FCDocument: ObservableObject {
         alert.alertSuccessLogIn.toggle()
         fcModel.userInfo.username = username
         fcModel.userInfo.password = password
-        fcModel.isLoggedIn = true
+        isLoggedIn = true
     }
     
     func toggleAlertSuccessRegister() {
@@ -100,13 +100,5 @@ class FCDocument: ObservableObject {
     
     static func ModelRotate2SCNVector4(_ rotate: FCModel.ModelNode.Rotate) -> SCNVector4 {
         return SCNVector4(x: rotate.x, y: rotate.y, z: rotate.z, w: rotate.w)
-    }
-    
-    func tabBarHidden() {
-        fcModel.isShowTabBar = false
-    }
-    
-    func tabBarShown() {
-        fcModel.isShowTabBar = true
     }
 }

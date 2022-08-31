@@ -14,10 +14,10 @@ struct InfoRow: View {
     var body: some View {
         NavigationLink(destination: InfoDetail(info:info)
             .onAppear{
-                document.tabBarHidden()
+                document.isShowTabBar = false
             }
             .onDisappear {
-                document.tabBarShown()
+                document.isShowTabBar = true
             }
         ) {
             HStack {

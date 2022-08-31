@@ -25,14 +25,10 @@ struct FlowerKnowledge: View {
                         NavigationLink {
                             FlowerMap()
                                 .onAppear {
-                                    withAnimation(.easeInOut(duration: 2)){
-                                        isTabViewHidden = true
-                                    }
+                                    isTabViewHidden = true
                                 }
                                 .onDisappear {
-                                    withAnimation(.easeInOut(duration: 2)){
-                                        isTabViewHidden = false
-                                    }
+                                    isTabViewHidden = false
                                 }
                         } label: {
                             VStack {

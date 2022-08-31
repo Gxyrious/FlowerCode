@@ -39,10 +39,10 @@ struct FlowerList: View {
                 ForEach(items){flower in
                     NavigationLink(destination: FlowerDetail(flower: flower)
                         .onAppear{
-                            document.tabBarHidden()
+                            document.isShowTabBar = false
                         }
                         .onDisappear {
-                            document.tabBarShown()
+                            document.isShowTabBar = true
                         }
                     ) {
                         FlowerItem(flower:flower)

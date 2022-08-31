@@ -77,10 +77,10 @@ struct WorkIntro: View {
                             VStack(alignment: .center){
                                 NavigationLink(destination: FlowerDetail(flower: nameFlowerDic[name]!)
                                     .onAppear{
-                                        document.tabBarHidden()
+                                        document.isShowTabBar = false
                                     }
                                     .onDisappear {
-                                        document.tabBarShown()
+                                        document.isShowTabBar = true
                                     }
                                 ) {
                                     Image((nameFlowerDic[name]?.imageName)!)

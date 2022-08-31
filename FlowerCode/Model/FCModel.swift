@@ -69,10 +69,6 @@ extension FCModel {
 
 struct FCModel: Codable {
     
-    var isShowTabBar = true
-    
-    var isLoggedIn = false
-    
     var userInfo = User()
     
     var selectedNodeName: String = ""
