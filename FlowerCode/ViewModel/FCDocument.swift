@@ -30,6 +30,37 @@ class FCDocument: ObservableObject {
     // 模型
     @Published private(set) var fcModel: FCModel
     
+    
+    func save() {
+        let thisFunction = "\(String(describing: self)).\(#function)"
+        do {
+            let data: Data = try fcModel.json()
+            print("\(thisFunction) json = \(String(data: data, encoding: .utf8) ?? "nil")")
+            try data.write(to: Save.url!)
+            print("\(thisFunction) success!")
+        } catch let encodingError where encodingError is EncodingError {
+            print("\(thisFunction) couldn't encode FlowerCode as JSON because \(encodingError.localizedDescription)")
+        } catch {
+            print("\(thisFunction) error = \(error)")
+        }
+    }
+    
+    private struct Save {
+        static let filename = "flower.code"
+        static var url: URL? {
+            let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+            return documentDirectory?.appendingPathExtension(filename)
+        }
+    }
+    
+    init() {
+        if let url = Save.url, let savedModel = try? FCModel(url: url) {
+            fcModel = savedModel
+        } else {
+            fcModel = FCModel()
+        }
+    }
+    
     @Published public var alert = AlertInfo()
     
     @Published var isShowTabBar = true
@@ -48,9 +79,7 @@ class FCDocument: ObservableObject {
     
     var signature: String { fcModel.userInfo.signature }
     
-    init() {
-        fcModel = FCModel()
-    }
+    
     
     func toggleAlertSuccessLogIn(_ username: String, _ password: String) {
         alert.alertSuccessLogIn.toggle()
