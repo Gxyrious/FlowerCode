@@ -11,10 +11,9 @@ import SceneKit
 import QuartzCore
 
 struct ArrangeView: UIViewRepresentable {
-//    @Binding var scene: SCNScene
-    @EnvironmentObject var modelData: ModelData
+    @Binding var scene: SCNScene
+    @EnvironmentObject var document: FCDocument
     
-//    @Binding var nodesSelected: [String:Bool]
     var view = SCNView()
     var cameraFrontNode = SCNNode()
     var cameraSideNode = SCNNode()
@@ -32,18 +31,14 @@ struct ArrangeView: UIViewRepresentable {
    
     func makeUIView(context: Context) -> SCNView {
         // 初始化
-        view.scene = modelData.scene
+        view.scene = scene
         view.autoenablesDefaultLighting = true
         view.allowsCameraControl = true
         // 添加创作背景板
-        let aroundSceneFile = SCNScene(named: "CreateScene.dae")!
-        let aroundScene = aroundSceneFile.rootNode.childNode(withName: "Sketchfab_model", recursively: true)!
-        aroundScene.name = "around-scene"
-//        aroundScene.position = SCNVector3(1.39995,0.14792,-0.90486)
-        print("-aroundScene-")
-        print(aroundScene.position)
-        print(aroundScene.rotation)
-        modelData.scene.rootNode.addChildNode(aroundScene)
+        let sceneAroundFile = SCNScene(named: "SceneAround.dae")!
+        let sceneAround = sceneAroundFile.rootNode.childNode(withName: "Sketchfab_model", recursively: true)!
+        sceneAround.name = "Around"
+        scene.rootNode.addChildNode(sceneAround)
         
         // 花瓶
         let vaseScene = SCNScene(named: "huaping.dae")!
@@ -51,33 +46,21 @@ struct ArrangeView: UIViewRepresentable {
         vase.name = "huaping"
         vase.scale=SCNVector3(4,4,4)
         vase.position=SCNVector3(0,0,0) // 左右 上下 前后
-        modelData.scene.rootNode.addChildNode(vase)
-
-        // 花桶
-//        let bottleScene = SCNScene(named: "huatong.dae")
-//        guard let bottle = bottleScene?.rootNode.childNode(withName: "huatong", recursively: true) else { return view }
-//        bottle.name = "huatong"
-//        bottle.scale = SCNVector3(0.1,0.1,0.1)
-//        bottle.position = SCNVector3(-0.58,0.9,0.1)
-//        scene.rootNode.addChildNode(bottle)
+        scene.rootNode.addChildNode(vase)
         
-        // 侧面镜头
-        let modelCameraSizeNode = aroundSceneFile.rootNode.childNode(withName: "Camera_side", recursively: true)
-//        cameraFrameNode.camera = background_file?.rootNode.camera
-//        cameraSideNode.isHidden = true
-//        view.pointOfView = cameraSideNode
-//        cameraFrameNode.isHidden = true
-        cameraSideNode.camera = SCNCamera()
-//        cameraFrameNode.position = SCNVector3(x: 0, y: 1, z: 3)
-        cameraSideNode.position = modelCameraSizeNode!.position
-        cameraSideNode.rotation = modelCameraSizeNode!.rotation
-//        view.pointOfView = cameraSideNode
-        print("-modelCameraSizeNode-")
-        print(modelCameraSizeNode!.position)
-        print(modelCameraSizeNode!.rotation)
+        // 添加model中的花
+        for node in document.listSceneChildren {
+            let name = node.name.components(separatedBy: "-").first! // 获取花名
+            let flowerFile = SCNScene(named: "\(name).dae")!
+            let flower = flowerFile.rootNode
+            flower.name = node.name
+            flower.position = FCDocument.ModelPosition2SCNVector3(node.position)
+            flower.rotation = FCDocument.ModelRotate2SCNVector4(node.rotate)
+            scene.rootNode.addChildNode(flower)
+        }
         
         // 正面镜头
-        let modelCameraFrontNode = aroundSceneFile.rootNode.childNode(withName: "Camera_front", recursively: true)
+        let modelCameraFrontNode = sceneAroundFile.rootNode.childNode(withName: "Camera_front", recursively: true)
         cameraFrontNode.camera = SCNCamera()
         cameraFrontNode.position = modelCameraFrontNode!.position
         cameraFrontNode.rotation = modelCameraFrontNode!.rotation
@@ -85,18 +68,23 @@ struct ArrangeView: UIViewRepresentable {
         print("-modelCameraFrontNode-")
         print(modelCameraFrontNode!.position)
         print(modelCameraFrontNode!.rotation)
-        // 盘子
-//        guard let panzi=scene.rootNode.childNode(withName: "Cube", recursively: true) else { return view }
-//        print("panzi")
-//        print(panzi.position)
+        
+        // 侧面镜头
+        let modelCameraSizeNode = sceneAroundFile.rootNode.childNode(withName: "Camera_side", recursively: true)
+        cameraSideNode.camera = SCNCamera()
+        cameraSideNode.position = modelCameraSizeNode!.position
+        cameraSideNode.rotation = modelCameraSizeNode!.rotation
+        print("-modelCameraSizeNode-")
+        print(modelCameraSizeNode!.position)
+        print(modelCameraSizeNode!.rotation)
         
         //点光源
         let omniLight=SCNLight()
         omniLight.type=SCNLight.LightType.omni
         omniLight.color=UIColor(white:1.0,alpha:1.0)
         
-        let modelSideLightNode = aroundSceneFile.rootNode.childNode(withName: "Light-001", recursively: true)!
-        let modelFrontLightNode = aroundSceneFile.rootNode.childNode(withName: "Light", recursively: true)!
+        let modelSideLightNode = sceneAroundFile.rootNode.childNode(withName: "Light-001", recursively: true)!
+        let modelFrontLightNode = sceneAroundFile.rootNode.childNode(withName: "Light", recursively: true)!
         
         let sideLightNode = SCNNode()
         sideLightNode.light = omniLight
@@ -108,8 +96,8 @@ struct ArrangeView: UIViewRepresentable {
         frontLightNode.position = modelFrontLightNode.position
         frontLightNode.rotation = modelFrontLightNode.rotation
 
-        modelData.scene.rootNode.addChildNode(sideLightNode)
-        modelData.scene.rootNode.addChildNode(frontLightNode)
+        scene.rootNode.addChildNode(sideLightNode)
+        scene.rootNode.addChildNode(frontLightNode)
         
         
         // 添加手势检测
@@ -243,7 +231,7 @@ struct ArrangeView: UIViewRepresentable {
 
         
         // 设置背景
-        modelData.scene.background.contents=UIImage(named: "background.jpg")
+        scene.background.contents=UIImage(named: "background.jpg")
         
         // 设置代理
         view.delegate = context.coordinator
@@ -257,7 +245,7 @@ struct ArrangeView: UIViewRepresentable {
     }
     
     func makeCoordinator() -> ArrangeView.Coordinator {
-        Coordinator(self, scene: $modelData.scene)
+        Coordinator(self, scene: $scene)
     }
     
     class Coordinator: NSObject, SCNSceneRendererDelegate {
@@ -265,6 +253,8 @@ struct ArrangeView: UIViewRepresentable {
         var parent: ArrangeView
         
         @Binding var scene: SCNScene
+        
+        @EnvironmentObject var document: FCDocument
 
         init(_ parent: ArrangeView, scene: Binding<SCNScene>) {
             self.parent = parent
@@ -371,40 +361,34 @@ struct ArrangeView: UIViewRepresentable {
 //                if resultName == "Sketchfab_model"  {
 //                    return
 //                }
-                if parent.modelData.sceneChildren.contains(resultName) {
-                    parent.modelData.selectedNodeName = resultName
+                for node in document.listSceneChildren {
+                    if node.name == resultName {
+                        document.selectSCNNode(resultName)
+                        
+                        let material = hitResults[0].node.geometry!.firstMaterial!
+                        
+                        // highlight it
+                        SCNTransaction.begin()
+                        SCNTransaction.animationDuration = 0.2
+                        
+                        // on completion - unhighlight
+                        SCNTransaction.completionBlock = {
+                            SCNTransaction.begin()
+                            SCNTransaction.animationDuration = 0.2
+                            
+                            material.emission.contents = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+                            
+                            SCNTransaction.commit()
+                        }
+                        material.emission.contents = CGColor(red: 1, green: 0, blue: 0, alpha: 1)
+                        SCNTransaction.commit()
+                        return
+                    }
                 }
-                else { return }
-                // 去除了上述Node后，这里肯定存在
-//                for key in parent.nodesSelected.keys {
-//                    if key.hasPrefix(resultName) {
-//                        print("selected node found : \(key)")
-//                        parent.nodesSelected[key] = true
-//                    }
-//                    else {
-//                        parent.nodesSelected[key] = false
-//                    }
-//                }
-//                print("resultName = \(resultName)")
-//                print(parent.nodesSelected)
-                let material = hitResults[0].node.geometry!.firstMaterial!
-                
-                // highlight it
-                SCNTransaction.begin()
-                SCNTransaction.animationDuration = 0.2
-                
-                // on completion - unhighlight
-                SCNTransaction.completionBlock = {
-                    SCNTransaction.begin()
-                    SCNTransaction.animationDuration = 0.2
-                    
-                    material.emission.contents = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-                    
-                    SCNTransaction.commit()
-                }
-                material.emission.contents = CGColor(red: 1, green: 0, blue: 0, alpha: 1)
-                SCNTransaction.commit()
+                print("未触碰到花")
+                return
             }
+            print("未触碰到实体")
         }
         
         /// Handle PanGesture for localTranslate and applyForce to dice
@@ -420,12 +404,9 @@ struct ArrangeView: UIViewRepresentable {
 //                }
 //            }
 //            if name == nil { return }
-            print("selectedNodeName=\(parent.modelData.selectedNodeName)")
-            print(parent.modelData.sceneChildren)
-            let node = parent.modelData.scene.rootNode.childNode(withName: parent.modelData.selectedNodeName, recursively: true) ?? nil
-            if node == nil {
-                return
-            }
+            print("selectedNodeName=\(document.selectedNodeName)")
+            let node = scene.rootNode.childNode(withName: document.selectedNodeName, recursively: true) ?? nil
+            if node == nil { return }
 
             let location = panGesture.location(in: parent.view) // 点击位置，二维
             let hitNodeResult = parent.view.hitTest(location, options: nil).first ?? nil

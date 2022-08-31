@@ -9,7 +9,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     var planeNodes = [SCNNode]()
     let configuration = ARWorldTrackingConfiguration()
     
-    @EnvironmentObject var modelData: ModelData
+//    @EnvironmentObject var modelData: ModelData
    
     override func viewDidLoad() {
         super.viewDidLoad()

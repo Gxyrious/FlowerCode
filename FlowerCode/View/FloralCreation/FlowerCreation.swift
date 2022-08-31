@@ -19,7 +19,7 @@ struct FlowerCreation: View {
     @Binding var isTabViewHidden: Bool
     @State var scene: SCNScene = SCNScene()
     
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var document: FCDocument
     
 //    @State var nodesSelected = [String:Bool]()
     // sheet栏对应State变量
@@ -50,11 +50,7 @@ struct FlowerCreation: View {
             ZStack {
                 VStack(spacing: 0) {
                     ZStack {
-                        ArrangeView(
-//                            scene: $scene
-//                            nodesSelected: $nodesSelected,
-//                            rotateAngles: valueOfBones
-                        ) // 传入
+                        ArrangeView(scene: $scene) // 传入
                         Button {
                             self.isTabViewHidden = false
                         } label: {
@@ -77,7 +73,6 @@ struct FlowerCreation: View {
                                 ARView()
                                 Text("HELLOWORLD")
                             }
-                            
                         }
                         
                         Button {
@@ -88,7 +83,7 @@ struct FlowerCreation: View {
                         .offset(x: widthOfFatherView * 0.38, y: -heightOfFatherView * 0.28)
                         .sheet(isPresented: $showIdentificationView) {
 //                            FlowerIdentificationView(
-//                                scene: $modelData.scene,
+//                                scene: $document.scene,
 //                                nodesSelected: $nodesSelected,
 //                                showIdentificationView: $showIdentificationView)
                         }
@@ -169,7 +164,6 @@ struct FlowerCreation: View {
                                         else if selectedMaterial == "youjiali" {
                                             MaterialModification(
                                                 myScene: $selectionScene,
-//                                                valueOfBones: $valueOfBones,
                                                 materialName: selectedMaterial!
                                             )
                                         }
@@ -181,41 +175,15 @@ struct FlowerCreation: View {
                                         }
                                         Spacer()
                                         Button {
-//                                            print(selectionScene!)
-                                            var child = selectionScene?.rootNode.childNode(withName: "main", recursively: true)
-                                            if child == nil && selectionScene != nil {
-                                                child = selectionScene?.rootNode
-                                            }
-                                            if child != nil {
-                                                let name = selectedMaterial!
-//                                                var i = 1
-//                                                while nodesSelected.keys.contains("\(name)-\(i)") {
-//                                                    i += 1
-//                                                }
-//                                                child?.name = "\(name)-\(i)"
-                                                modelData.flower_number[name]! += 1
-                                                let childName = "\(name)-\(modelData.flower_number[name]!)"
-                                                
-                                                child?.name = childName
-                                                modelData.sceneChildren.append(childName)
-                                                
-//                                                let size: Float? = material_scale_in_3d[selectedMaterial!] ?? nil
-//                                                if size != nil {
-//                                                    child?.scale = SCNVector3(size!,size!,size!)
-//                                                }
-//                                                child?.position = material_position_in_3d[selectedMaterial!] ?? SCNVector3(0,0,0)
-//                                                child?.rotation = SCNVector4(0,1,0,.pi)
-//                                                child?.scale = SCNVector3(0.8,0.8,0.8)
-//                                                child?.position = SCNVector3(-0.27987584,1.5099589,-0.38946623)
-//                                                child?.rotation = SCNVector4(0,0,1,3.14/2)
-                                                modelData.scene.rootNode.addChildNode(child!)
+                                            if let child = selectionScene?.rootNode {
+                                                let materialName = selectedMaterial!
+                                                document.addFlowerByOne(materialName)
+                                                let childName = "\(materialName)-\(document.flowerName[materialName]!)"
+                                                child.name = childName
+                                                document.addSceneChild(childName, child.position, child.rotation)
+                                                scene.rootNode.addChildNode(child)
                                                 showFlowerChoice = false
-//                                                nodesSelected.updateValue(false, forKey: "\(name)-\(i)")
                                                 selectedMaterial = nil
-//                                                print("nodesSelected = \(nodesSelected)")
-                                                print(modelData.scene.rootNode.childNodes)
-                                                print(modelData.flower_number)
-                                                print(modelData.sceneChildren)
                                             }
                                         } label: {
                                             Text("确认")

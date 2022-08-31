@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WorkIntro: View {
     var work: Work
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var document: FCDocument
 
     var body: some View {
         ZStack {
@@ -77,10 +77,10 @@ struct WorkIntro: View {
                             VStack(alignment: .center){
                                 NavigationLink(destination: FlowerDetail(flower: nameFlowerDic[name]!)
                                     .onAppear{
-                                        modelData.tabBarHidden()
+                                        document.tabBarHidden()
                                     }
                                     .onDisappear {
-                                        modelData.tabBarShown()
+                                        document.tabBarShown()
                                     }
                                 ) {
                                     Image((nameFlowerDic[name]?.imageName)!)

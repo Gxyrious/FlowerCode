@@ -11,7 +11,7 @@ struct FlowerList: View {
     var pattern:Pattern
     var items:[Flower]
     var gridItemLayout = Array(repeating: GridItem(.flexible(), spacing: 0, alignment: .center), count: 2)
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var document: FCDocument
 
 
     var body: some View {
@@ -39,10 +39,10 @@ struct FlowerList: View {
                 ForEach(items){flower in
                     NavigationLink(destination: FlowerDetail(flower: flower)
                         .onAppear{
-                            modelData.tabBarHidden()
+                            document.tabBarHidden()
                         }
                         .onDisappear {
-                            modelData.tabBarShown()
+                            document.tabBarShown()
                         }
                     ) {
                         FlowerItem(flower:flower)

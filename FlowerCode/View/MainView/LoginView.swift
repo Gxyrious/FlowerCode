@@ -11,8 +11,7 @@ import CoreData
 
 struct LoginView: View {
     
-//    @ObservedObject var document: FlowerCode
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var document: FCDocument
     
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -21,8 +20,8 @@ struct LoginView: View {
         animation: .default)
     private var users: FetchedResults<User>
     
-    @State private var input_username: String = ""
-    @State private var input_password: String = ""
+    @State private var input_username: String = "lc1"
+    @State private var input_password: String = "1"
     
     @State var isRegistering: Bool = false
     @State var registerState: Bool = true
@@ -83,7 +82,7 @@ struct LoginView: View {
                 Button {
                     print("input = \(input_username) & \(input_password)")
                     if input_username == "" || input_password == "" {
-                        modelData.alertIllegal.toggle()
+                        document.toggleAlertIllegal()
                     }
                     else {
                         if !isRegistering {
@@ -92,16 +91,13 @@ struct LoginView: View {
                                 print("id=\(user.id),name=\(user.username!),pw=\(user.password!)")
                                 if user.username == input_username && user.password == input_password {
                                     // 密码正确，登陆成功，弹出提示
-                                    modelData.alertSuccessLogIn.toggle()
+                                    document.toggleAlertSuccessLogIn(input_username, input_password)
                                     print("登陆成功")
-                                    modelData.username = input_username
-                                    modelData.password = input_password
-                                    modelData.isLoggedIn = true
                                 }
                             }
                             // 登陆失败，弹出警告
-                            if !modelData.isLoggedIn {
-                                modelData.alertFailLogIn.toggle()
+                            if !document.isLoggedIn {
+                                document.toggleAlertFailLogIn()
                                 print("账号不存在或密码错误")
                                 input_password = ""
                             }
@@ -114,7 +110,7 @@ struct LoginView: View {
                                 print("id=\(user.id),name=\(user.username!),pw=\(user.password!)")
                                 if user.username == input_username {
                                     // 用户名已存在，弹出警告
-                                    modelData.alertFailRegister.toggle()
+                                    document.toggleAlertFailRegister()
                                     print("用户名已存在")
                                     registerState = false
                                 }
@@ -127,14 +123,14 @@ struct LoginView: View {
                                 do {
                                     try viewContext.save()
                                     isRegistering = false // 注册成功
-                                    modelData.alertSuccessRegister.toggle()
+                                    document.toggleAlertSuccessRegister()
                                     input_username = ""
                                     input_password = ""
                                 } catch {
 //                                    let nsError = error as NSError
     //                                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                                     // 注册失败，弹出警告
-                                    modelData.alertUnknown.toggle()
+                                    document.toggleAlertUnknown()
                                     print("未知错误，注册失败")
                                     input_password = ""
                                 }
@@ -164,22 +160,7 @@ struct LoginView: View {
                         .underline()
                         .font(.subheadline)
                 }
-                
-                
             }
-            
-//            .alert(isPresented: $alertSuccess) {
-//                Alert(title: Text("登陆成功"), message: Text("欢迎你，\(input_username)"))
-//            }
-//            .alert(isPresented: $alertFailLogIn) {
-//                Alert(title: Text("登陆失败"), message: Text("账号不存在或密码错误"))
-//            }
-//            .alert(isPresented: $alertFailRegister) {
-//                Alert(title: Text("注册失败"), message: Text("该用户名\(input_username)已存在"))
-//            }
-//            .alert(isPresented: $alertUnknown) {
-//                Alert(title: Text("注册失败"), message: Text("未知错误"))
-//            }
         }
         .background(Color("cyan"))
         

@@ -10,7 +10,7 @@ import SwiftUI
 struct TipRow: View {
     var categoryName: String
     var items: [Tip]
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var document: FCDocument
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -25,10 +25,10 @@ struct TipRow: View {
                         NavigationLink {
                             TipDetail(tip:tip)
                                 .onAppear{
-                                    modelData.tabBarHidden()
+                                    document.tabBarHidden()
                                 }
                                 .onDisappear {
-                                    modelData.tabBarShown()
+                                    document.tabBarShown()
                                 }
                         } label: {
                             TipItem(tip: tip)
@@ -41,11 +41,11 @@ struct TipRow: View {
     }
 }
 
-struct TipRow_Previews: PreviewProvider {
-    static var previews: some View {
-        TipRow(
-            categoryName: tips[0].category.rawValue,
-            items: Array(tips.prefix(2))
-        )
-    }
-}
+//struct TipRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TipRow(
+//            categoryName: tips[0].category.rawValue,
+//            items: Array(tips.prefix(2))
+//        )
+//    }
+//}

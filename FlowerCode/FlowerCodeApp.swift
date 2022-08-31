@@ -10,14 +10,13 @@ import SwiftUI
 @main
 struct FlowerCodeApp: App {
     let persistenceController = PersistenceController.shared
-    @StateObject private var modelData = ModelData()
-
+    @StateObject private var document = FCDocument()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .environmentObject(modelData)
+                .environmentObject(document)
         }
     }
 }

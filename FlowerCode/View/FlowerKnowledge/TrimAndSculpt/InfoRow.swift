@@ -9,15 +9,15 @@ import SwiftUI
 
 struct InfoRow: View {
     var info:Info
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var document: FCDocument
 
     var body: some View {
         NavigationLink(destination: InfoDetail(info:info)
             .onAppear{
-                modelData.tabBarHidden()
+                document.tabBarHidden()
             }
             .onDisappear {
-                modelData.tabBarShown()
+                document.tabBarShown()
             }
         ) {
             HStack {

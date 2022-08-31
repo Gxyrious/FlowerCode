@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PersonalCenter: View {
     
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var document: FCDocument
 
     var body: some View {
         NavigationView {
@@ -22,10 +22,10 @@ struct PersonalCenter: View {
                         VStack {
                             Image("user_head_portrait")
                                 .padding(.top, 30)
-                            Text(modelData.username)
+                            Text(document.username)
                                 .foregroundColor(Color(white: 1))
                                 .padding(.vertical, 2)
-                            Text(modelData.signature)
+                            Text(document.signature)
                                 .foregroundColor(Color(white: 0.7))
                         }
                     }

@@ -8,47 +8,84 @@
 import Foundation
 import Combine
 import SceneKit
+extension FCModel {
+    struct ModelNode: Codable {
+        
+        public struct Position: Codable {
+            
+            public init(_ px: Float, _ py: Float, _ pz: Float) {
+                self.x = px
+                self.y = py
+                self.z = pz
+            }
+            
+            public var x: Float
+            public var y: Float
+            public var z: Float
+        }
+        
+        public struct Rotate: Codable {
+            
+            public init(_ rx: Float, _ ry: Float, _ rz: Float, _ rw: Float) {
+                self.x = rx
+                self.y = ry
+                self.z = rz
+                self.w = rw
+            }
+            
+            public var x: Float
+            public var y: Float
+            public var z: Float
+            public var w: Float
+        }
+        
+        public var name: String
+        
+        public var position: Position
+        
+        public var rotate: Rotate
+        
+        public init(_ childName: String,
+                    _ px: Float, _ py: Float, _ pz: Float,
+                    _ rx: Float, _ ry: Float, _ rz: Float, _ rw: Float) {
+            self.name = childName
+            self.position = Position(px, py, pz)
+            self.rotate = Rotate(rx, ry, rz, rw)
+        }
+    }
+}
 
-//声明一个新的model type，它符合ObservableObject的协议。
-class ModelData: ObservableObject {
-    @Published var isShowTabBar: Bool=true
-    
-    @Published var scene: SCNScene = SCNScene()
-    
-    @Published var isLoggedIn: Bool = false
-    
-    @Published var alertSuccessLogIn: Bool = false
-    
-    @Published var alertSuccessRegister: Bool = false
+extension FCModel {
+    public struct User: Codable {
+        
+        public var username = ""
+        
+        public var password = ""
+        
+        public var signature = "修改你的个性签名（还没做）"
+        
+    }
+}
 
-    @Published var alertFailLogIn: Bool = false
+struct FCModel: Codable {
     
-    @Published var alertFailRegister: Bool = false
+    var isShowTabBar = true
     
-    @Published var alertUnknown: Bool = false
+    var isLoggedIn = false
     
-    @Published var alertIllegal: Bool = false
-
-    var username = ""
-    
-    var password = ""
-    
-    var signature = "修改你的个性签名（还没做）"
+    var userInfo = User()
     
     var selectedNodeName: String = ""
     
-    var sceneChildren = [String]()
+    var listSceneChildren = [ModelNode]()
     
     var flower_number: [String:Int] = ["baihe":0,"youjiali":0,"haiyu":0,"meigui":0]
     
-    func tabBarHidden(){
-        isShowTabBar=false
+    init() {
+        
     }
-    func tabBarShown(){
-        isShowTabBar=true
-    }
-    
 }
+
 var infos: [Info] = load("InfoData.json")
 var tips: [Tip] = load("TipData.json")
 var flowers: [Flower] = load("FlowerDate.json")
