@@ -35,20 +35,20 @@ struct ArrangeView: UIViewRepresentable {
         view.autoenablesDefaultLighting = true
         view.allowsCameraControl = true
         // 添加创作背景板
-        let sceneAroundFile = SCNScene(named: "SceneAround.dae")!
+        let sceneAroundFile = SCNScene(named: "CreateScene.dae")!
         let sceneAround = sceneAroundFile.rootNode.childNode(withName: "Sketchfab_model", recursively: true)!
         sceneAround.name = "Around"
         scene.rootNode.addChildNode(sceneAround)
         
-        // 花瓶
-        let vaseScene = SCNScene(named: "huaping.dae")!
-        let vase = vaseScene.rootNode.childNode(withName: "huaping", recursively: true)!
-        vase.name = "huaping"
-        vase.scale=SCNVector3(4,4,4)
-        vase.position=SCNVector3(0,0,0) // 左右 上下 前后
-        scene.rootNode.addChildNode(vase)
+//        花瓶
+//        let vaseScene = SCNScene(named: "huaping.dae")!
+//        let vase = vaseScene.rootNode.childNode(withName: "huaping", recursively: true)!
+//        vase.name = "huaping"
+//        vase.scale=SCNVector3(4,4,4)
+//        vase.position=SCNVector3(0,0,0) // 左右 上下 前后
+//        scene.rootNode.addChildNode(vase)
         
-        // 添加model中的花
+//         添加model中的花
         for node in document.listSceneChildren {
             let name = node.name.components(separatedBy: "-").first! // 获取花名
             let flowerFile = SCNScene(named: "\(name).dae")!
@@ -59,6 +59,41 @@ struct ArrangeView: UIViewRepresentable {
             scene.rootNode.addChildNode(flower)
         }
         
+        // 添加一些测试的花
+//        let flowerSet = SCNScene(named: "flowerSet.dae")!
+////        let myNode = flowerSet.rootNode.childNode(withName: "Sketchfab_model-001", recursively: true)!
+////        scene.rootNode.addChildNode(myNode)
+//        let eucalyptus1 = flowerSet.rootNode.childNode(withName: "eucalyptus1", recursively: true)!
+//        scene.rootNode.addChildNode(eucalyptus1)
+//
+//        let eucalyptus2 = flowerSet.rootNode.childNode(withName: "eucalyptus2", recursively: true)!
+//        scene.rootNode.addChildNode(eucalyptus2)
+//
+//        let babybreath1 = flowerSet.rootNode.childNode(withName: "babybreath1", recursively: true)!
+//        scene.rootNode.addChildNode(babybreath1)
+//
+//        let nigella1 = flowerSet.rootNode.childNode(withName: "nigella1", recursively: true)!
+//        scene.rootNode.addChildNode(nigella1)
+//
+//        let nigella3 = flowerSet.rootNode.childNode(withName: "nigella3", recursively: true)!
+//        scene.rootNode.addChildNode(nigella3)
+//
+//        let nigella4 = flowerSet.rootNode.childNode(withName: "nigella4", recursively: true)!
+//        scene.rootNode.addChildNode(nigella4)
+//
+//        let larkspur = flowerSet.rootNode.childNode(withName: "larkspur", recursively: true)!
+//        scene.rootNode.addChildNode(larkspur)
+//
+//        let astrantia = flowerSet.rootNode.childNode(withName: "astrantia", recursively: true)!
+//        scene.rootNode.addChildNode(astrantia)
+//
+//        let astrantia1 = flowerSet.rootNode.childNode(withName: "astrantia1", recursively: true)!
+//        scene.rootNode.addChildNode(astrantia1)
+//
+//        let astrantia2 = flowerSet.rootNode.childNode(withName: "astrantia2", recursively: true)!
+//        scene.rootNode.addChildNode(astrantia2)
+
+
         // 正面镜头
         let modelCameraFrontNode = sceneAroundFile.rootNode.childNode(withName: "Camera_front", recursively: true)
         cameraFrontNode.camera = SCNCamera()
@@ -105,18 +140,18 @@ struct ArrangeView: UIViewRepresentable {
             context.coordinator,
             action: #selector(context.coordinator.handlePan(_:))
         )
-//        view.addGestureRecognizer(panGesture)
+        view.addGestureRecognizer(panGesture)
         
         tapGesture.addTarget(
             context.coordinator,
             action: #selector(context.coordinator.handleTap(_:))
         )
-//        view.addGestureRecognizer(tapGesture)
+        view.addGestureRecognizer(tapGesture)
         
         /// 创建UIButton实例用于旋转镜头
         buttonOne.frame = CGRect(x:280,y:50,width:80,height:30)//设置按钮背景色
         buttonOne.backgroundColor=UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)//设置按钮标题
-        buttonOne.setTitle("旋转镜头", for: UIControl.State())
+        buttonOne.setTitle("正面镜头", for: UIControl.State())
         buttonOne.setTitleColor(UIColor.white,for: UIControl.State())//添加到当前视图
         self.view.addSubview(buttonOne)
         buttonOne.addTarget(
@@ -128,7 +163,7 @@ struct ArrangeView: UIViewRepresentable {
         /// 创建UIButton实例用于移动花
         buttonTwo.frame = CGRect(x:180,y:50,width:80,height:30)//设置按钮背景色
         buttonTwo.backgroundColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
-        buttonTwo.setTitle("移动花", for: UIControl.State())
+        buttonTwo.setTitle("侧面镜头", for: UIControl.State())
         buttonTwo.setTitleColor(UIColor.white,for: UIControl.State())//添加到当前视图
         self.view.addSubview(buttonTwo)
         buttonTwo.addTarget(
@@ -254,7 +289,7 @@ struct ArrangeView: UIViewRepresentable {
         
         @Binding var scene: SCNScene
         
-        @EnvironmentObject var document: FCDocument
+//        @EnvironmentObject var document: FCDocument
 
         init(_ parent: ArrangeView, scene: Binding<SCNScene>) {
             self.parent = parent
@@ -361,9 +396,9 @@ struct ArrangeView: UIViewRepresentable {
 //                if resultName == "Sketchfab_model"  {
 //                    return
 //                }
-                for node in document.listSceneChildren {
+                for node in parent.document.listSceneChildren {
                     if node.name == resultName {
-                        document.selectSCNNode(resultName)
+                        parent.document.selectSCNNode(resultName)
                         
                         let material = hitResults[0].node.geometry!.firstMaterial!
                         
@@ -404,8 +439,8 @@ struct ArrangeView: UIViewRepresentable {
 //                }
 //            }
 //            if name == nil { return }
-            print("selectedNodeName=\(document.selectedNodeName)")
-            let node = scene.rootNode.childNode(withName: document.selectedNodeName, recursively: true) ?? nil
+            print("selectedNodeName=\(parent.document.selectedNodeName)")
+            let node = scene.rootNode.childNode(withName: parent.document.selectedNodeName, recursively: true) ?? nil
             if node == nil { return }
 
             let location = panGesture.location(in: parent.view) // 点击位置，二维

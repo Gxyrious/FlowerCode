@@ -81,7 +81,7 @@ struct FlowerCreation: View {
                                 }
                             }
                         } label: {
-                            Text("显示AR") 
+                            Text("保存")
                                 .padding(6)
                                 .padding(.horizontal, 10)
                                 .font(.system(size: 15))
@@ -203,6 +203,7 @@ struct FlowerCreation: View {
                                                 child.name = childName
                                                 document.addSceneChild(childName, child.position, child.rotation)
                                                 scene.rootNode.addChildNode(child)
+                                                child.name = childName
                                                 showFlowerChoice = false
                                                 selectedMaterial = nil
                                             }
@@ -286,11 +287,7 @@ struct MaterialModification: UIViewRepresentable {
         // 设置背景色
         view.scene?.background.contents = UIColor(red: 0.906, green: 0.91, blue: 0.882, alpha: 1)
         // 获取材料
-        guard let material = myScene?.rootNode.childNode(withName: "main", recursively: true) else { return view }
-        let size: Float? = material_scale_in_modification[materialName] ?? nil
-        if size != nil {
-            material.scale = SCNVector3(size!,size!,size!)
-        }
+        guard let material = myScene?.rootNode else { return view }
         material.position = material_position_in_modification[materialName] ?? SCNVector3(0,0,0)
         material.name = materialName
         myScene?.rootNode.addChildNode(material)

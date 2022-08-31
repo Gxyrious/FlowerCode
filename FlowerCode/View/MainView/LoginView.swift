@@ -89,7 +89,7 @@ struct LoginView: View {
                             // 登陆
                             for user in users {
                                 print("id=\(user.id),name=\(user.username!),pw=\(user.password!)")
-                                print(user.model)
+//                                print(user.model!)
                                 if user.username == input_username && user.password == input_password {
                                     // 密码正确，登陆成功，弹出提示
                                     document.toggleAlertSuccessLogIn(input_username, input_password)
