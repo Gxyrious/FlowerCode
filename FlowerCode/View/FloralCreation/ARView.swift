@@ -2,12 +2,15 @@ import UIKit
 import SwiftUI
 import SceneKit
 import ARKit
+import Introspect
 
 class ARViewController: UIViewController, ARSCNViewDelegate {
 
-    var sceneView: ARSCNView! = ARSCNView()
+    var sceneView: ARSCNView = ARSCNView()
     var planeNodes = [SCNNode]()
     let configuration = ARWorldTrackingConfiguration()
+    
+    var sceneOfSwiftUI: ARViewContainer?
     
 //    @EnvironmentObject var modelData: ModelData
    
@@ -16,14 +19,14 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         
         sceneView.delegate = self
         sceneView.autoenablesDefaultLighting = true
-        
+        sceneView.scene = SCNScene()
         let cubeNode = SCNNode(geometry: SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0))
         cubeNode.position = SCNVector3(0, 0, -0.2) // SceneKit/AR coordinates are in meters
         sceneView.scene.rootNode.addChildNode(cubeNode)
         
 //        let around = modelData.scene.rootNode.childNode(withName: "around-scene", recursively: true)!
 //        sceneView.scene.rootNode.addChildNode(around)
-        
+        sceneOfSwiftUI = ARViewContainer(sceneView: sceneView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,12 +76,30 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
 
 }
 
-struct ARView: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> ARViewController {
-        let controller = ARViewController()
-        return controller
+struct ARViewContainer: UIViewRepresentable {
+    
+    var sceneView: ARSCNView
+    
+    func makeUIView(context: Context) -> ARSCNView {
+        return sceneView
     }
-    func updateUIViewController(_ uiViewController: ARViewController, context: Context) {
+    
+    func updateUIView(_ uiViewController: ARSCNView, context: Context) {
         
+    }
+}
+
+struct ARView: View {
+    
+    var controller: ARViewController
+    
+    init() {
+        controller = ARViewController()
+    }
+    
+    var body: some View {
+        ZStack {
+            controller.sceneOfSwiftUI
+        }
     }
 }
