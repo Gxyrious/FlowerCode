@@ -7,8 +7,10 @@
 
 import Foundation
 import SceneKit
+import SwiftUI
 
 extension FCDocument {
+    
     struct AlertInfo: Codable {
         
         var alertSuccessLogIn = false
@@ -30,18 +32,35 @@ class FCDocument: ObservableObject {
     // 模型
     @Published private(set) var fcModel: FCModel
     
+    let viewContext = PersistenceController.shared.container.viewContext
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \User.username, ascending: true)],
+        animation: .default)
+    private var users: FetchedResults<User>
+    
+    func getModelData() -> Data? {
+        var data: Data? = nil
+        do {
+            data = try fcModel.json()
+        } catch {
+            print("error = \(error)")
+        }
+        return data
+    }
     
     func save() {
-        let thisFunction = "\(String(describing: self)).\(#function)"
-        do {
-            let data: Data = try fcModel.json()
-            print("\(thisFunction) json = \(String(data: data, encoding: .utf8) ?? "nil")")
-            try data.write(to: Save.url!)
-            print("\(thisFunction) success!")
-        } catch let encodingError where encodingError is EncodingError {
-            print("\(thisFunction) couldn't encode FlowerCode as JSON because \(encodingError.localizedDescription)")
-        } catch {
-            print("\(thisFunction) error = \(error)")
+        print("===save===")
+        for user in users {
+            print("username = \(user.username!) & password = \(user.password!)")
+            if user.username == username {
+                do {
+                    let data: Data = try fcModel.json()
+                    user.model = data
+                } catch {
+                    print("error = \(error)")
+                }
+            }
         }
     }
     
@@ -53,7 +72,16 @@ class FCDocument: ObservableObject {
         }
     }
     
+    func initModel(_ modelData: Data) {
+        do {
+            fcModel = try FCModel(json: modelData)
+        } catch {
+            print("初始化失败，错误：\(error)")
+        }
+    }
+    
     init() {
+        
         if let url = Save.url, let savedModel = try? FCModel(url: url) {
             fcModel = savedModel
         } else {

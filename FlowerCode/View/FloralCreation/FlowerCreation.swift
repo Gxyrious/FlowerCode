@@ -19,6 +19,14 @@ struct FlowerCreation: View {
     @Binding var isTabViewHidden: Bool
     @State var scene: SCNScene = SCNScene()
     
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \User.username, ascending: true)],
+        animation: .default)
+    
+    private var users: FetchedResults<User>
+    
     @EnvironmentObject var document: FCDocument
     
 //    @State var nodesSelected = [String:Bool]()
@@ -58,7 +66,20 @@ struct FlowerCreation: View {
                         }
                         .offset(x: -widthOfFatherView * 0.4, y: -heightOfFatherView * 0.4)
                         Button {
-                            self.showARView = true
+                            print("开始保存")
+                            for user in users {
+                                print("username = \(user.username!) & password = \(user.password!)")
+                                if user.username == document.username {
+                                    let modelData = document.getModelData()
+                                    user.model = modelData
+                                    do {
+                                        try viewContext.save()
+                                        print("保存成功")
+                                    } catch {
+                                        print("保存失败，错误：\(error)")
+                                    }
+                                }
+                            }
                         } label: {
                             Text("显示AR") 
                                 .padding(6)

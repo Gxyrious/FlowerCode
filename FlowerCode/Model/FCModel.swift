@@ -77,9 +77,20 @@ struct FCModel: Codable {
     
     var flower_number: [String:Int] = ["baihe":0,"youjiali":0,"haiyu":0,"meigui":0]
     
-    init() {
-        
+    func json() throws -> Data {
+        return try JSONEncoder().encode(self)
     }
+    
+    init(json: Data) throws {
+        self = try JSONDecoder().decode(FCModel.self, from: json)
+    }
+    
+    init(url: URL) throws {
+        let data = try Data(contentsOf: url)
+        self = try FCModel(json: data)
+    }
+    
+    init() { }
 }
 
 var infos: [Info] = load("InfoData.json")
