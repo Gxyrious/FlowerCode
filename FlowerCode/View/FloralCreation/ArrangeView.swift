@@ -65,40 +65,118 @@ struct ArrangeView: UIViewRepresentable {
         }
         
         // 添加一些测试的花
-//        let flowerSet = SCNScene(named: "flowerSet.dae")!
-////        let myNode = flowerSet.rootNode.childNode(withName: "Sketchfab_model-001", recursively: true)!
-////        scene.rootNode.addChildNode(myNode)
-//        let eucalyptus1 = flowerSet.rootNode.childNode(withName: "eucalyptus1", recursively: true)!
-//        scene.rootNode.addChildNode(eucalyptus1)
-//
-//        let eucalyptus2 = flowerSet.rootNode.childNode(withName: "eucalyptus2", recursively: true)!
-//        scene.rootNode.addChildNode(eucalyptus2)
-//
-//        let babybreath1 = flowerSet.rootNode.childNode(withName: "babybreath1", recursively: true)!
+        
+        // flowerSet.dae
+        let flowerSet = SCNScene(named: "flowerSet.dae")!
+        let flowerSetNode = flowerSet.rootNode.childNode(withName: "RootNode-001", recursively: true)!
+//        scene.rootNode.addChildNode(flowerSetNode)
+        let eucalyptus1 = flowerSetNode.childNode(withName: "AnShu-1", recursively: true)!
+        scene.rootNode.addChildNode(eucalyptus1)
+
+        let eucalyptus2 = flowerSetNode.childNode(withName: "AnShu-2", recursively: true)!
+        scene.rootNode.addChildNode(eucalyptus2)
+
+//        let babybreath1 = flowerSetNode.childNode(withName: "ManTianXing-1", recursively: true)!
 //        scene.rootNode.addChildNode(babybreath1)
 //
-//        let nigella1 = flowerSet.rootNode.childNode(withName: "nigella1", recursively: true)!
+//        let nigella1 = flowerSetNode.childNode(withName: "ManTianXing-2", recursively: true)!
 //        scene.rootNode.addChildNode(nigella1)
 //
-//        let nigella3 = flowerSet.rootNode.childNode(withName: "nigella3", recursively: true)!
+//        let nigella3 = flowerSetNode.childNode(withName: "HeiZhongCao-1", recursively: true)!
 //        scene.rootNode.addChildNode(nigella3)
 //
-//        let nigella4 = flowerSet.rootNode.childNode(withName: "nigella4", recursively: true)!
+//        let nigella4 = flowerSetNode.childNode(withName: "HeiZhongCao-2", recursively: true)!
 //        scene.rootNode.addChildNode(nigella4)
 //
-//        let larkspur = flowerSet.rootNode.childNode(withName: "larkspur", recursively: true)!
+//        let larkspur = flowerSetNode.childNode(withName: "HeiZhongCao-3", recursively: true)!
 //        scene.rootNode.addChildNode(larkspur)
 //
-//        let astrantia = flowerSet.rootNode.childNode(withName: "astrantia", recursively: true)!
+//        let astrantia = flowerSetNode.childNode(withName: "DaXingQin-1", recursively: true)!
 //        scene.rootNode.addChildNode(astrantia)
 //
-//        let astrantia1 = flowerSet.rootNode.childNode(withName: "astrantia1", recursively: true)!
+//        let astrantia1 = flowerSetNode.childNode(withName: "DaXingQin-2", recursively: true)!
 //        scene.rootNode.addChildNode(astrantia1)
 //
-//        let astrantia2 = flowerSet.rootNode.childNode(withName: "astrantia2", recursively: true)!
+//        let astrantia2 = flowerSetNode.childNode(withName: "DaXingQin-3", recursively: true)!
 //        scene.rootNode.addChildNode(astrantia2)
 
+        // flowerSet_yujinxiang.dae
+        let flowerSet_yujinxiang = SCNScene(named: "flowerSet_yujinxiang.dae")!
+        let yujinxiangNode = flowerSet_yujinxiang.rootNode.childNode(withName: "yujinxiang", recursively: true)!
+//        scene.rootNode.addChildNode(yujinxiangNode)
+        let yujingxiang1 = yujinxiangNode.childNode(withName: "YuJinXiang-1", recursively: true)!
+        scene.rootNode.addChildNode(yujingxiang1)
+//
+//        let yujingxiang2 = yujinxiangNode.childNode(withName: "YuJinXiang-2", recursively: true)!
+//        scene.rootNode.addChildNode(yujingxiang2)
+//
+//        let yujingxiang3 = yujinxiangNode.childNode(withName: "YuJinXiang-3", recursively: true)!
+//        scene.rootNode.addChildNode(yujingxiang3)
+//
+//        let yujingxiang4 = yujinxiangNode.childNode(withName: "YuJinXiang-4", recursively: true)!
+//        scene.rootNode.addChildNode(yujingxiang4)
+//
+//        let yujingxiang5 = yujinxiangNode.childNode(withName: "YuJinXiang-5", recursively: true)!
+//        scene.rootNode.addChildNode(yujingxiang5)
+        
+        // flowerSet_baizhang.dae
+        let flowerSet_baizhang = SCNScene(named: "flowerSet_baizhang.dae")!
+        let baizhangNode = flowerSet_baizhang.rootNode.childNode(withName: "RootNode-002", recursively: true)!
+//        scene.rootNode.addChildNode(baizhangNode)
+        let baizhang1 = baizhangNode.childNode(withName: "BaiZhang-1", recursively: true)!
+        scene.rootNode.addChildNode(baizhang1)
 
+//        let baizhang2 = baizhangNode.childNode(withName: "BaiZhang-2", recursively: true)!
+//        scene.rootNode.addChildNode(baizhang2)
+//
+//        let baizhang3 = baizhangNode.childNode(withName: "BaiZhang-3", recursively: true)!
+//        scene.rootNode.addChildNode(baizhang3)
+//
+//        let baizhang4 = baizhangNode.childNode(withName: "BaiZhang-4", recursively: true)!
+//        scene.rootNode.addChildNode(baizhang4)
+//
+//        let baizhang5 = baizhangNode.childNode(withName: "BaiZhang-5", recursively: true)!
+//        scene.rootNode.addChildNode(baizhang5)
+        
+        let flowerSet_meigui = SCNScene(named: "flowerSet_meigui.dae")!
+        let meiguiNode = flowerSet_meigui.rootNode.childNode(withName: "Empty-002_9", recursively: true)!
+//        scene.rootNode.addChildNode(meiguiNode)
+        let meigui1 = meiguiNode.childNode(withName: "MeiGui-1", recursively: true)!
+        scene.rootNode.addChildNode(meigui1)
+        
+//        let meigui2 = meiguiNode.childNode(withName: "MeiGui-2", recursively: true)!
+//        scene.rootNode.addChildNode(meigui2)
+//
+//        let meigui3 = meiguiNode.childNode(withName: "MeiGui-3", recursively: true)!
+//        scene.rootNode.addChildNode(meigui3)
+//
+//        let meigui4 = meiguiNode.childNode(withName: "MeiGui-4", recursively: true)!
+//        scene.rootNode.addChildNode(meigui4)
+//
+//        let meigui5 = meiguiNode.childNode(withName: "MeiGui-5", recursively: true)!
+//        scene.rootNode.addChildNode(meigui5)
+//
+//        let meigui6 = meiguiNode.childNode(withName: "MeiGui-6", recursively: true)!
+//        scene.rootNode.addChildNode(meigui6)
+        
+        let vaseSet = SCNScene(named: "vaseSet.dae")!
+        let vaseNode = vaseSet.rootNode
+//        scene.rootNode.addChildNode(vaseNode)
+        let vase1 = vaseNode.childNode(withName: "Vase-1", recursively: true)!
+        scene.rootNode.addChildNode(vase1)
+        
+//        let vase2 = vaseNode.childNode(withName: "Vase-2", recursively: true)!
+//        scene.rootNode.addChildNode(vase2)
+//
+//        let vase3 = vaseNode.childNode(withName: "Vase-3", recursively: true)!
+//        scene.rootNode.addChildNode(vase3)
+//
+//        let vase4 = vaseNode.childNode(withName: "Vase-4", recursively: true)!
+//        scene.rootNode.addChildNode(vase4)
+//
+//        let vase5 = vaseNode.childNode(withName: "Vase-5", recursively: true)!
+//        scene.rootNode.addChildNode(vase5)
+        
         // 正面镜头
         let modelCameraFrontNode = sceneAroundFile.rootNode.childNode(withName: "Camera_front", recursively: true)
         cameraFrontNode.camera = SCNCamera()

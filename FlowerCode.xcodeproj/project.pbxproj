@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AFCC46288D732B5A5D655CB /* Pods_FlowerCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B0E44DF790EE887B8BAD1E /* Pods_FlowerCode.framework */; };
 		9F0E502228B0DC0100B87B11 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E502128B0DC0100B87B11 /* Flower.swift */; };
 		9F0E502428B0DD4400B87B11 /* FlowerDate.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F0E502328B0DD4400B87B11 /* FlowerDate.json */; };
 		9F0E502628B0DEF200B87B11 /* FlowerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E502528B0DEF200B87B11 /* FlowerItem.swift */; };
@@ -50,15 +51,6 @@
 		AF3540C828748AEE00A39E33 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF35408028748AEE00A39E33 /* background.jpg */; };
 		AF3540C928748AEE00A39E33 /* Texture.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF35408128748AEE00A39E33 /* Texture.tga */; };
 		AF3540CA28748AEE00A39E33 /* scene.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF35408228748AEE00A39E33 /* scene.dae */; };
-		AF3540CB28748AEE00A39E33 /* petal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF35408428748AEE00A39E33 /* petal.jpg */; };
-		AF3540CC28748AEE00A39E33 /* baihe.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF35408528748AEE00A39E33 /* baihe.dae */; };
-		AF3540CD28748AEE00A39E33 /* pollen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF35408628748AEE00A39E33 /* pollen.jpg */; };
-		AF3540CE28748AEE00A39E33 /* stem.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF35408728748AEE00A39E33 /* stem.jpg */; };
-		AF3540D028748AEE00A39E33 /* Leaf 4.png in Resources */ = {isa = PBXBuildFile; fileRef = AF35408A28748AEE00A39E33 /* Leaf 4.png */; };
-		AF3540D128748AEE00A39E33 /* Leaf 2.png in Resources */ = {isa = PBXBuildFile; fileRef = AF35408B28748AEE00A39E33 /* Leaf 2.png */; };
-		AF3540D228748AEE00A39E33 /* Leaf 3.png in Resources */ = {isa = PBXBuildFile; fileRef = AF35408C28748AEE00A39E33 /* Leaf 3.png */; };
-		AF3540D328748AEE00A39E33 /* Leaf 1.png in Resources */ = {isa = PBXBuildFile; fileRef = AF35408D28748AEE00A39E33 /* Leaf 1.png */; };
-		AF3540D428748AEE00A39E33 /* youjiali.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF35408E28748AEE00A39E33 /* youjiali.dae */; };
 		AF3540DA28748AEE00A39E33 /* ArrangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409528748AEE00A39E33 /* ArrangeView.swift */; };
 		AF3540DB28748AEE00A39E33 /* FlowerCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409628748AEE00A39E33 /* FlowerCreation.swift */; };
 		AF3540DC28748AEE00A39E33 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409728748AEE00A39E33 /* ARView.swift */; };
@@ -89,8 +81,36 @@
 		AF3540FF287490E300A39E33 /* huatong.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF3540FE287490E300A39E33 /* huatong.dae */; };
 		AF3541042874916100A39E33 /* Concrete01 [softsaaz.ir].jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF3541022874916100A39E33 /* Concrete01 [softsaaz.ir].jpg */; };
 		AF3541052874916100A39E33 /* huaping.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF3541032874916100A39E33 /* huaping.dae */; };
-		AFB6A6DD28BE4CAC008DC4A0 /* haiyu.dae in Resources */ = {isa = PBXBuildFile; fileRef = AFB6A6DC28BE4CAC008DC4A0 /* haiyu.dae */; };
-		AFB6A6DF28BE4E75008DC4A0 /* SceneAround.dae in Resources */ = {isa = PBXBuildFile; fileRef = AFB6A6DE28BE4E75008DC4A0 /* SceneAround.dae */; };
+		AF52595D28C06E9700110173 /* flowerSet_meigui.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF52595B28C06E9700110173 /* flowerSet_meigui.dae */; };
+		AF52595E28C06E9700110173 /* Image_6.003.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF52595C28C06E9700110173 /* Image_6.003.jpg */; };
+		AF52597128C09ADF00110173 /* Image_10.001.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596028C09ADF00110173 /* Image_10.001.png */; };
+		AF52597228C09ADF00110173 /* Image_4.001.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596128C09ADF00110173 /* Image_4.001.png */; };
+		AF52597328C09ADF00110173 /* Image_5.001.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596228C09ADF00110173 /* Image_5.001.png */; };
+		AF52597428C09ADF00110173 /* Image_7.001.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596328C09ADF00110173 /* Image_7.001.png */; };
+		AF52597528C09ADF00110173 /* Image0001.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596428C09ADF00110173 /* Image0001.png */; };
+		AF52597628C09ADF00110173 /* Image21.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596528C09ADF00110173 /* Image21.png */; };
+		AF52597728C09ADF00110173 /* Image20.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596628C09ADF00110173 /* Image20.png */; };
+		AF52597828C09ADF00110173 /* Image_7_001.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596728C09ADF00110173 /* Image_7_001.png */; };
+		AF52597928C09ADF00110173 /* Image_3.001.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596828C09ADF00110173 /* Image_3.001.png */; };
+		AF52597A28C09ADF00110173 /* Image 1 001.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596928C09ADF00110173 /* Image 1 001.png */; };
+		AF52597B28C09ADF00110173 /* Image_4.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596A28C09ADF00110173 /* Image_4.png */; };
+		AF52597C28C09ADF00110173 /* Image_2.001.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596B28C09ADF00110173 /* Image_2.001.png */; };
+		AF52597D28C09ADF00110173 /* Image_201.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596C28C09ADF00110173 /* Image_201.png */; };
+		AF52597E28C09ADF00110173 /* Image_9.001.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596D28C09ADF00110173 /* Image_9.001.png */; };
+		AF52597F28C09ADF00110173 /* Image_5_001.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52596E28C09ADF00110173 /* Image_5_001.png */; };
+		AF52598028C09ADF00110173 /* flowerSet.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF52596F28C09ADF00110173 /* flowerSet.dae */; };
+		AF52598128C09ADF00110173 /* Image_8.001.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52597028C09ADF00110173 /* Image_8.001.png */; };
+		AF52598728C0A57A00110173 /* Image_5.002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF52598328C0A57A00110173 /* Image_5.002.jpg */; };
+		AF52598828C0A57A00110173 /* flowerSet_baizhang.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF52598428C0A57A00110173 /* flowerSet_baizhang.dae */; };
+		AF52598928C0A57A00110173 /* Image_2.002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF52598528C0A57A00110173 /* Image_2.002.jpg */; };
+		AF52598A28C0A57A00110173 /* Image_1.002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF52598628C0A57A00110173 /* Image_1.002.jpg */; };
+		AF52598C28C0A58800110173 /* flowerSet_yujinxiang.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF52598B28C0A58800110173 /* flowerSet_yujinxiang.dae */; };
+		AF52599328C0AF0700110173 /* vaseSet.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF52598E28C0AF0700110173 /* vaseSet.dae */; };
+		AF52599428C0AF0700110173 /* Image_11.001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF52598F28C0AF0700110173 /* Image_11.001.jpg */; };
+		AF52599528C0AF0700110173 /* Vases_Base_Color.png.001.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52599028C0AF0700110173 /* Vases_Base_Color.png.001.png */; };
+		AF52599628C0AF0700110173 /* Image_3.002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF52599128C0AF0700110173 /* Image_3.002.jpg */; };
+		AF52599728C0AF0700110173 /* Image_0.002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF52599228C0AF0700110173 /* Image_0.002.jpg */; };
+		AF9F715428BFD46100143639 /* CreateScene.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF9F715328BFD46100143639 /* CreateScene.dae */; };
 		AFF8EF6128BD0DD400D9763C /* Image_14.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF8EF5928BD0DD400D9763C /* Image_14.png */; };
 		AFF8EF6228BD0DD400D9763C /* Image_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFF8EF5A28BD0DD400D9763C /* Image_11.jpg */; };
 		AFF8EF6428BD0DD400D9763C /* Image_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFF8EF5C28BD0DD400D9763C /* Image_9.jpg */; };
@@ -101,6 +121,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21B0E44DF790EE887B8BAD1E /* Pods_FlowerCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlowerCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B9D7364FDA3E5F77E85F275 /* Pods-FlowerCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerCode.release.xcconfig"; path = "Target Support Files/Pods-FlowerCode/Pods-FlowerCode.release.xcconfig"; sourceTree = "<group>"; };
 		9F0E502128B0DC0100B87B11 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
 		9F0E502328B0DD4400B87B11 /* FlowerDate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FlowerDate.json; sourceTree = "<group>"; };
 		9F0E502528B0DEF200B87B11 /* FlowerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerItem.swift; sourceTree = "<group>"; };
@@ -145,15 +167,6 @@
 		AF35408028748AEE00A39E33 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		AF35408128748AEE00A39E33 /* Texture.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Texture.tga; sourceTree = "<group>"; };
 		AF35408228748AEE00A39E33 /* scene.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = scene.dae; sourceTree = "<group>"; };
-		AF35408428748AEE00A39E33 /* petal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = petal.jpg; sourceTree = "<group>"; };
-		AF35408528748AEE00A39E33 /* baihe.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = baihe.dae; sourceTree = "<group>"; };
-		AF35408628748AEE00A39E33 /* pollen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pollen.jpg; sourceTree = "<group>"; };
-		AF35408728748AEE00A39E33 /* stem.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stem.jpg; sourceTree = "<group>"; };
-		AF35408A28748AEE00A39E33 /* Leaf 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Leaf 4.png"; sourceTree = "<group>"; };
-		AF35408B28748AEE00A39E33 /* Leaf 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Leaf 2.png"; sourceTree = "<group>"; };
-		AF35408C28748AEE00A39E33 /* Leaf 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Leaf 3.png"; sourceTree = "<group>"; };
-		AF35408D28748AEE00A39E33 /* Leaf 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Leaf 1.png"; sourceTree = "<group>"; };
-		AF35408E28748AEE00A39E33 /* youjiali.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = youjiali.dae; sourceTree = "<group>"; };
 		AF35409528748AEE00A39E33 /* ArrangeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrangeView.swift; sourceTree = "<group>"; };
 		AF35409628748AEE00A39E33 /* FlowerCreation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerCreation.swift; sourceTree = "<group>"; };
 		AF35409728748AEE00A39E33 /* ARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
@@ -184,8 +197,36 @@
 		AF3540FE287490E300A39E33 /* huatong.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = huatong.dae; sourceTree = "<group>"; };
 		AF3541022874916100A39E33 /* Concrete01 [softsaaz.ir].jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Concrete01 [softsaaz.ir].jpg"; sourceTree = "<group>"; };
 		AF3541032874916100A39E33 /* huaping.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = huaping.dae; sourceTree = "<group>"; };
-		AFB6A6DC28BE4CAC008DC4A0 /* haiyu.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = haiyu.dae; sourceTree = "<group>"; };
-		AFB6A6DE28BE4E75008DC4A0 /* SceneAround.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = SceneAround.dae; sourceTree = "<group>"; };
+		AF52595B28C06E9700110173 /* flowerSet_meigui.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = flowerSet_meigui.dae; sourceTree = "<group>"; };
+		AF52595C28C06E9700110173 /* Image_6.003.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_6.003.jpg; sourceTree = "<group>"; };
+		AF52596028C09ADF00110173 /* Image_10.001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_10.001.png; sourceTree = "<group>"; };
+		AF52596128C09ADF00110173 /* Image_4.001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_4.001.png; sourceTree = "<group>"; };
+		AF52596228C09ADF00110173 /* Image_5.001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_5.001.png; sourceTree = "<group>"; };
+		AF52596328C09ADF00110173 /* Image_7.001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_7.001.png; sourceTree = "<group>"; };
+		AF52596428C09ADF00110173 /* Image0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image0001.png; sourceTree = "<group>"; };
+		AF52596528C09ADF00110173 /* Image21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image21.png; sourceTree = "<group>"; };
+		AF52596628C09ADF00110173 /* Image20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image20.png; sourceTree = "<group>"; };
+		AF52596728C09ADF00110173 /* Image_7_001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_7_001.png; sourceTree = "<group>"; };
+		AF52596828C09ADF00110173 /* Image_3.001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_3.001.png; sourceTree = "<group>"; };
+		AF52596928C09ADF00110173 /* Image 1 001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image 1 001.png"; sourceTree = "<group>"; };
+		AF52596A28C09ADF00110173 /* Image_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_4.png; sourceTree = "<group>"; };
+		AF52596B28C09ADF00110173 /* Image_2.001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_2.001.png; sourceTree = "<group>"; };
+		AF52596C28C09ADF00110173 /* Image_201.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_201.png; sourceTree = "<group>"; };
+		AF52596D28C09ADF00110173 /* Image_9.001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_9.001.png; sourceTree = "<group>"; };
+		AF52596E28C09ADF00110173 /* Image_5_001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_5_001.png; sourceTree = "<group>"; };
+		AF52596F28C09ADF00110173 /* flowerSet.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = flowerSet.dae; sourceTree = "<group>"; };
+		AF52597028C09ADF00110173 /* Image_8.001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_8.001.png; sourceTree = "<group>"; };
+		AF52598328C0A57A00110173 /* Image_5.002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_5.002.jpg; sourceTree = "<group>"; };
+		AF52598428C0A57A00110173 /* flowerSet_baizhang.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = flowerSet_baizhang.dae; sourceTree = "<group>"; };
+		AF52598528C0A57A00110173 /* Image_2.002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_2.002.jpg; sourceTree = "<group>"; };
+		AF52598628C0A57A00110173 /* Image_1.002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_1.002.jpg; sourceTree = "<group>"; };
+		AF52598B28C0A58800110173 /* flowerSet_yujinxiang.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = flowerSet_yujinxiang.dae; sourceTree = "<group>"; };
+		AF52598E28C0AF0700110173 /* vaseSet.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = vaseSet.dae; sourceTree = "<group>"; };
+		AF52598F28C0AF0700110173 /* Image_11.001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_11.001.jpg; sourceTree = "<group>"; };
+		AF52599028C0AF0700110173 /* Vases_Base_Color.png.001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vases_Base_Color.png.001.png; sourceTree = "<group>"; };
+		AF52599128C0AF0700110173 /* Image_3.002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_3.002.jpg; sourceTree = "<group>"; };
+		AF52599228C0AF0700110173 /* Image_0.002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_0.002.jpg; sourceTree = "<group>"; };
+		AF9F715328BFD46100143639 /* CreateScene.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = CreateScene.dae; sourceTree = "<group>"; };
 		AFF8EF5928BD0DD400D9763C /* Image_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_14.png; sourceTree = "<group>"; };
 		AFF8EF5A28BD0DD400D9763C /* Image_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_11.jpg; sourceTree = "<group>"; };
 		AFF8EF5C28BD0DD400D9763C /* Image_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_9.jpg; sourceTree = "<group>"; };
@@ -193,6 +234,7 @@
 		AFF8EF5E28BD0DD400D9763C /* Image_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_0.jpg; sourceTree = "<group>"; };
 		AFF8EF5F28BD0DD400D9763C /* Image_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_6.jpg; sourceTree = "<group>"; };
 		AFF8EF6028BD0DD400D9763C /* Image_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_20.png; sourceTree = "<group>"; };
+		B17C29167943E1BB24790150 /* Pods-FlowerCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerCode.debug.xcconfig"; path = "Target Support Files/Pods-FlowerCode/Pods-FlowerCode.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,12 +242,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AFCC46288D732B5A5D655CB /* Pods_FlowerCode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25A4B6000129E509ABA733E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B17C29167943E1BB24790150 /* Pods-FlowerCode.debug.xcconfig */,
+				8B9D7364FDA3E5F77E85F275 /* Pods-FlowerCode.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9F29DDE328AF35D300D7175C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,11 +282,21 @@
 			path = FlowerMaintenance;
 			sourceTree = "<group>";
 		};
+		AC7FA438C81A320D38C7DEA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21B0E44DF790EE887B8BAD1E /* Pods_FlowerCode.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AF35404A28748A1100A39E33 = {
 			isa = PBXGroup;
 			children = (
 				AF35405528748A1100A39E33 /* FlowerCode */,
 				AF35405428748A1100A39E33 /* Products */,
+				25A4B6000129E509ABA733E1 /* Pods */,
+				AC7FA438C81A320D38C7DEA4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -330,12 +392,13 @@
 		AF35407D28748AEE00A39E33 /* ArrangeView */ = {
 			isa = PBXGroup;
 			children = (
-				AFF8EF5828BD0DD400D9763C /* NewFolder */,
-				AF3541012874916100A39E33 /* bottle */,
-				AF3540FD287490C500A39E33 /* huatong */,
-				AF35407E28748AEE00A39E33 /* Scene */,
-				AF35408328748AEE00A39E33 /* BaiHe */,
-				AF35408928748AEE00A39E33 /* YouJiaLi */,
+				AF52595A28C06E9700110173 /* flowerSet_meigui */,
+				AF52598228C0A57A00110173 /* flowerSet_baizhang */,
+				AF52598B28C0A58800110173 /* flowerSet_yujinxiang.dae */,
+				AF52595F28C09ADF00110173 /* flowerSet */,
+				AF52598D28C0AF0700110173 /* vaseSet */,
+				AF52595928C06E7B00110173 /* Useless */,
+				AFF8EF5828BD0DD400D9763C /* CreateScene */,
 			);
 			path = ArrangeView;
 			sourceTree = "<group>";
@@ -349,30 +412,6 @@
 				AF35408228748AEE00A39E33 /* scene.dae */,
 			);
 			path = Scene;
-			sourceTree = "<group>";
-		};
-		AF35408328748AEE00A39E33 /* BaiHe */ = {
-			isa = PBXGroup;
-			children = (
-				AF35408428748AEE00A39E33 /* petal.jpg */,
-				AF35408528748AEE00A39E33 /* baihe.dae */,
-				AF35408628748AEE00A39E33 /* pollen.jpg */,
-				AF35408728748AEE00A39E33 /* stem.jpg */,
-			);
-			path = BaiHe;
-			sourceTree = "<group>";
-		};
-		AF35408928748AEE00A39E33 /* YouJiaLi */ = {
-			isa = PBXGroup;
-			children = (
-				AFB6A6DC28BE4CAC008DC4A0 /* haiyu.dae */,
-				AF35408A28748AEE00A39E33 /* Leaf 4.png */,
-				AF35408B28748AEE00A39E33 /* Leaf 2.png */,
-				AF35408C28748AEE00A39E33 /* Leaf 3.png */,
-				AF35408D28748AEE00A39E33 /* Leaf 1.png */,
-				AF35408E28748AEE00A39E33 /* youjiali.dae */,
-			);
-			path = YouJiaLi;
 			sourceTree = "<group>";
 		};
 		AF35409828748AEE00A39E33 /* FlowerIdentification */ = {
@@ -489,11 +528,77 @@
 			path = bottle;
 			sourceTree = "<group>";
 		};
-		AFF8EF5828BD0DD400D9763C /* NewFolder */ = {
+		AF52595928C06E7B00110173 /* Useless */ = {
+			isa = PBXGroup;
+			children = (
+				AF35407E28748AEE00A39E33 /* Scene */,
+				AF3540FD287490C500A39E33 /* huatong */,
+				AF3541012874916100A39E33 /* bottle */,
+			);
+			path = Useless;
+			sourceTree = "<group>";
+		};
+		AF52595A28C06E9700110173 /* flowerSet_meigui */ = {
+			isa = PBXGroup;
+			children = (
+				AF52595B28C06E9700110173 /* flowerSet_meigui.dae */,
+				AF52595C28C06E9700110173 /* Image_6.003.jpg */,
+			);
+			path = flowerSet_meigui;
+			sourceTree = "<group>";
+		};
+		AF52595F28C09ADF00110173 /* flowerSet */ = {
+			isa = PBXGroup;
+			children = (
+				AF52596028C09ADF00110173 /* Image_10.001.png */,
+				AF52596128C09ADF00110173 /* Image_4.001.png */,
+				AF52596228C09ADF00110173 /* Image_5.001.png */,
+				AF52596328C09ADF00110173 /* Image_7.001.png */,
+				AF52596428C09ADF00110173 /* Image0001.png */,
+				AF52596528C09ADF00110173 /* Image21.png */,
+				AF52596628C09ADF00110173 /* Image20.png */,
+				AF52596728C09ADF00110173 /* Image_7_001.png */,
+				AF52596828C09ADF00110173 /* Image_3.001.png */,
+				AF52596928C09ADF00110173 /* Image 1 001.png */,
+				AF52596A28C09ADF00110173 /* Image_4.png */,
+				AF52596B28C09ADF00110173 /* Image_2.001.png */,
+				AF52596C28C09ADF00110173 /* Image_201.png */,
+				AF52596D28C09ADF00110173 /* Image_9.001.png */,
+				AF52596E28C09ADF00110173 /* Image_5_001.png */,
+				AF52596F28C09ADF00110173 /* flowerSet.dae */,
+				AF52597028C09ADF00110173 /* Image_8.001.png */,
+			);
+			path = flowerSet;
+			sourceTree = "<group>";
+		};
+		AF52598228C0A57A00110173 /* flowerSet_baizhang */ = {
+			isa = PBXGroup;
+			children = (
+				AF52598328C0A57A00110173 /* Image_5.002.jpg */,
+				AF52598428C0A57A00110173 /* flowerSet_baizhang.dae */,
+				AF52598528C0A57A00110173 /* Image_2.002.jpg */,
+				AF52598628C0A57A00110173 /* Image_1.002.jpg */,
+			);
+			path = flowerSet_baizhang;
+			sourceTree = "<group>";
+		};
+		AF52598D28C0AF0700110173 /* vaseSet */ = {
+			isa = PBXGroup;
+			children = (
+				AF52598E28C0AF0700110173 /* vaseSet.dae */,
+				AF52598F28C0AF0700110173 /* Image_11.001.jpg */,
+				AF52599028C0AF0700110173 /* Vases_Base_Color.png.001.png */,
+				AF52599128C0AF0700110173 /* Image_3.002.jpg */,
+				AF52599228C0AF0700110173 /* Image_0.002.jpg */,
+			);
+			path = vaseSet;
+			sourceTree = "<group>";
+		};
+		AFF8EF5828BD0DD400D9763C /* CreateScene */ = {
 			isa = PBXGroup;
 			children = (
 				AFF8EF5928BD0DD400D9763C /* Image_14.png */,
-				AFB6A6DE28BE4E75008DC4A0 /* SceneAround.dae */,
+				AF9F715328BFD46100143639 /* CreateScene.dae */,
 				AFF8EF5A28BD0DD400D9763C /* Image_11.jpg */,
 				AFF8EF5C28BD0DD400D9763C /* Image_9.jpg */,
 				AFF8EF5D28BD0DD400D9763C /* Image_3.jpg */,
@@ -501,7 +606,7 @@
 				AFF8EF5F28BD0DD400D9763C /* Image_6.jpg */,
 				AFF8EF6028BD0DD400D9763C /* Image_20.png */,
 			);
-			path = NewFolder;
+			path = CreateScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -511,9 +616,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF35406628748A1200A39E33 /* Build configuration list for PBXNativeTarget "FlowerCode" */;
 			buildPhases = (
+				23029F32707B9ABF62A9162A /* [CP] Check Pods Manifest.lock */,
 				AF35404F28748A1100A39E33 /* Sources */,
 				AF35405028748A1100A39E33 /* Frameworks */,
 				AF35405128748A1100A39E33 /* Resources */,
+				836041AED2774B4B1E3B1CCF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -563,42 +670,103 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF3540FF287490E300A39E33 /* huatong.dae in Resources */,
-				AFB6A6DD28BE4CAC008DC4A0 /* haiyu.dae in Resources */,
-				AF3540CC28748AEE00A39E33 /* baihe.dae in Resources */,
 				AF3540F828748BA500A39E33 /* Preview Assets.xcassets in Resources */,
+				AF9F715428BFD46100143639 /* CreateScene.dae in Resources */,
+				AF52597A28C09ADF00110173 /* Image 1 001.png in Resources */,
+				AF52598828C0A57A00110173 /* flowerSet_baizhang.dae in Resources */,
+				AF52599528C0AF0700110173 /* Vases_Base_Color.png.001.png in Resources */,
+				AF52597728C09ADF00110173 /* Image20.png in Resources */,
+				AF52599428C0AF0700110173 /* Image_11.001.jpg in Resources */,
+				AF52598928C0A57A00110173 /* Image_2.002.jpg in Resources */,
+				AF52597C28C09ADF00110173 /* Image_2.001.png in Resources */,
 				AFF8EF6828BD0DD400D9763C /* Image_20.png in Resources */,
-				AF3540CD28748AEE00A39E33 /* pollen.jpg in Resources */,
+				AF52598728C0A57A00110173 /* Image_5.002.jpg in Resources */,
+				AF52599728C0AF0700110173 /* Image_0.002.jpg in Resources */,
 				AF3540C928748AEE00A39E33 /* Texture.tga in Resources */,
+				AF52597128C09ADF00110173 /* Image_10.001.png in Resources */,
 				9F29DDEA28AF555C00D7175C /* InfoData.json in Resources */,
+				AF52597E28C09ADF00110173 /* Image_9.001.png in Resources */,
 				9F0E502428B0DD4400B87B11 /* FlowerDate.json in Resources */,
+				AF52598C28C0A58800110173 /* flowerSet_yujinxiang.dae in Resources */,
 				AF3540BF28748AEE00A39E33 /* Assets.xcassets in Resources */,
+				AF52595E28C06E9700110173 /* Image_6.003.jpg in Resources */,
+				AF52597528C09ADF00110173 /* Image0001.png in Resources */,
+				AF52597228C09ADF00110173 /* Image_4.001.png in Resources */,
 				9FD5F56128B1DD0200983E1C /* BasicWorksDate.json in Resources */,
 				AFF8EF6228BD0DD400D9763C /* Image_11.jpg in Resources */,
+				AF52597B28C09ADF00110173 /* Image_4.png in Resources */,
 				9F0E502A28B0E1CF00B87B11 /* PatternData.json in Resources */,
 				9F76E40828B0C3EB006404E4 /* TipData.json in Resources */,
 				AFF8EF6128BD0DD400D9763C /* Image_14.png in Resources */,
-				AF3540D328748AEE00A39E33 /* Leaf 1.png in Resources */,
+				AF52597628C09ADF00110173 /* Image21.png in Resources */,
 				AF3541042874916100A39E33 /* Concrete01 [softsaaz.ir].jpg in Resources */,
-				AF3540D128748AEE00A39E33 /* Leaf 2.png in Resources */,
 				AFF8EF6628BD0DD400D9763C /* Image_0.jpg in Resources */,
-				AF3540D228748AEE00A39E33 /* Leaf 3.png in Resources */,
 				AFF8EF6528BD0DD400D9763C /* Image_3.jpg in Resources */,
-				AF3540D028748AEE00A39E33 /* Leaf 4.png in Resources */,
+				AF52597928C09ADF00110173 /* Image_3.001.png in Resources */,
+				AF52597428C09ADF00110173 /* Image_7.001.png in Resources */,
 				AF3541052874916100A39E33 /* huaping.dae in Resources */,
-				AF3540D428748AEE00A39E33 /* youjiali.dae in Resources */,
+				AF52597328C09ADF00110173 /* Image_5.001.png in Resources */,
+				AF52598A28C0A57A00110173 /* Image_1.002.jpg in Resources */,
 				9FD5F56328B2135D00983E1C /* VaseDate.json in Resources */,
 				AF3540C728748AEE00A39E33 /* alta-essencial-wood-padrao-carvalho-taupo.png in Resources */,
+				AF52598028C09ADF00110173 /* flowerSet.dae in Resources */,
+				AF52597828C09ADF00110173 /* Image_7_001.png in Resources */,
+				AF52597F28C09ADF00110173 /* Image_5_001.png in Resources */,
 				AFF8EF6728BD0DD400D9763C /* Image_6.jpg in Resources */,
-				AFB6A6DF28BE4E75008DC4A0 /* SceneAround.dae in Resources */,
+				AF52597D28C09ADF00110173 /* Image_201.png in Resources */,
 				AF3540C828748AEE00A39E33 /* background.jpg in Resources */,
-				AF3540CB28748AEE00A39E33 /* petal.jpg in Resources */,
+				AF52595D28C06E9700110173 /* flowerSet_meigui.dae in Resources */,
 				AFF8EF6428BD0DD400D9763C /* Image_9.jpg in Resources */,
-				AF3540CE28748AEE00A39E33 /* stem.jpg in Resources */,
 				AF3540CA28748AEE00A39E33 /* scene.dae in Resources */,
+				AF52599328C0AF0700110173 /* vaseSet.dae in Resources */,
+				AF52598128C09ADF00110173 /* Image_8.001.png in Resources */,
+				AF52599628C0AF0700110173 /* Image_3.002.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23029F32707B9ABF62A9162A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FlowerCode-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		836041AED2774B4B1E3B1CCF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlowerCode/Pods-FlowerCode-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlowerCode/Pods-FlowerCode-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlowerCode/Pods-FlowerCode-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AF35404F28748A1100A39E33 /* Sources */ = {
@@ -719,6 +887,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -773,6 +942,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -785,6 +955,7 @@
 		};
 		AF35406728748A1200A39E33 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B17C29167943E1BB24790150 /* Pods-FlowerCode.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -800,6 +971,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -818,6 +990,7 @@
 		};
 		AF35406828748A1200A39E33 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B9D7364FDA3E5F77E85F275 /* Pods-FlowerCode.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -833,6 +1006,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;

@@ -1,0 +1,16 @@
+PODS:
+  - Introspect (0.1.4)
+
+DEPENDENCIES:
+  - Introspect
+
+SPEC REPOS:
+  trunk:
+    - Introspect
+
+SPEC CHECKSUMS:
+  Introspect: b62c4dd2063072327c21d618ef2bedc3c87bc366
+
+PODFILE CHECKSUM: 359956c52314c83632e9d5bb45a958d6e9fadc20
+
+COCOAPODS: 1.11.3

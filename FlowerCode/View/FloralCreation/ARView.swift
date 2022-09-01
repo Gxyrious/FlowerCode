@@ -2,7 +2,11 @@ import UIKit
 import SwiftUI
 import SceneKit
 import ARKit
-import Introspect
+
+
+//struct ARView: View {
+//
+//}
 
 class ARViewController: UIViewController, ARSCNViewDelegate {
 
@@ -33,7 +37,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         super.viewWillAppear(animated)
         reloadConfiguration()
     }
-    func reloadConfiguration(removeAnchors: Bool = true)
+    func reloadConfiguration(removeAnchors: Bool = false)
     {
         configuration.planeDetection = [.horizontal, .vertical]
         configuration.detectionImages = nil

@@ -81,7 +81,9 @@ struct FCModel: Codable {
     
     var listSceneChildren = [ModelNode]()
     
-    var flower_number: [String:Int] = ["baihe":0,"youjiali":0,"haiyu":0,"meigui":0]
+    var flower_number: [String:Int] = [
+        "MeiGui": 0, "BaiZhang": 0, "YuJinXiang": 0, "AnShu": 0, "ManTianXing": 0, "HeiZhongCao": 0, "DaXingQin": 0
+    ]
     
     func json() throws -> Data {
         return try JSONEncoder().encode(self)
