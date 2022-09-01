@@ -36,7 +36,8 @@ let FlowerKind2FileName: [String:String] = [
     "AnShu": "flowerSet.dae",
     "ManTianXing": "flowerSet.dae",
     "HeiZhongCao": "flowerSet.dae",
-    "DaXingQin": "flowerSet.dae"
+    "DaXingQin": "flowerSet.dae",
+    "Vase": "vaseSet.dae"
 ]
 
 let vImageUrlSet: [String] = [
@@ -94,14 +95,21 @@ struct FlowerCreation: View {
         }
     }
     
-    @State var selectForm: String = "AnShu-1" {
-        willSet {
-            // set之前
-            print("2222222222")
-        }
+    var selectVaseScene: SCNScene = SCNScene(named: "vaseSet.dae")!
+    
+    @State var selectVaseNode: SCNNode = SCNScene(named: "vaseSet.dae")!
+        .rootNode.childNode(withName: "Vase-1", recursively: true)!
+    
+    @State var vaseKind: String = "Vase-1" {
         didSet {
-            // set之后
-            print("3333333333")
+            selectVaseNode = SCNScene(named: "vaseSet.dae")!
+                .rootNode.childNode(withName: vaseKind, recursively: true)!
+        }
+    }
+    
+    
+    @State var selectForm: String = "AnShu-1" {
+        didSet {
             selectNode = selectionScene.rootNode.childNode(withName: selectForm, recursively: true)!.clone()
             //            print("sceneName = \(selectNode.name!)")
             print("selectForm=\(selectForm)")
@@ -112,7 +120,6 @@ struct FlowerCreation: View {
     init(isTabViewHidden: Binding<Bool>) {
         self._isTabViewHidden = isTabViewHidden
     }
-    
         
     var body: some View {
         GeometryReader { geometry in
@@ -173,11 +180,11 @@ struct FlowerCreation: View {
                         }
                         Button {
                             // 自动生成
-//                            document.autoGenerate()
+                            document.autoGenerate()
                             let setNotFlower: Set<String> = ["side-light", "front-light"]
                             for child in scene.rootNode.childNodes {
                                 if !setNotFlower.contains(child.name!) {
-                                    // 动画效果无法呈现，估计要做成帧形式
+                                    // 动画效果无法呈现，可能要做成帧形式才行
                                     withAnimation(.easeInOut(duration: 2)) {
                                         child.position = SCNVector3(0,0,0)
                                     }
@@ -197,7 +204,6 @@ struct FlowerCreation: View {
                         }
                         .sheet(isPresented: $showFlowerChoice) {
                             VStack(spacing: 5) {
-                                // 搜索栏
                                 ScrollView(.horizontal) {
                                     HStack(spacing: 10) {
                                         // 添加新的花材
@@ -235,13 +241,10 @@ struct FlowerCreation: View {
                                     MaterialModification(selectNode: $selectNode, selectForm: $selectForm)
                                     Spacer()
                                     Button {
-                                        let kind = selectKind
                                         // 编号从1开始
                                         // MeiGui-1的form加到里面去之后与1不再有关系，而是会根据已有的node重新编号
-                                        document.addFlowerByOne(kind)
-                                        
-                                        let childName = "\(kind)-\(document.flowerNumber[kind]!)"
-//                                                child.name = childName
+                                        document.addFlowerByOne(selectKind)
+                                        let childName = "\(selectKind)-\(document.flowerNumber[selectKind]!)"
                                         document.addSceneChild(childName, selectNode.position, selectNode.rotation)
 //                                        scene.rootNode.addChildNode(child) // 导致一次update
                                         showFlowerChoice = false
@@ -264,7 +267,50 @@ struct FlowerCreation: View {
                             Image("floral_creation_vase")
                         }
                         .sheet(isPresented: $showVaseChoice) {
-                            Text("请选择花器")
+                            VStack {
+                                ScrollView(.horizontal) {
+                                    HStack(spacing: 10) {
+                                        // 添加新的花瓶
+                                        ForEach(vImageUrlSet, id: \.self) { vImageUrl in
+                                            Button {
+                                                vaseKind = vImageUrl
+                                            } label: {
+                                                Image(vImageUrl)
+                                                    .resizable()
+                                                    .frame(width: picSide,height: picSide)
+                                                    .padding(10)
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                Divider()
+                                    .foregroundColor(Color.black)
+                                
+                                VStack {
+                                    MaterialModification(selectNode: $selectVaseNode, selectForm: $vaseKind)
+                                    Spacer()
+                                    Button {
+                                        document.removeOneVase()
+                                        for index in 1 ..< 6 {
+                                            let vase = scene.rootNode.childNode(withName: "Vase-\(index)", recursively: true)
+                                            if (vase != nil) {
+                                                vase!.removeFromParentNode()
+                                            }
+                                        }
+                                        document.addSceneChild(vaseKind, selectVaseNode.position, selectVaseNode.rotation)
+                                        showVaseChoice = false
+                                        print(document.listSceneChildren)
+                                        // document也会导致一次update（好像是2次）
+                                    } label: {
+                                        Text("确认")
+                                            .font(.system(size: 20))
+                                            .foregroundColor(Color(red: 0.6523, green: 0.6992, blue: 0.5586))
+                                    }
+                                    Spacer()
+                                }
+                            }
+                            .background(Color(red: 0.906, green: 0.91, blue: 0.882))
                         }
                         
                         Button {
@@ -292,17 +338,6 @@ struct FlowerCreation: View {
         }
     }
 }
-
-//struct BoneValues {
-//    public var valueOfBone1: Int
-//    public var valueOfBone2: Int
-//    public var valueOfBone3: Int
-//    init() {
-//        valueOfBone1 = 0
-//        valueOfBone2 = 0
-//        valueOfBone3 = 0
-//    }
-//}
 
 struct MaterialModification: UIViewRepresentable {
     

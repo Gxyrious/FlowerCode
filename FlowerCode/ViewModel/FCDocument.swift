@@ -166,18 +166,16 @@ class FCDocument: ObservableObject {
     
     func updateSceneChild(_ childName: String, _ position: SCNVector3, _ rotate: SCNVector4) {
         // 存在就更新，不存在就不操作
-//        fcModel.listSceneChildren.filter { node in
-//            return node.name == childName
-//        }
         for index in 0 ..< fcModel.listSceneChildren.count {
             let child = fcModel.listSceneChildren[index]
             if child.name == childName {
-                let newChild = FCModel.ModelNode(
-                    childName, position.x, position.y, position.z,
-                    rotate.x, rotate.y, rotate.z, rotate.w
-                )
-                fcModel.listSceneChildren.remove(at: index)
-                fcModel.listSceneChildren.append(newChild)
+                fcModel.listSceneChildren[index].position.x = position.x
+                fcModel.listSceneChildren[index].position.y = position.y
+                fcModel.listSceneChildren[index].position.z = position.z
+                fcModel.listSceneChildren[index].rotate.x = rotate.x
+                fcModel.listSceneChildren[index].rotate.y = rotate.y
+                fcModel.listSceneChildren[index].rotate.z = rotate.z
+                fcModel.listSceneChildren[index].rotate.w = rotate.w
             }
         }
         print(listSceneChildren)
@@ -185,11 +183,38 @@ class FCDocument: ObservableObject {
     
     func autoGenerate() {
         for index in 0 ..< fcModel.listSceneChildren.count {
-            let child = fcModel.listSceneChildren.remove(at: index)
-            let newChild = FCModel.ModelNode(child.name, Float.zero, Float.zero, Float.zero,
-                                             Float.zero, Float.zero, Float.zero, Float.zero)
-            
-            fcModel.listSceneChildren.append(newChild)
+            fcModel.listSceneChildren[index].position.x = 0.0
+            fcModel.listSceneChildren[index].position.y = 0.0
+            fcModel.listSceneChildren[index].position.z = 0.0
+            fcModel.listSceneChildren[index].rotate.x = 0.0
+            fcModel.listSceneChildren[index].rotate.y = 0.0
+            fcModel.listSceneChildren[index].rotate.z = 0.0
+            fcModel.listSceneChildren[index].rotate.w = 0.0
+//            let newChild = FCModel.ModelNode(child.name, Float.zero, Float.zero, Float.zero,
+//                                             Float.zero, Float.zero, Float.zero, Float.zero)
+//            fcModel.listSceneChildren.remove(at: index)
+//            fcModel.listSceneChildren.append(newChild)
+        }
+        print(fcModel.listSceneChildren)
+    }
+    
+    func removeChildByName(_ name: String) {
+        for index in 0 ..< fcModel.listSceneChildren.count {
+            let child = fcModel.listSceneChildren[index]
+            if child.name == name {
+                fcModel.listSceneChildren.remove(at: index)
+                return
+            }
+        }
+    }
+    
+    func removeOneVase() {
+        for index in 0 ..< fcModel.listSceneChildren.count {
+            let child = fcModel.listSceneChildren[index]
+            if child.name.contains("Vase") {
+                fcModel.listSceneChildren.remove(at: index)
+                return
+            }
         }
     }
     

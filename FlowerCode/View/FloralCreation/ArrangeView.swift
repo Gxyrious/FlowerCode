@@ -17,8 +17,9 @@ struct ArrangeView: UIViewRepresentable {
     var view = SCNView()
     var cameraFrontNode = SCNNode()
     var cameraSideNode = SCNNode()
-    var buttonOne = UIButton(type:UIButton.ButtonType.system)//设置按钮位置与尺寸
-    var buttonTwo = UIButton(type:UIButton.ButtonType.system)//设置按钮位置与尺寸
+    var frontCameraButton = UIButton(type:UIButton.ButtonType.system)//设置按钮位置与尺寸
+    var sideCameraButton = UIButton(type:UIButton.ButtonType.system)//设置按钮位置与尺寸
+    var removeFlowerButton = UIButton(type:UIButton.ButtonType.system)
     var panGesture=UIPanGestureRecognizer() // 移动手势
     var tapGesture=UITapGestureRecognizer() // 触碰手势
    
@@ -33,14 +34,6 @@ struct ArrangeView: UIViewRepresentable {
         let sceneAround = sceneAroundFile.rootNode.childNode(withName: "Sketchfab_model", recursively: true)!
         sceneAround.name = "Around"
         scene.rootNode.addChildNode(sceneAround)
-        
-//        花瓶
-//        let vaseScene = SCNScene(named: "huaping.dae")!
-//        let vase = vaseScene.rootNode.childNode(withName: "huaping", recursively: true)!
-//        vase.name = "huaping"
-//        vase.scale=SCNVector3(4,4,4)
-//        vase.position=SCNVector3(0,0,0) // 左右 上下 前后
-//        scene.rootNode.addChildNode(vase)
         
 //         添加model中的花
         for node in document.listSceneChildren {
@@ -158,12 +151,12 @@ struct ArrangeView: UIViewRepresentable {
 //
 //        let meigui6 = meiguiNode.childNode(withName: "MeiGui-6", recursively: true)!
 //        scene.rootNode.addChildNode(meigui6)
-//
-        let vaseSet = SCNScene(named: "vaseSet.dae")!
-        let vaseNode = vaseSet.rootNode
-//        scene.rootNode.addChildNode(vaseNode)
-        let vase1 = vaseNode.childNode(withName: "Vase-1", recursively: true)!
-        scene.rootNode.addChildNode(vase1)
+
+//        let vaseSet = SCNScene(named: "vaseSet.dae")!
+//        let vaseNode = vaseSet.rootNode
+////        scene.rootNode.addChildNode(vaseNode)
+//        let vase1 = vaseNode.childNode(withName: "Vase-1", recursively: true)!
+//        scene.rootNode.addChildNode(vase1)
         
 //        let vase2 = vaseNode.childNode(withName: "Vase-2", recursively: true)!
 //        scene.rootNode.addChildNode(vase2)
@@ -234,26 +227,38 @@ struct ArrangeView: UIViewRepresentable {
         view.addGestureRecognizer(tapGesture)
         
         /// 创建UIButton实例用于旋转镜头
-        buttonOne.frame = CGRect(x:280,y:50,width:80,height:30)//设置按钮背景色
-        buttonOne.backgroundColor=UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)//设置按钮标题
-        buttonOne.setTitle("正面镜头", for: UIControl.State())
-        buttonOne.setTitleColor(UIColor.white,for: UIControl.State())//添加到当前视图
-        self.view.addSubview(buttonOne)
-        buttonOne.addTarget(
+        frontCameraButton.frame = CGRect(x:280,y:50,width:80,height:30)//设置按钮背景色
+        frontCameraButton.backgroundColor=UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)//设置按钮标题
+        frontCameraButton.setTitle("正面镜头", for: UIControl.State())
+        frontCameraButton.setTitleColor(UIColor.white,for: UIControl.State())//添加到当前视图
+        self.view.addSubview(frontCameraButton)
+        frontCameraButton.addTarget(
             context.coordinator,
-            action :#selector(context.coordinator.buttonOnetouchBegin),
+            action :#selector(context.coordinator.startFrontCamera),
             for :UIControl.Event.touchUpInside
         )
         
         /// 创建UIButton实例用于移动花
-        buttonTwo.frame = CGRect(x:180,y:50,width:80,height:30)//设置按钮背景色
-        buttonTwo.backgroundColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
-        buttonTwo.setTitle("侧面镜头", for: UIControl.State())
-        buttonTwo.setTitleColor(UIColor.white,for: UIControl.State())//添加到当前视图
-        self.view.addSubview(buttonTwo)
-        buttonTwo.addTarget(
+        sideCameraButton.frame = CGRect(x:180,y:50,width:80,height:30)//设置按钮背景色
+        sideCameraButton.backgroundColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
+        sideCameraButton.setTitle("侧面镜头", for: UIControl.State())
+        sideCameraButton.setTitleColor(UIColor.white,for: UIControl.State())//添加到当前视图
+        self.view.addSubview(sideCameraButton)
+        sideCameraButton.addTarget(
             context.coordinator,
-            action: #selector(context.coordinator.buttonTwotouchBegin),
+            action: #selector(context.coordinator.startSideCamera),
+            for: .touchUpInside
+        )
+        
+        /// 创建UIButton实例用于删除花
+        removeFlowerButton.frame = CGRect(x:180,y:90,width:80,height:30)//设置按钮背景色
+        removeFlowerButton.backgroundColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
+        removeFlowerButton.setTitle("删除", for: UIControl.State())
+        removeFlowerButton.setTitleColor(UIColor.white,for: UIControl.State())//添加到当前视图
+        self.view.addSubview(removeFlowerButton)
+        removeFlowerButton.addTarget(
+            context.coordinator,
+            action: #selector(context.coordinator.removeChildByName),
             for: .touchUpInside
         )
         
@@ -318,26 +323,30 @@ struct ArrangeView: UIViewRepresentable {
         let angles: [CGFloat] = [0, 90, 180, 270]
         var panStartZ = CGFloat()
         var lastPanLocation = SCNVector3()
-        var positionDice1 = SCNVector3(x: -4, y: 7, z: 7.4)
-        var positionDice2 = SCNVector3(x: -2, y: 7, z: 7.4)
-        var durationOfReturn = Double()
-        var f1 = false
-        var f2 = false
         
-        @objc func buttonOnetouchBegin(){
+        @objc func startFrontCamera() {
             parent.view.pointOfView = parent.cameraFrontNode
             parent.view.allowsCameraControl = true
 //            parent.view.removeGestureRecognizer(parent.panGesture)
             
-            print("buttonOnetouchBegin")
+            print("startFrontCamera")
         }
         
-        @objc func buttonTwotouchBegin(){
+        @objc func startSideCamera() {
             parent.view.pointOfView = parent.cameraSideNode
             parent.view.allowsCameraControl = true
 //            parent.view.addGestureRecognizer(parent.panGesture)
             
-            print("buttonTwotouchBegin")
+            print("startSideCamera")
+        }
+        
+        @objc func removeChildByName() {
+            // 删除选中的花/花瓶
+            let node = scene.rootNode.childNode(withName: parent.document.selectedNodeName, recursively: true)
+            if node != nil {
+                node!.removeFromParentNode()
+                parent.document.removeChildByName(node!.name!)
+            }
         }
         
         @objc func handleTap(_ tapGesture: UITapGestureRecognizer) {
@@ -348,9 +357,6 @@ struct ArrangeView: UIViewRepresentable {
             if hitResults.count > 0 {
                 let resultName = hitResults[0].node.name!
                 print("-resultName- = \(resultName)")
-//                if resultName == "Sketchfab_model"  {
-//                    return
-//                }
                 for node in parent.document.listSceneChildren {
                     if node.name == resultName {
                         parent.document.selectSCNNode(resultName)
@@ -380,21 +386,10 @@ struct ArrangeView: UIViewRepresentable {
             }
             print("未触碰到实体")
         }
+
         
-        /// Handle PanGesture for localTranslate and applyForce to dice
-        /// - Parameter panGesture: A discrete gesture recognizer that interprets panning gestures.
         @objc func handlePan(_ panGesture: UIPanGestureRecognizer){
-            // Getting nodes from MainScene.scn
-//            guard let drawingNode = parent.scene.rootNode.childNode(withName: "drawingNode", recursively: true) else { return }
-//            var name: String? = nil
-//            for (key,value) in parent.nodesSelected {
-//                if value == true {
-//                    name = key
-//                    break
-//                }
-//            }
-//            if name == nil { return }
-            print("selectedNodeName=\(parent.document.selectedNodeName)")
+//            print("selectedNodeName=\(parent.document.selectedNodeName)")
             let node = scene.rootNode.childNode(withName: parent.document.selectedNodeName, recursively: true) ?? nil
             if node == nil { return }
 
