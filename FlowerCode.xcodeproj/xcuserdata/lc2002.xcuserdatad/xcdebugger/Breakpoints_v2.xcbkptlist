@@ -14,8 +14,8 @@
             filePath = "FlowerCode/View/FloralCreation/ArrangeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "545"
-            endingLineNumber = "545"
+            startingLineNumber = "397"
+            endingLineNumber = "397"
             landmarkName = "handlePan(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "FlowerCode/View/FloralCreation/ArrangeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "546"
-            endingLineNumber = "546"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
             landmarkName = "handlePan(_:)"
             landmarkType = "7">
          </BreakpointContent>

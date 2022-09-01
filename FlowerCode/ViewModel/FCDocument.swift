@@ -110,7 +110,15 @@ class FCDocument: ObservableObject {
     
     var signature: String { fcModel.userInfo.signature }
     
+    var isDisplayed: [String:Bool] { fcModel.isDisplayed }
     
+    func displayByName(name: String) {
+        for child in listSceneChildren {
+            if child.name == name {
+                fcModel.isDisplayed[name] = true
+            }
+        }
+    }
     
     func toggleAlertSuccessLogIn(_ username: String, _ password: String) {
         alert.alertSuccessLogIn.toggle()
@@ -152,6 +160,37 @@ class FCDocument: ObservableObject {
                              position.x, position.y, position.z,
                              rotate.x, rotate.y, rotate.z, rotate.w)
         fcModel.listSceneChildren.append(node)
+        // 保证isDisplayed[:String]和listSceneChildren中child的name对应
+        fcModel.isDisplayed.updateValue(false, forKey: childName)
+    }
+    
+    func updateSceneChild(_ childName: String, _ position: SCNVector3, _ rotate: SCNVector4) {
+        // 存在就更新，不存在就不操作
+//        fcModel.listSceneChildren.filter { node in
+//            return node.name == childName
+//        }
+        for index in 0 ..< fcModel.listSceneChildren.count {
+            let child = fcModel.listSceneChildren[index]
+            if child.name == childName {
+                let newChild = FCModel.ModelNode(
+                    childName, position.x, position.y, position.z,
+                    rotate.x, rotate.y, rotate.z, rotate.w
+                )
+                fcModel.listSceneChildren.remove(at: index)
+                fcModel.listSceneChildren.append(newChild)
+            }
+        }
+        print(listSceneChildren)
+    }
+    
+    func autoGenerate() {
+        for index in 0 ..< fcModel.listSceneChildren.count {
+            let child = fcModel.listSceneChildren.remove(at: index)
+            let newChild = FCModel.ModelNode(child.name, Float.zero, Float.zero, Float.zero,
+                                             Float.zero, Float.zero, Float.zero, Float.zero)
+            
+            fcModel.listSceneChildren.append(newChild)
+        }
     }
     
     static func ModelPosition2SCNVector3(_ position: FCModel.ModelNode.Position) -> SCNVector3 {

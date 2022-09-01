@@ -15,6 +15,10 @@ let material_position_in_modification: [String:SCNVector3] = ["baihe": SCNVector
 
 let picSide: CGFloat = 40
 
+let kImageUrlList: [String] = [
+    "MeiGui", "BaiZhang", "YuJinXiang", "AnShu", "ManTianXing", "HeiZhongCao", "DaXingQin"
+]
+
 let fImageUrlSet: [String:[String]] = [
     "MeiGui": ["MeiGui-1", "MeiGui-2", "MeiGui-3", "MeiGui-4", "MeiGui-5", "MeiGui-6"],
     "BaiZhang": ["BaiZhang-1", "BaiZhang-2", "BaiZhang-3", "BaiZhang-4", "BaiZhang-5"],
@@ -41,17 +45,9 @@ let vImageUrlSet: [String] = [
 
 struct FlowerCreation: View {
     
-//    init(isTabViewHidden: Bool ) {
-//        isTabViewHidden = isTabViewHidden
-//        selectionScene = SCNScene(named: "flowerSet_rose.dae")!
-//        selectNode = selectionScene.rootNode.childNode(withName: "MeiGui-1", recursively: true)!
-//    }
-    
     @Binding var isTabViewHidden: Bool
     
     @State var scene: SCNScene = SCNScene()
-    
-
     
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -63,7 +59,6 @@ struct FlowerCreation: View {
     
     @EnvironmentObject var document: FCDocument
     
-//    @State var nodesSelected = [String:Bool]()
     // sheet栏对应State变量
     @State var showFlowerChoice: Bool = false
     @State var showVaseChoice: Bool = false
@@ -83,8 +78,8 @@ struct FlowerCreation: View {
         didSet {
             // 先选定哪个文件
             let daeFileName = FlowerKind2FileName[selectKind]!
-            print("111111111111111111111111111daeFileName-\(daeFileName)")
-            
+            print("daeFileName-\(daeFileName)")
+
             for child in selectionScene.rootNode.childNodes {
                 child.removeFromParentNode()
             }
@@ -94,27 +89,30 @@ struct FlowerCreation: View {
                 selectionScene.rootNode.addChildNode(child)
             }
             print(selectionScene.rootNode.childNodes)
-//            selectionScene = SCNScene(named: daeFileName)!
+
             selectForm = "\(selectKind)-1"
         }
     }
     
     @State var selectForm: String = "AnShu-1" {
-//        willSet {
-//            // set之前
-//            print("2222222222")
-//        }
+        willSet {
+            // set之前
+            print("2222222222")
+        }
         didSet {
             // set之后
             print("3333333333")
             selectNode = selectionScene.rootNode.childNode(withName: selectForm, recursively: true)!.clone()
-            print("sceneName = \(selectNode.name!)")
+            //            print("sceneName = \(selectNode.name!)")
+            print("selectForm=\(selectForm)")
+            //            selectNode = allFlowerSet.rootNode.childNode(withName: selectForm, recursively: true)!.clone()
         }
-        
     }
     
-    // 花材编辑数据
-//    @State var valueOfBones = BoneValues()
+    init(isTabViewHidden: Binding<Bool>) {
+        self._isTabViewHidden = isTabViewHidden
+    }
+    
         
     var body: some View {
         GeometryReader { geometry in
@@ -175,6 +173,16 @@ struct FlowerCreation: View {
                         }
                         Button {
                             // 自动生成
+//                            document.autoGenerate()
+                            let setNotFlower: Set<String> = ["side-light", "front-light"]
+                            for child in scene.rootNode.childNodes {
+                                if !setNotFlower.contains(child.name!) {
+                                    // 动画效果无法呈现，估计要做成帧形式
+                                    withAnimation(.easeInOut(duration: 2)) {
+                                        child.position = SCNVector3(0,0,0)
+                                    }
+                                }
+                            }
                         } label: {
                             Image("auto_generate")
                         }
@@ -192,52 +200,17 @@ struct FlowerCreation: View {
                                 // 搜索栏
                                 ScrollView(.horizontal) {
                                     HStack(spacing: 10) {
-                                        Button {
-                                            selectKind = "MeiGui"
-                                        } label: {
-                                            Image("material_1").resizable().frame(width: picSide,height: picSide).padding(10)
-                                        }
-                                        Button {
-                                            selectKind = "BaiZhang"
-                                        } label: {
-                                            Image("material_2").resizable().frame(width: picSide,height: picSide).padding(10)
-                                        }
-                                        Button {
-                                            selectKind = "YuJinXiang"
-                                        } label: {
-                                            Image("material_3").resizable().frame(width: picSide,height: picSide).padding(10)
-                                        }
-                                        Button {
-                                            selectKind = "AnShu"
-                                        } label: {
-                                            Image("material_3").resizable().frame(width: picSide,height: picSide).padding(10)
-                                        }
-                                        Button {
-                                            selectKind = "ManTianXing"
-                                        } label: {
-                                            Image("material_4").resizable().frame(width: picSide,height: picSide).padding(10)
-                                        }
-                                        Button {
-                                            selectKind = "HeiZhongCao"
-                                        } label: {
-                                            Image("material_5").resizable().frame(width: picSide,height: picSide).padding(10)
-                                        }
-                                        Button {
-                                            selectKind = "DaXingQin"
-                                        } label: {
-                                            Image("material_6").resizable().frame(width: picSide,height: picSide).padding(10)
-                                        }
-                                        Button {
-                                            selectKind = "111"
-                                        } label: {
-                                            Image("material_7").resizable().frame(width: picSide,height: picSide).padding(10)
-                                        }
-                                        Button {
-                                            selectKind = "111"
-                                        } label: {
-                                            Image("material_8").resizable().frame(width: picSide,height: picSide).padding(10)
-                                        }
                                         // 添加新的花材
+                                        ForEach(kImageUrlList, id: \.self) { kImageUrl in
+                                            Button {
+                                                selectKind = kImageUrl
+                                            } label: {
+                                                Image(kImageUrl)
+                                                    .resizable()
+                                                    .frame(width: picSide,height: picSide)
+                                                    .padding(10)
+                                            }
+                                        }
                                     }
                                 }
                                 ScrollView(.horizontal) {
@@ -247,7 +220,10 @@ struct FlowerCreation: View {
                                             Button {
                                                 selectForm = fImageUrl
                                             } label: {
-                                                Image(fImageUrl).resizable().frame(width: picSide,height: picSide).padding(10)
+                                                Image(fImageUrl)
+                                                    .resizable()
+                                                    .frame(width: picSide,height: picSide)
+                                                    .padding(10)
                                             }
                                         }
                                     }
@@ -257,35 +233,19 @@ struct FlowerCreation: View {
                                 
                                 VStack {
                                     MaterialModification(selectNode: $selectNode, selectForm: $selectForm)
-//                                    if selectKind == "BaiHe" {
-//                                        MaterialModification(
-//                                            myScene: $selectionScene,
-//                                            selectForm: selectKind
-//                                        )
-//                                    }
-//                                    else if selectKind == "MeiGui" {
-//                                        MaterialModification(
-//                                            myScene: $selectionScene,
-//                                            selectForm: selectKind
-//                                        )
-//                                    }
-//                                    else if selectKind == "YouJiaLi"{
-//                                        // 空3D视图
-//                                    }
-//                                    else {
-//                                        // 空3D视图
-//                                    }
                                     Spacer()
                                     Button {
                                         let kind = selectKind
                                         // 编号从1开始
                                         // MeiGui-1的form加到里面去之后与1不再有关系，而是会根据已有的node重新编号
                                         document.addFlowerByOne(kind)
+                                        
                                         let childName = "\(kind)-\(document.flowerNumber[kind]!)"
 //                                                child.name = childName
                                         document.addSceneChild(childName, selectNode.position, selectNode.rotation)
-//                                                scene.rootNode.addChildNode(child) // 导致一次update
+//                                        scene.rootNode.addChildNode(child) // 导致一次update
                                         showFlowerChoice = false
+                                        print(document.listSceneChildren)
                                         // document也会导致一次update（好像是2次）
                                     } label: {
                                         Text("确认")
@@ -355,6 +315,7 @@ struct MaterialModification: UIViewRepresentable {
     
     var view = SCNView()
     
+    
     func makeUIView(context: Context) -> some UIView {
         
         cameraFrameNode.isHidden = true
@@ -381,6 +342,60 @@ struct MaterialModification: UIViewRepresentable {
         return view
     }
     func updateUIView(_ uiView: UIViewType, context: Context) {
+//        let allFlowerSet: SCNScene = SCNScene()
+//
+//        let flowerSet = SCNScene(named: "flowerSet.dae")!
+//        let flowerSetNode = flowerSet.rootNode.childNode(withName: "RootNode-001", recursively: true)!
+////        allFlowerSet.rootNode.addChildNode(flowerSetNode)
+//        let eucalyptus1 = flowerSetNode.childNode(withName: "AnShu-1", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(eucalyptus1)
+//
+//        let eucalyptus2 = flowerSetNode.childNode(withName: "AnShu-2", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(eucalyptus2)
+//
+//        let babybreath1 = flowerSetNode.childNode(withName: "ManTianXing-1", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(babybreath1)
+//
+//        let nigella1 = flowerSetNode.childNode(withName: "ManTianXing-2", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(nigella1)
+//
+//        let nigella3 = flowerSetNode.childNode(withName: "HeiZhongCao-1", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(nigella3)
+//
+//        let nigella4 = flowerSetNode.childNode(withName: "HeiZhongCao-2", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(nigella4)
+//
+//        let astrantia = flowerSetNode.childNode(withName: "DaXingQin-1", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(astrantia)
+//
+//        let astrantia1 = flowerSetNode.childNode(withName: "DaXingQin-2", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(astrantia1)
+//
+//        let astrantia2 = flowerSetNode.childNode(withName: "DaXingQin-3", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(astrantia2)
+//
+//
+//        let flowerSet_meigui = SCNScene(named: "flowerSet_meigui.dae")!
+//        let meiguiNode = flowerSet_meigui.rootNode.childNode(withName: "Empty-002_9", recursively: true)!
+////        allFlowerSet.rootNode.addChildNode(meiguiNode)
+//        let meigui1 = meiguiNode.childNode(withName: "MeiGui-1", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(meigui1)
+//
+//        let meigui2 = meiguiNode.childNode(withName: "MeiGui-2", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(meigui2)
+//
+//        let meigui3 = meiguiNode.childNode(withName: "MeiGui-3", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(meigui3)
+//
+//        let meigui4 = meiguiNode.childNode(withName: "MeiGui-4", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(meigui4)
+//
+//        let meigui5 = meiguiNode.childNode(withName: "MeiGui-5", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(meigui5)
+//
+//        let meigui6 = meiguiNode.childNode(withName: "MeiGui-6", recursively: true)!
+//        allFlowerSet.rootNode.addChildNode(meigui6)
+        
         print("MaterialChooseView-updateUIView()-started")
         print("selectForm = \(selectForm)")
         print("selectNode.name = \(selectNode.name!)")
@@ -389,12 +404,15 @@ struct MaterialModification: UIViewRepresentable {
         for child in sceneChildren {
             child.removeFromParentNode()
         }
+//        let newRootNode = allFlowerSet.rootNode
         
-        let newNode = SCNScene(named: FlowerKind2FileName[selectForm.components(separatedBy: "-").first!]!)!.rootNode.childNode(withName: selectForm, recursively: true)!
-        
-        
+//        let newNode = newRootNode.childNode(withName: selectForm, recursively: true)?.clone()
+        let newFile = FlowerKind2FileName[selectForm.components(separatedBy: "-").first!]!
+        let newScene = SCNScene(named: newFile)!
+        let newNode = newScene.rootNode.childNode(withName: selectForm, recursively: true)!
         scene.rootNode.addChildNode(newNode)
-//        let deleteChild = scene.rootNode.childNode(withName: <#T##String#>, recursively: <#T##Bool#>)
+        
+//        scene.rootNode.addChildNode(selectNode)
     }
 //    func makeCoordinator() -> Coordinator {
 //        Coordinator(self)

@@ -21,13 +21,6 @@ struct ArrangeView: UIViewRepresentable {
     var buttonTwo = UIButton(type:UIButton.ButtonType.system)//设置按钮位置与尺寸
     var panGesture=UIPanGestureRecognizer() // 移动手势
     var tapGesture=UITapGestureRecognizer() // 触碰手势
-//    var progressBar1 = UIStackView()
-//    var progressBar2 = UIStackView()
-//    var pgView1 = UIProgressView()
-//    var pgView2 = UIProgressView()
-//    var rotateAngle: Float = 0 // 范围[-180,180]
-//    var nodeScale: Float = 1.1
-//    var rotateAngles: BoneValues
    
     func makeUIView(context: Context) -> SCNView {
         // 初始化
@@ -38,7 +31,7 @@ struct ArrangeView: UIViewRepresentable {
         // 添加创作背景板
         let sceneAroundFile = SCNScene(named: "CreateScene.dae")!
         let sceneAround = sceneAroundFile.rootNode.childNode(withName: "Sketchfab_model", recursively: true)!
-        sceneAround.name = "dsfsdgsdfg"
+        sceneAround.name = "Around"
         scene.rootNode.addChildNode(sceneAround)
         
 //        花瓶
@@ -50,31 +43,38 @@ struct ArrangeView: UIViewRepresentable {
 //        scene.rootNode.addChildNode(vase)
         
 //         添加model中的花
-        for var node in document.listSceneChildren {
-            if !node.isDisplayed {
-                let name = node.name.components(separatedBy: "-").first! // 获取花名
-                print("获取花名：\(name)和\(node.name)")
-                let flowerFile = SCNScene(named: "\(name).dae")!
-                let flower = flowerFile.rootNode.childNode(withName: "youjiali", recursively: true) ?? flowerFile.rootNode
-                flower.name = node.name
+        for node in document.listSceneChildren {
+            let name = node.name.components(separatedBy: "-").first!
+            print("获取花名：\(name)")
+            var flag = true
+            for child in scene.rootNode.childNodes {
+                if child.name == node.name {
+                    // 已经存在
+                    flag = false
+                    break
+                }
+            }
+            if flag {
+                let flowerFile = SCNScene(named: FlowerKind2FileName[name]!)!
+                let flower = flowerFile.rootNode.childNode(withName: node.name, recursively: true)!
+    //                flower.name = node.name
                 flower.position = FCDocument.ModelPosition2SCNVector3(node.position)
                 flower.rotation = FCDocument.ModelRotate2SCNVector4(node.rotate)
                 scene.rootNode.addChildNode(flower)
             }
-            node.display()
         }
         
         // 添加一些测试的花
         
         // flowerSet.dae
-        let flowerSet = SCNScene(named: "flowerSet.dae")!
-        let flowerSetNode = flowerSet.rootNode.childNode(withName: "RootNode-001", recursively: true)!
-//        scene.rootNode.addChildNode(flowerSetNode)
-        let eucalyptus1 = flowerSetNode.childNode(withName: "AnShu-1", recursively: true)!
-        scene.rootNode.addChildNode(eucalyptus1)
-
-        let eucalyptus2 = flowerSetNode.childNode(withName: "AnShu-2", recursively: true)!
-        scene.rootNode.addChildNode(eucalyptus2)
+//        let flowerSet = SCNScene(named: "flowerSet.dae")!
+//        let flowerSetNode = flowerSet.rootNode.childNode(withName: "RootNode-001", recursively: true)!
+////        scene.rootNode.addChildNode(flowerSetNode)
+//        let eucalyptus1 = flowerSetNode.childNode(withName: "AnShu-1", recursively: true)!
+//        scene.rootNode.addChildNode(eucalyptus1)
+//
+//        let eucalyptus2 = flowerSetNode.childNode(withName: "AnShu-2", recursively: true)!
+//        scene.rootNode.addChildNode(eucalyptus2)
 
 //        let babybreath1 = flowerSetNode.childNode(withName: "ManTianXing-1", recursively: true)!
 //        scene.rootNode.addChildNode(babybreath1)
@@ -101,11 +101,11 @@ struct ArrangeView: UIViewRepresentable {
 //        scene.rootNode.addChildNode(astrantia2)
 
         // flowerSet_yujinxiang.dae
-        let flowerSet_yujinxiang = SCNScene(named: "flowerSet_yujinxiang.dae")!
-        let yujinxiangNode = flowerSet_yujinxiang.rootNode.childNode(withName: "yujinxiang", recursively: true)!
-//        scene.rootNode.addChildNode(yujinxiangNode)
-        let yujingxiang1 = yujinxiangNode.childNode(withName: "YuJinXiang-1", recursively: true)!
-        scene.rootNode.addChildNode(yujingxiang1)
+//        let flowerSet_yujinxiang = SCNScene(named: "flowerSet_yujinxiang.dae")!
+//        let yujinxiangNode = flowerSet_yujinxiang.rootNode.childNode(withName: "yujinxiang", recursively: true)!
+////        scene.rootNode.addChildNode(yujinxiangNode)
+//        let yujingxiang1 = yujinxiangNode.childNode(withName: "YuJinXiang-1", recursively: true)!
+//        scene.rootNode.addChildNode(yujingxiang1)
 //
 //        let yujingxiang2 = yujinxiangNode.childNode(withName: "YuJinXiang-2", recursively: true)!
 //        scene.rootNode.addChildNode(yujingxiang2)
@@ -120,11 +120,11 @@ struct ArrangeView: UIViewRepresentable {
 //        scene.rootNode.addChildNode(yujingxiang5)
         
         // flowerSet_baizhang.dae
-        let flowerSet_baizhang = SCNScene(named: "flowerSet_baizhang.dae")!
-        let baizhangNode = flowerSet_baizhang.rootNode.childNode(withName: "RootNode-002", recursively: true)!
-//        scene.rootNode.addChildNode(baizhangNode)
-        let baizhang1 = baizhangNode.childNode(withName: "BaiZhang-1", recursively: true)!
-        scene.rootNode.addChildNode(baizhang1)
+//        let flowerSet_baizhang = SCNScene(named: "flowerSet_baizhang.dae")!
+//        let baizhangNode = flowerSet_baizhang.rootNode.childNode(withName: "RootNode-002", recursively: true)!
+////        scene.rootNode.addChildNode(baizhangNode)
+//        let baizhang1 = baizhangNode.childNode(withName: "BaiZhang-1", recursively: true)!
+//        scene.rootNode.addChildNode(baizhang1)
 
 //        let baizhang2 = baizhangNode.childNode(withName: "BaiZhang-2", recursively: true)!
 //        scene.rootNode.addChildNode(baizhang2)
@@ -138,12 +138,12 @@ struct ArrangeView: UIViewRepresentable {
 //        let baizhang5 = baizhangNode.childNode(withName: "BaiZhang-5", recursively: true)!
 //        scene.rootNode.addChildNode(baizhang5)
         
-        let flowerSet_meigui = SCNScene(named: "flowerSet_meigui.dae")!
-        let meiguiNode = flowerSet_meigui.rootNode.childNode(withName: "Empty-002_9", recursively: true)!
-//        scene.rootNode.addChildNode(meiguiNode)
-        let meigui1 = meiguiNode.childNode(withName: "MeiGui-1", recursively: true)!
-        scene.rootNode.addChildNode(meigui1)
-        
+//        let flowerSet_meigui = SCNScene(named: "flowerSet_meigui.dae")!
+//        let meiguiNode = flowerSet_meigui.rootNode.childNode(withName: "Empty-002_9", recursively: true)!
+////        scene.rootNode.addChildNode(meiguiNode)
+//        let meigui1 = meiguiNode.childNode(withName: "MeiGui-1", recursively: true)!
+//        scene.rootNode.addChildNode(meigui1)
+//
 //        let meigui2 = meiguiNode.childNode(withName: "MeiGui-2", recursively: true)!
 //        scene.rootNode.addChildNode(meigui2)
 //
@@ -158,7 +158,7 @@ struct ArrangeView: UIViewRepresentable {
 //
 //        let meigui6 = meiguiNode.childNode(withName: "MeiGui-6", recursively: true)!
 //        scene.rootNode.addChildNode(meigui6)
-        
+//
         let vaseSet = SCNScene(named: "vaseSet.dae")!
         let vaseNode = vaseSet.rootNode
 //        scene.rootNode.addChildNode(vaseNode)
@@ -205,11 +205,13 @@ struct ArrangeView: UIViewRepresentable {
         let modelFrontLightNode = sceneAroundFile.rootNode.childNode(withName: "Light", recursively: true)!
         
         let sideLightNode = SCNNode()
+        sideLightNode.name = "side-light"
         sideLightNode.light = omniLight
         sideLightNode.position=modelSideLightNode.position
         sideLightNode.rotation=modelSideLightNode.rotation
         
         let frontLightNode = SCNNode()
+        frontLightNode.name = "front-light"
         frontLightNode.light = omniLight
         frontLightNode.position = modelFrontLightNode.position
         frontLightNode.rotation = modelFrontLightNode.rotation
@@ -255,99 +257,6 @@ struct ArrangeView: UIViewRepresentable {
             for: .touchUpInside
         )
         
-        // 创建进度条调整花的旋转问题
-//        progressBar1.axis = .horizontal
-//        progressBar1.distribution = .fill
-//        progressBar1.spacing = 10
-//        progressBar1.frame = CGRect(x: 45, y: 660, width: 300, height: 20)
-        // -----
-        // minus按钮
-        let uiButtonMinus1 = UIButton(type: UIButton.ButtonType.custom)
-        uiButtonMinus1.setBackgroundImage(
-            UIImage(systemName: "minus.circle")?
-                .withTintColor(
-                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
-                    renderingMode: .alwaysOriginal
-                ),
-            for: .normal
-        )
-//        uiButtonMinus1.addTarget(
-//            context.coordinator,
-//            action: #selector(context.coordinator.minusAngle),
-//            for: .touchUpInside
-//        )
-//        progressBar1.addArrangedSubview(uiButtonMinus1)
-//        // 进度条
-//        pgView1.setProgress((rotateAngle + 180) / 360, animated: false)
-//        pgView1.transform = CGAffineTransform(scaleX: 1.0,y: 0.2)
-//        pgView1.progressTintColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
-//        progressBar1.addArrangedSubview(pgView1)
-        // plus按钮
-        let uiButtonPlus1 = UIButton(type: UIButton.ButtonType.system)
-        uiButtonPlus1.setBackgroundImage(
-            UIImage(systemName: "plus.circle")?
-                .withTintColor(
-                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
-                    renderingMode: .alwaysOriginal
-                ),
-            for: .normal
-        )
-//        uiButtonPlus1.addTarget(
-//            context.coordinator,
-//            action: #selector(context.coordinator.plusAngle),
-//            for: .touchUpInside
-//        )
-//        progressBar1.addArrangedSubview(uiButtonPlus1)
-        // -----
-        // 创建进度条调整花的旋转问题
-//        progressBar2.axis = .horizontal
-//        progressBar2.distribution = .fill
-//        progressBar2.spacing = 10
-//        progressBar2.frame = CGRect(x: 45, y: 700, width: 300, height: 20)
-        // minus按钮
-        let uiButtonMinus2 = UIButton(type: UIButton.ButtonType.custom)
-        uiButtonMinus2.setBackgroundImage(
-            UIImage(systemName: "minus.circle")?
-                .withTintColor(
-                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
-                    renderingMode: .alwaysOriginal
-                ),
-            for: .normal
-        )
-//        uiButtonMinus2.addTarget(
-//            context.coordinator,
-//            action: #selector(context.coordinator.minusScale),
-//            for: .touchUpInside
-//        )
-//        progressBar2.addArrangedSubview(uiButtonMinus2)
-        // 进度条
-//        pgView2.setProgress((nodeScale + 180) / 360, animated: false)
-//        pgView2.transform = CGAffineTransform(scaleX: 1.0,y: 0.2)
-//        pgView2.progressTintColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
-//        progressBar2.addArrangedSubview(pgView2)
-        // plus按钮
-        let uiButtonPlus2 = UIButton(type: UIButton.ButtonType.system)
-        uiButtonPlus2.setBackgroundImage(
-            UIImage(systemName: "plus.circle")?
-                .withTintColor(
-                    UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1),
-                    renderingMode: .alwaysOriginal
-                ),
-            for: .normal
-        )
-//        uiButtonPlus2.addTarget(
-//            context.coordinator,
-//            action: #selector(context.coordinator.plusScale),
-//            for: .touchUpInside
-//        )
-//        progressBar2.addArrangedSubview(uiButtonPlus2)
-        // -----
-        
-        // 添加到view
-//        self.view.addSubview(progressBar1)
-//        self.view.addSubview(progressBar2)
-
-        
         // 设置背景
         scene.background.contents=UIImage(named: "background.jpg")
         
@@ -359,24 +268,35 @@ struct ArrangeView: UIViewRepresentable {
 
     func updateUIView(_ view: SCNView, context: Context) {
         // 该函数何时被触发？
-        print("==updateUIView==")
+        print("======updateUIView======")
         
         print(document.listSceneChildren)
+        for child in scene.rootNode.childNodes {
+            print("======\(child.name!)======")
+            print(child.position)
+        }
         print(document.flowerNumber)
         
-//        for var node in document.listSceneChildren {
-//            if !node.isDisplayed {
-//                let name = node.name.components(separatedBy: "-").first!
-//                print("获取花名：\(name)")
-//                let flowerFile = SCNScene(named: "\(name).dae")!
-//                let flower = flowerFile.rootNode
-//                flower.name = node.name
-//                flower.position = FCDocument.ModelPosition2SCNVector3(node.position)
-//                flower.rotation = FCDocument.ModelRotate2SCNVector4(node.rotate)
-//                scene.rootNode.addChildNode(flower)
-//            }
-//            node.display()
-//        }
+        for node in document.listSceneChildren {
+            let name = node.name.components(separatedBy: "-").first!
+            print("获取花名：\(name)")
+            var flag = true
+            for child in scene.rootNode.childNodes {
+                if child.name == node.name {
+                    // 已经存在
+                    flag = false
+                    break
+                }
+            }
+            if flag {
+                let flowerFile = SCNScene(named: FlowerKind2FileName[name]!)!
+                let flower = flowerFile.rootNode.childNode(withName: node.name, recursively: true)!
+    //                flower.name = node.name
+                flower.position = FCDocument.ModelPosition2SCNVector3(node.position)
+                flower.rotation = FCDocument.ModelRotate2SCNVector4(node.rotate)
+                scene.rootNode.addChildNode(flower)
+            }
+        }
         
     }
     
@@ -389,8 +309,6 @@ struct ArrangeView: UIViewRepresentable {
         var parent: ArrangeView
         
         @Binding var scene: SCNScene
-        
-//        @EnvironmentObject var document: FCDocument
 
         init(_ parent: ArrangeView, scene: Binding<SCNScene>) {
             self.parent = parent
@@ -405,72 +323,6 @@ struct ArrangeView: UIViewRepresentable {
         var durationOfReturn = Double()
         var f1 = false
         var f2 = false
-        
-//        @objc func minusAngle() {
-//            var selectedChild: String? = nil
-//            for key in parent.nodesSelected.keys {
-//                if parent.nodesSelected[key] == true {
-//                    selectedChild = key
-//                }
-//            }
-//            if selectedChild == nil { return }
-//            guard let child = parent.view.scene?.rootNode.childNode(withName: selectedChild!, recursively: true) else { return }
-//            parent.rotateAngle -= 10
-//            if parent.rotateAngle < -180 { parent.rotateAngle = -180 }
-//            parent.pgView1.setProgress((parent.rotateAngle + 180) / 360, animated: false)
-//            child.rotation = SCNVector4(0,1,0,.pi * parent.rotateAngle / 180.0)
-//            print("rotate-angle=\(parent.rotateAngle)")
-//        }
-        
-//        @objc func plusAngle() {
-//            var selectedChild: String? = nil
-//            for key in parent.nodesSelected.keys {
-//                if parent.nodesSelected[key] == true {
-//                    selectedChild = key
-//                }
-//            }
-//            if selectedChild == nil { return }
-//            guard let child = parent.view.scene?.rootNode.childNode(withName: selectedChild!, recursively: true) else { return }
-//            parent.rotateAngle += 10
-//            if parent.rotateAngle > 180 { parent.rotateAngle = 180 }
-//            parent.pgView1.setProgress((parent.rotateAngle + 180) / 360, animated: false)
-//            child.rotation = SCNVector4(0,1,0,.pi * parent.rotateAngle / 180.0)
-//            print("rotate-angle=\(parent.rotateAngle)")
-//        }
-        
-//        @objc func minusScale() {
-//            var selectedChild: String? = nil
-//            for key in parent.nodesSelected.keys {
-//                if parent.nodesSelected[key] == true {
-//                    selectedChild = key
-//                }
-//            }
-//            if selectedChild == nil { return }
-//            guard let child = parent.view.scene?.rootNode.childNode(withName: selectedChild!, recursively: true) else { return }
-//            parent.nodeScale = child.scale.z
-//            parent.nodeScale -= 0.1
-//            if parent.nodeScale < 0.1 { parent.nodeScale = 0.1 }
-//            parent.pgView2.setProgress((parent.nodeScale - 0.1) / 2, animated: false)
-//            child.scale = SCNVector3(parent.nodeScale,parent.nodeScale,parent.nodeScale)
-//            print("node-scale=\(parent.nodeScale)")
-//        }
-        
-//        @objc func plusScale() {
-//            var selectedChild: String? = nil
-//            for key in parent.nodesSelected.keys {
-//                if parent.nodesSelected[key] == true {
-//                    selectedChild = key
-//                }
-//            }
-//            if selectedChild == nil { return }
-//            guard let child = parent.view.scene?.rootNode.childNode(withName: selectedChild!, recursively: true) else { return }
-//            parent.nodeScale = child.scale.z
-//            parent.nodeScale += 0.1
-//            if parent.rotateAngle > 2.1 { parent.nodeScale = 2.1 }
-//            parent.pgView2.setProgress((parent.nodeScale - 0.1) / 2, animated: false)
-//            child.scale = SCNVector3(parent.nodeScale,parent.nodeScale,parent.nodeScale)
-//            print("node-scale=\(parent.nodeScale)")
-//        }
         
         @objc func buttonOnetouchBegin(){
             parent.view.pointOfView = parent.cameraFrontNode
@@ -518,7 +370,7 @@ struct ArrangeView: UIViewRepresentable {
                             
                             SCNTransaction.commit()
                         }
-                        material.emission.contents = CGColor(red: 1, green: 0, blue: 0, alpha: 1)
+                        material.emission.contents = CGColor(red: 0, green: 1, blue: 0, alpha: 1)
                         SCNTransaction.commit()
                         return
                     }
@@ -580,6 +432,8 @@ struct ArrangeView: UIViewRepresentable {
             case .ended:
                 print("ended")
                 print(node!.position)
+                print(node!.rotation)
+                parent.document.updateSceneChild(node!.name!, node!.position, node!.rotation)
             default:
                 break
             }

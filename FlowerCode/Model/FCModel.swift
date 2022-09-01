@@ -39,11 +39,7 @@ extension FCModel {
             public var w: Float
         }
         
-        public var isDisplayed: Bool = false
-        
-        public mutating func display() {
-            isDisplayed = true
-        }
+//        public var isDisplayed: Bool = false
         
         public var name: String
         
@@ -80,6 +76,8 @@ struct FCModel: Codable {
     var selectedNodeName: String = ""
     
     var listSceneChildren = [ModelNode]()
+    
+    var isDisplayed = [String:Bool]()
     
     var flower_number: [String:Int] = [
         "MeiGui": 0, "BaiZhang": 0, "YuJinXiang": 0, "AnShu": 0, "ManTianXing": 0, "HeiZhongCao": 0, "DaXingQin": 0
