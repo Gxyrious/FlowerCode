@@ -198,14 +198,15 @@ struct FlowerCreation: View {
                                         Button {
                                             if let child = selectionScene?.rootNode {
                                                 let materialName = selectedMaterial!
+                                                // 编号从1开始
                                                 document.addFlowerByOne(materialName)
-                                                let childName = "\(materialName)-\(document.flowerName[materialName]!)"
-                                                child.name = childName
+                                                let childName = "\(materialName)-\(document.flowerNumber[materialName]!)"
+//                                                child.name = childName
                                                 document.addSceneChild(childName, child.position, child.rotation)
-                                                scene.rootNode.addChildNode(child)
-                                                child.name = childName
+//                                                scene.rootNode.addChildNode(child) // 导致一次update
                                                 showFlowerChoice = false
-                                                selectedMaterial = nil
+                                                // document也会导致一次update（好像是2次）
+                                                selectedMaterial = nil // 导致一次update
                                             }
                                         } label: {
                                             Text("确认")

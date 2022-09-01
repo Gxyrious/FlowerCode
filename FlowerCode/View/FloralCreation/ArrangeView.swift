@@ -31,13 +31,14 @@ struct ArrangeView: UIViewRepresentable {
    
     func makeUIView(context: Context) -> SCNView {
         // 初始化
+        print("==makeUIView==")
         view.scene = scene
         view.autoenablesDefaultLighting = true
         view.allowsCameraControl = true
         // 添加创作背景板
         let sceneAroundFile = SCNScene(named: "CreateScene.dae")!
         let sceneAround = sceneAroundFile.rootNode.childNode(withName: "Sketchfab_model", recursively: true)!
-        sceneAround.name = "Around"
+        sceneAround.name = "dsfsdgsdfg"
         scene.rootNode.addChildNode(sceneAround)
         
 //        花瓶
@@ -49,14 +50,18 @@ struct ArrangeView: UIViewRepresentable {
 //        scene.rootNode.addChildNode(vase)
         
 //         添加model中的花
-        for node in document.listSceneChildren {
-            let name = node.name.components(separatedBy: "-").first! // 获取花名
-            let flowerFile = SCNScene(named: "\(name).dae")!
-            let flower = flowerFile.rootNode
-            flower.name = node.name
-            flower.position = FCDocument.ModelPosition2SCNVector3(node.position)
-            flower.rotation = FCDocument.ModelRotate2SCNVector4(node.rotate)
-            scene.rootNode.addChildNode(flower)
+        for var node in document.listSceneChildren {
+            if !node.isDisplayed {
+                let name = node.name.components(separatedBy: "-").first! // 获取花名
+                print("获取花名：\(name)和\(node.name)")
+                let flowerFile = SCNScene(named: "\(name).dae")!
+                let flower = flowerFile.rootNode.childNode(withName: "youjiali", recursively: true) ?? flowerFile.rootNode
+                flower.name = node.name
+                flower.position = FCDocument.ModelPosition2SCNVector3(node.position)
+                flower.rotation = FCDocument.ModelRotate2SCNVector4(node.rotate)
+                scene.rootNode.addChildNode(flower)
+            }
+            node.display()
         }
         
         // 添加一些测试的花
@@ -276,7 +281,25 @@ struct ArrangeView: UIViewRepresentable {
 
     func updateUIView(_ view: SCNView, context: Context) {
         // 该函数何时被触发？
-        print("updateUIView")
+        print("==updateUIView==")
+        
+        print(document.listSceneChildren)
+        print(document.flowerNumber)
+        
+//        for var node in document.listSceneChildren {
+//            if !node.isDisplayed {
+//                let name = node.name.components(separatedBy: "-").first!
+//                print("获取花名：\(name)")
+//                let flowerFile = SCNScene(named: "\(name).dae")!
+//                let flower = flowerFile.rootNode
+//                flower.name = node.name
+//                flower.position = FCDocument.ModelPosition2SCNVector3(node.position)
+//                flower.rotation = FCDocument.ModelRotate2SCNVector4(node.rotate)
+//                scene.rootNode.addChildNode(flower)
+//            }
+//            node.display()
+//        }
+        
     }
     
     func makeCoordinator() -> ArrangeView.Coordinator {
@@ -390,6 +413,8 @@ struct ArrangeView: UIViewRepresentable {
         @objc func handleTap(_ tapGesture: UITapGestureRecognizer) {
             let location = tapGesture.location(in: parent.view)
             let hitResults = parent.view.hitTest(location,options: nil)
+            print("==hitResults==")
+            print(hitResults)
             if hitResults.count > 0 {
                 let resultName = hitResults[0].node.name!
                 print("-resultName- = \(resultName)")

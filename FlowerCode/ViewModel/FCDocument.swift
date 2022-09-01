@@ -49,28 +49,28 @@ class FCDocument: ObservableObject {
         return data
     }
     
-    func save() {
-        print("===save===")
-        for user in users {
-            print("username = \(user.username!) & password = \(user.password!)")
-            if user.username == username {
-                do {
-                    let data: Data = try fcModel.json()
-                    user.model = data
-                } catch {
-                    print("error = \(error)")
-                }
-            }
-        }
-    }
+//    func save() {
+//        print("===save===")
+//        for user in users {
+//            print("username = \(user.username!) & password = \(user.password!)")
+//            if user.username == username {
+//                do {
+//                    let data: Data = try fcModel.json()
+//                    user.model = data
+//                } catch {
+//                    print("error = \(error)")
+//                }
+//            }
+//        }
+//    }
     
-    private struct Save {
-        static let filename = "flower.code"
-        static var url: URL? {
-            let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-            return documentDirectory?.appendingPathExtension(filename)
-        }
-    }
+//    private struct Save {
+//        static let filename = "flower.code"
+//        static var url: URL? {
+//            let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+//            return documentDirectory?.appendingPathExtension(filename)
+//        }
+//    }
     
     func initModel(_ modelData: Data) {
         do {
@@ -82,12 +82,15 @@ class FCDocument: ObservableObject {
     
     init() {
         
-        if let url = Save.url, let savedModel = try? FCModel(url: url) {
-            fcModel = savedModel
-        } else {
-            fcModel = FCModel()
-        }
+//        if let url = Save.url, let savedModel = try? FCModel(url: url) {
+//            fcModel = savedModel
+//        } else {
+//            fcModel = FCModel()
+//        }
+        
+        fcModel = FCModel()
     }
+    
     
     @Published public var alert = AlertInfo()
     
@@ -99,7 +102,7 @@ class FCDocument: ObservableObject {
     
     var selectedNodeName: String { fcModel.selectedNodeName }
     
-    var flowerName: [String:Int] { fcModel.flower_number }
+    var flowerNumber: [String:Int] { fcModel.flower_number }
     
     var username: String { fcModel.userInfo.username }
     

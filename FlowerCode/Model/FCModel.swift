@@ -39,6 +39,12 @@ extension FCModel {
             public var w: Float
         }
         
+        public var isDisplayed: Bool = false
+        
+        public mutating func display() {
+            isDisplayed = true
+        }
+        
         public var name: String
         
         public var position: Position
