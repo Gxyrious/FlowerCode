@@ -263,7 +263,7 @@ struct ArrangeView: UIViewRepresentable {
         )
         
         // 设置背景
-        scene.background.contents=UIImage(named: "background.jpg")
+        scene.background.contents=UIImage(named: "background-1.jpg")
         
         // 设置代理
         view.delegate = context.coordinator

@@ -44,6 +44,10 @@ let vImageUrlSet: [String] = [
     "Vase-1", "Vase-2", "Vase-3", "Vase-4", "Vase-5"
 ]
 
+let bkImageUrlSet: [String] = [
+    "background-1", "background-2", "background-3", "background-4", "background-5"
+]
+
 struct FlowerCreation: View {
     
     @Binding var isTabViewHidden: Bool
@@ -107,6 +111,11 @@ struct FlowerCreation: View {
         }
     }
     
+    @State var selectBackground: String = "background-1" {
+        didSet {
+            scene.background.contents = UIImage(named: "\(selectBackground).jpg")
+        }
+    }
     
     @State var selectForm: String = "AnShu-1" {
         didSet {
@@ -319,7 +328,42 @@ struct FlowerCreation: View {
                             Image("floral_creation_background")
                         }
                         .sheet(isPresented: $showBackgroundChoice) {
-                            Text("请选择背景")
+                            VStack {
+                                ScrollView(.horizontal) {
+                                    HStack(spacing: 10) {
+                                        // 选择背景
+                                        ForEach(bkImageUrlSet, id: \.self) { bkImageUrl in
+                                            Button {
+                                                selectBackground = bkImageUrl
+                                            } label: {
+                                                Image(bkImageUrl)
+                                                    .resizable()
+                                                    .frame(width: picSide,height: picSide)
+                                                    .padding(10)
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                Divider()
+                                    .foregroundColor(Color.black)
+                                VStack {
+                                    Image(uiImage: UIImage(named: "\(selectBackground).jpg")!)
+                                        .resizable()
+                                        .frame(width: picSide * 5, height: picSide * 5)
+                                    Spacer()
+                                    Button {
+                                        showBackgroundChoice = false
+                                    } label: {
+                                        Text("确认")
+                                            .font(.system(size: 20))
+                                            .foregroundColor(Color(red: 0.6523, green: 0.6992, blue: 0.5586))
+                                    }
+
+                                }
+                                
+                            }
+                            .background(Color(red: 0.906, green: 0.91, blue: 0.882))
                         }
                     }
                     .ignoresSafeArea(.all)
@@ -357,14 +401,6 @@ struct MaterialModification: UIViewRepresentable {
         cameraFrameNode.camera = SCNCamera()
         view.pointOfView = cameraFrameNode
         view.allowsCameraControl = true
-        
-//        let omniLight = SCNLight()
-//        omniLight.type = SCNLight.LightType.omni
-//        omniLight.color = UIColor(white:1.0,alpha:1.0)
-//        let omniLightNode = SCNNode()
-//        omniLightNode.light = omniLight
-//        omniLightNode.position = SCNVector3(x:0,y:8,z:5)
-//        scene.rootNode.addChildNode(omniLightNode)
         
         scene.background.contents = UIColor(red: 0.906, green: 0.91, blue: 0.882, alpha: 1)
         

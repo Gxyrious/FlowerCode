@@ -48,7 +48,6 @@
 		AF3540C528748AEE00A39E33 /* WorkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407A28748AEE00A39E33 /* WorkList.swift */; };
 		AF3540C628748AEE00A39E33 /* WorkDetailTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35407B28748AEE00A39E33 /* WorkDetailTabBar.swift */; };
 		AF3540C728748AEE00A39E33 /* alta-essencial-wood-padrao-carvalho-taupo.png in Resources */ = {isa = PBXBuildFile; fileRef = AF35407F28748AEE00A39E33 /* alta-essencial-wood-padrao-carvalho-taupo.png */; };
-		AF3540C828748AEE00A39E33 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF35408028748AEE00A39E33 /* background.jpg */; };
 		AF3540C928748AEE00A39E33 /* Texture.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF35408128748AEE00A39E33 /* Texture.tga */; };
 		AF3540CA28748AEE00A39E33 /* scene.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF35408228748AEE00A39E33 /* scene.dae */; };
 		AF3540DA28748AEE00A39E33 /* ArrangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409528748AEE00A39E33 /* ArrangeView.swift */; };
@@ -111,6 +110,11 @@
 		AF52599628C0AF0700110173 /* Image_3.002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF52599128C0AF0700110173 /* Image_3.002.jpg */; };
 		AF52599728C0AF0700110173 /* Image_0.002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF52599228C0AF0700110173 /* Image_0.002.jpg */; };
 		AF9F715428BFD46100143639 /* CreateScene.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF9F715328BFD46100143639 /* CreateScene.dae */; };
+		AFD8ECC928C161A500D11971 /* background-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFD8ECC428C161A500D11971 /* background-2.jpg */; };
+		AFD8ECCA28C161A500D11971 /* background-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFD8ECC528C161A500D11971 /* background-5.jpg */; };
+		AFD8ECCB28C161A500D11971 /* background-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFD8ECC628C161A500D11971 /* background-3.jpg */; };
+		AFD8ECCC28C161A500D11971 /* background-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFD8ECC728C161A500D11971 /* background-1.jpg */; };
+		AFD8ECCD28C161A500D11971 /* background-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFD8ECC828C161A500D11971 /* background-4.jpg */; };
 		AFF8EF6128BD0DD400D9763C /* Image_14.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF8EF5928BD0DD400D9763C /* Image_14.png */; };
 		AFF8EF6228BD0DD400D9763C /* Image_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFF8EF5A28BD0DD400D9763C /* Image_11.jpg */; };
 		AFF8EF6428BD0DD400D9763C /* Image_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFF8EF5C28BD0DD400D9763C /* Image_9.jpg */; };
@@ -164,7 +168,6 @@
 		AF35407A28748AEE00A39E33 /* WorkList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkList.swift; sourceTree = "<group>"; };
 		AF35407B28748AEE00A39E33 /* WorkDetailTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkDetailTabBar.swift; sourceTree = "<group>"; };
 		AF35407F28748AEE00A39E33 /* alta-essencial-wood-padrao-carvalho-taupo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alta-essencial-wood-padrao-carvalho-taupo.png"; sourceTree = "<group>"; };
-		AF35408028748AEE00A39E33 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		AF35408128748AEE00A39E33 /* Texture.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Texture.tga; sourceTree = "<group>"; };
 		AF35408228748AEE00A39E33 /* scene.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = scene.dae; sourceTree = "<group>"; };
 		AF35409528748AEE00A39E33 /* ArrangeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrangeView.swift; sourceTree = "<group>"; };
@@ -227,6 +230,11 @@
 		AF52599128C0AF0700110173 /* Image_3.002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_3.002.jpg; sourceTree = "<group>"; };
 		AF52599228C0AF0700110173 /* Image_0.002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_0.002.jpg; sourceTree = "<group>"; };
 		AF9F715328BFD46100143639 /* CreateScene.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = CreateScene.dae; sourceTree = "<group>"; };
+		AFD8ECC428C161A500D11971 /* background-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-2.jpg"; sourceTree = "<group>"; };
+		AFD8ECC528C161A500D11971 /* background-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-5.jpg"; sourceTree = "<group>"; };
+		AFD8ECC628C161A500D11971 /* background-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-3.jpg"; sourceTree = "<group>"; };
+		AFD8ECC728C161A500D11971 /* background-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-1.jpg"; sourceTree = "<group>"; };
+		AFD8ECC828C161A500D11971 /* background-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-4.jpg"; sourceTree = "<group>"; };
 		AFF8EF5928BD0DD400D9763C /* Image_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_14.png; sourceTree = "<group>"; };
 		AFF8EF5A28BD0DD400D9763C /* Image_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_11.jpg; sourceTree = "<group>"; };
 		AFF8EF5C28BD0DD400D9763C /* Image_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_9.jpg; sourceTree = "<group>"; };
@@ -392,6 +400,7 @@
 		AF35407D28748AEE00A39E33 /* ArrangeView */ = {
 			isa = PBXGroup;
 			children = (
+				AFD8ECB928C1614700D11971 /* Background */,
 				AF52595A28C06E9700110173 /* flowerSet_meigui */,
 				AF52598228C0A57A00110173 /* flowerSet_baizhang */,
 				AF52598B28C0A58800110173 /* flowerSet_yujinxiang.dae */,
@@ -407,7 +416,6 @@
 			isa = PBXGroup;
 			children = (
 				AF35407F28748AEE00A39E33 /* alta-essencial-wood-padrao-carvalho-taupo.png */,
-				AF35408028748AEE00A39E33 /* background.jpg */,
 				AF35408128748AEE00A39E33 /* Texture.tga */,
 				AF35408228748AEE00A39E33 /* scene.dae */,
 			);
@@ -594,6 +602,18 @@
 			path = vaseSet;
 			sourceTree = "<group>";
 		};
+		AFD8ECB928C1614700D11971 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				AFD8ECC728C161A500D11971 /* background-1.jpg */,
+				AFD8ECC428C161A500D11971 /* background-2.jpg */,
+				AFD8ECC628C161A500D11971 /* background-3.jpg */,
+				AFD8ECC828C161A500D11971 /* background-4.jpg */,
+				AFD8ECC528C161A500D11971 /* background-5.jpg */,
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
 		AFF8EF5828BD0DD400D9763C /* CreateScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -670,6 +690,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF3540FF287490E300A39E33 /* huatong.dae in Resources */,
+				AFD8ECCB28C161A500D11971 /* background-3.jpg in Resources */,
 				AF3540F828748BA500A39E33 /* Preview Assets.xcassets in Resources */,
 				AF9F715428BFD46100143639 /* CreateScene.dae in Resources */,
 				AF52597A28C09ADF00110173 /* Image 1 001.png in Resources */,
@@ -678,8 +699,10 @@
 				AF52597728C09ADF00110173 /* Image20.png in Resources */,
 				AF52599428C0AF0700110173 /* Image_11.001.jpg in Resources */,
 				AF52598928C0A57A00110173 /* Image_2.002.jpg in Resources */,
+				AFD8ECCD28C161A500D11971 /* background-4.jpg in Resources */,
 				AF52597C28C09ADF00110173 /* Image_2.001.png in Resources */,
 				AFF8EF6828BD0DD400D9763C /* Image_20.png in Resources */,
+				AFD8ECC928C161A500D11971 /* background-2.jpg in Resources */,
 				AF52598728C0A57A00110173 /* Image_5.002.jpg in Resources */,
 				AF52599728C0AF0700110173 /* Image_0.002.jpg in Resources */,
 				AF3540C928748AEE00A39E33 /* Texture.tga in Resources */,
@@ -704,7 +727,9 @@
 				AFF8EF6528BD0DD400D9763C /* Image_3.jpg in Resources */,
 				AF52597928C09ADF00110173 /* Image_3.001.png in Resources */,
 				AF52597428C09ADF00110173 /* Image_7.001.png in Resources */,
+				AFD8ECCC28C161A500D11971 /* background-1.jpg in Resources */,
 				AF3541052874916100A39E33 /* huaping.dae in Resources */,
+				AFD8ECCA28C161A500D11971 /* background-5.jpg in Resources */,
 				AF52597328C09ADF00110173 /* Image_5.001.png in Resources */,
 				AF52598A28C0A57A00110173 /* Image_1.002.jpg in Resources */,
 				9FD5F56328B2135D00983E1C /* VaseDate.json in Resources */,
@@ -714,7 +739,6 @@
 				AF52597F28C09ADF00110173 /* Image_5_001.png in Resources */,
 				AFF8EF6728BD0DD400D9763C /* Image_6.jpg in Resources */,
 				AF52597D28C09ADF00110173 /* Image_201.png in Resources */,
-				AF3540C828748AEE00A39E33 /* background.jpg in Resources */,
 				AF52595D28C06E9700110173 /* flowerSet_meigui.dae in Resources */,
 				AFF8EF6428BD0DD400D9763C /* Image_9.jpg in Resources */,
 				AF3540CA28748AEE00A39E33 /* scene.dae in Resources */,
