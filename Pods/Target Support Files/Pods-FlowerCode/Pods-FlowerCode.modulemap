@@ -1,6 +1,0 @@
-framework module Pods_FlowerCode {
-  umbrella header "Pods-FlowerCode-umbrella.h"
-
-  export *
-  module * { export * }
-}
