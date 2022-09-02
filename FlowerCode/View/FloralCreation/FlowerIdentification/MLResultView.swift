@@ -17,8 +17,9 @@ fileprivate let flower_scale: [String:Float] = ["baihe":2.5, "youjiali":0.15]
 fileprivate let flower_position: [String:SCNVector3] = ["baihe":SCNVector3(-0.675,1,0.1), "youjiali":SCNVector3(-0.6,1,0.1)]
 fileprivate let flower_discription: [String:String] = ["baihe":"适宜温度12～18℃，喜光畏湿","youjiali":"适宜温度15-25℃，注意定期修剪"]
 struct MLResultView: View {
+    
+    @EnvironmentObject var document: FCDocument
     @Binding var scene: SCNScene
-    @Binding var nodesSelected: [String:Bool]
     @Binding var showIdentificationView: Bool
     
     var result: Flower5Output {
@@ -78,30 +79,20 @@ struct MLResultView: View {
                         
                         Spacer()
                         Button {
-                            // 已知className
-                            let filename = className + ".dae"
-                            guard let newScene = SCNScene(named: filename) else { return }
-                            var child = newScene.rootNode.childNode(withName: "main", recursively: true)
-                            if child == nil {
-                                child  = newScene.rootNode
+                            var name = className
+                            print(name)
+                            name = "MeiGui"
+                            // 已知className，如baihe
+                            let filename = FlowerKind2FileName[name]
+                            if filename != nil {
+//                                let newScene = SCNScene(named: filename)!
+//                                var child = newScene.rootNode.childNode(withName: "\(name)-1", recursively: true)!
+                                // child是要添加进场景的东西
+                                document.addFlowerByOne(name)
+                                let childName = "\(name)-\(document.flowerNumber[name]!)"
+                                document.addSceneChild(childName, SCNVector3(0,0,0), SCNVector4(0,0,0,0))
+                                showIdentificationView = false
                             }
-                            if child != nil {
-                                let name = className
-                                var i = 1
-                                while nodesSelected.keys.contains("\(name)-\(i)") {
-                                    i += 1
-                                }
-                                child?.name = "\(name)-\(i)"
-                                let size: Float? = flower_scale[className] ?? nil
-                                if size != nil {
-                                    child?.scale = SCNVector3(size!,size!,size!)
-                                }
-                                child?.position = flower_position[className] ?? SCNVector3(0,0,0)
-                                scene.rootNode.addChildNode(child!)
-                                nodesSelected.updateValue(false, forKey: "\(name)-\(i)")
-                                print("nodesSelected = \(nodesSelected)")
-                            }
-                            showIdentificationView = false
                         } label: {
                             Image(systemName: "plus")
                                 .font(.system(size: 30))

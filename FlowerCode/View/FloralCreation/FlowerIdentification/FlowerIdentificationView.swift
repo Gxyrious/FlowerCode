@@ -18,7 +18,6 @@ struct FlowerIdentificationView: View {
     @State var isShoot: Bool = false
     @State var openCameraRoll = false
     @Binding var scene: SCNScene
-    @Binding var nodesSelected: [String:Bool]
     @Binding var showIdentificationView: Bool
     
     var body: some View {
@@ -29,7 +28,6 @@ struct FlowerIdentificationView: View {
                     //显示机器学习模型验证结果
                     MLResultView(
                         scene: $scene,
-                        nodesSelected: $nodesSelected,
                         showIdentificationView: $showIdentificationView
                     )
                 }
