@@ -167,10 +167,22 @@ struct FlowerCreation: View {
                                 .foregroundColor(Color.white)
                                 .background(Color(red: 0.6523, green: 0.6992, blue: 0.5586))
                         }
-                        .offset(x: -widthOfFatherView * 0.2, y: -heightOfFatherView * 0.405)
+                        .offset(x: -widthOfFatherView * 0.2, y: -heightOfFatherView * 0.405) // 修改位置偏移量
+                        
+                        Button {
+                            showARView = true
+                        } label: {
+                            Text("AR展示")
+                                .padding(6)
+                                .padding(.horizontal, 10)
+                                .font(.system(size: 15))
+                                .foregroundColor(Color.white)
+                                .background(Color(red: 0.6523, green: 0.6992, blue: 0.5586))
+                        }
+                        .offset(x: -widthOfFatherView * 0.2, y: -heightOfFatherView * 0.35) // 修改位置偏移量
                         .sheet(isPresented: $showARView) {
                             VStack {
-                                ARView()
+                                ARFlowerView()
                                 Text("HELLOWORLD")
                             }
                         }

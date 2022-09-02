@@ -23,5 +23,10 @@
     "libraryIdentifier" : "6c5fedce79455ea269da2d8ba468518a",
     "format" : "model",
     "displayName" : "flower.usdz"
+  },
+  {
+    "libraryIdentifier" : "6aad11dc733d18c89e259b1b47bb65d5",
+    "format" : "model",
+    "displayName" : "Flowers.usdz"
   }
 ]
