@@ -20,8 +20,8 @@ struct LoginView: View {
         animation: .default)
     private var users: FetchedResults<User>
     
-    @State private var input_username: String = "lc1"
-    @State private var input_password: String = "1"
+    @State private var input_username: String = ""
+    @State private var input_password: String = ""
     
     @State var isRegistering: Bool = false
     @State var registerState: Bool = true

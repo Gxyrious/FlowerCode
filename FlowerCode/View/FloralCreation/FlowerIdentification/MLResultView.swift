@@ -9,14 +9,42 @@ import SwiftUI
 import CoreImage
 import SceneKit
 
+
 let flower_name: [String:String] = [
-    "MeiGui":"玫瑰", "BaiZhang":"白掌", "YuJinXiang": "郁金香", "AnShu": "桉树", "ManTianXing": "满天星", "HeiZhongCao": "黑种草", "DaXingQin": "大星芹"
+    "MeiGui":"玫瑰", "BaiZhang":"白掌", "YuJinXiang": "郁金香", "AnShu": "桉树", "ManTianXing": "铃兰", "HeiZhongCao": "黑种草", "DaXingQin": "大星芹"
 ]
-let flower_discription: [String:String] = ["MeiGui":"适宜温度12～18℃，喜光畏湿","youjiali":"适宜温度15-25℃，注意定期修剪"]
+
+let flower_discription: [String:String] = [
+    "AnShu":"桃金娘科桉属植物，原产地主要在澳洲大陆",
+    "BaiHe":"别名苞叶芋，是天南星科多年生常绿草本观叶植物",
+    "BaiZhang":"是菊科雏菊属植物，多年生草本植物",
+    "DaXingQin":"伞形科星芹属的一种多年生草本，株高60-90厘米",
+    "HeiZhongCao":"一种喜阳光植物，需要充足的光照",
+    "JuHua":"喜阳光，忌荫蔽，较耐旱，怕涝",
+    "KangNaiXin":"通常香气四溢，开花时间长",
+    "XueLiu":"枝灰白色，圆柱形，小枝淡黄色或淡绿色",
+    "ChuJu":"匙形丛生呈莲座状，密集矮生，颜色碧翠",
+    "HuangYing":"有长根状茎。茎直立，高达2.5米",
+    "XiangRiKui":"茎秆直立、结实；叶多互生；花为头状花序",
+    "ManTianXing":"茎细皮滑，分枝甚多，叶片窄长，无柄，对生",
+    "YuanWei":"多年生草本，根状茎粗壮，花蓝紫色",
+    "XiuQiuHua":"喜阴、喜湿、喜肥，耐寒性又较差",
+    "YuLan":"树皮深灰色，粗糙开裂；小枝稍粗壮，灰褐色",
+    "MiDieXiang":"产于地中海盆地，木本多年生香料植物",
+    "GaoShanYangChi":"喜阴、喜潮、喜偏酸性土壤",
+    "YinYeJu":"分支性强，丛生状，叶片质较薄，缺裂",
+    "GuiBeiZhu":"茎绿色，粗壮，有苍白色的半月形叶迹",
+    "PingAnShu":"喜光又耐阴，喜暖热、无霜雪",
+    "XiangPiShu":"片肥厚宽大，色彩浓绿，顶芽鲜红",
+    "SanWeiKui":"茎干光滑，黄绿色，无毛刺"
+]
+
 struct MLResultView: View {
     
     @EnvironmentObject var document: FCDocument
     @Binding var showIdentificationView: Bool
+    
+    @State var isShowAlert: Bool = false
     
     var result: Flower5Output {
         let model: Flower5 = try! Flower5(configuration: .init())
@@ -60,7 +88,7 @@ struct MLResultView: View {
                 VStack{
                     //此处应该加个判断，对于判断结果需要分别展示
                     HStack{
-                        Image(className)
+                        Image(FlowerNameDict[className]!)
                             .resizable()
                             .frame(width: 50, height: 50)
                             .padding(.leading, 20)
@@ -75,19 +103,24 @@ struct MLResultView: View {
                         
                         Spacer()
                         Button {
-                            var name = className
+                            let name = className
+                            
                             print(name)
-                            name = "MeiGui"
+//                            name = "MeiGui"
                             // 已知className，如baihe
                             let filename = FlowerKind2FileName[name]
-                            if filename != nil {
+                            if filename != nil { // 模型存在
 //                                let newScene = SCNScene(named: filename)!
 //                                var child = newScene.rootNode.childNode(withName: "\(name)-1", recursively: true)!
                                 // child是要添加进场景的东西
                                 document.addFlowerByOne(name)
                                 let childName = "\(name)-\(document.flowerNumber[name]!)"
                                 document.addSceneChild(childName, SCNVector3(0,0,0), SCNVector4(0,0,0,0))
+                                
                                 showIdentificationView = false
+                            }
+                            else {
+                                isShowAlert = true
                             }
                         } label: {
                             Image(systemName: "plus")
@@ -102,6 +135,11 @@ struct MLResultView: View {
                 }
                 .background(.white)
             }
+        }
+        .alert(Text("添加失败"), isPresented: $isShowAlert) {
+            Button("确定") {}
+        } message: {
+            Text("该模型未拥有")
         }
     }
 }

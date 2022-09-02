@@ -19,7 +19,7 @@ struct ArrangeView: UIViewRepresentable {
     var cameraSideNode = SCNNode()
     var frontCameraButton = UIButton(type:UIButton.ButtonType.system)//设置按钮位置与尺寸
     var sideCameraButton = UIButton(type:UIButton.ButtonType.system)//设置按钮位置与尺寸
-    var removeFlowerButton = UIButton(type:UIButton.ButtonType.system)
+//    var removeFlowerButton = UIButton(type:UIButton.ButtonType.system)
     var panGesture=UIPanGestureRecognizer() // 移动手势
     var tapGesture=UITapGestureRecognizer() // 触碰手势
    
@@ -227,7 +227,7 @@ struct ArrangeView: UIViewRepresentable {
         view.addGestureRecognizer(tapGesture)
         
         /// 创建UIButton实例用于旋转镜头
-        frontCameraButton.frame = CGRect(x:280,y:50,width:80,height:30)//设置按钮背景色
+        frontCameraButton.frame = CGRect(x:200,y:60,width:80,height:30)//设置按钮背景色
         frontCameraButton.backgroundColor=UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)//设置按钮标题
         frontCameraButton.setTitle("正面镜头", for: UIControl.State())
         frontCameraButton.setTitleColor(UIColor.white,for: UIControl.State())//添加到当前视图
@@ -239,7 +239,7 @@ struct ArrangeView: UIViewRepresentable {
         )
         
         /// 创建UIButton实例用于移动花
-        sideCameraButton.frame = CGRect(x:180,y:50,width:80,height:30)//设置按钮背景色
+        sideCameraButton.frame = CGRect(x:100,y:60,width:80,height:30)//设置按钮背景色
         sideCameraButton.backgroundColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
         sideCameraButton.setTitle("侧面镜头", for: UIControl.State())
         sideCameraButton.setTitleColor(UIColor.white,for: UIControl.State())//添加到当前视图
@@ -251,16 +251,16 @@ struct ArrangeView: UIViewRepresentable {
         )
         
         /// 创建UIButton实例用于删除花
-        removeFlowerButton.frame = CGRect(x:180,y:90,width:80,height:30)//设置按钮背景色
-        removeFlowerButton.backgroundColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
-        removeFlowerButton.setTitle("删除", for: UIControl.State())
-        removeFlowerButton.setTitleColor(UIColor.white,for: UIControl.State())//添加到当前视图
-        self.view.addSubview(removeFlowerButton)
-        removeFlowerButton.addTarget(
-            context.coordinator,
-            action: #selector(context.coordinator.removeChildByName),
-            for: .touchUpInside
-        )
+//        removeFlowerButton.frame = CGRect(x:180,y:90,width:80,height:30)//设置按钮背景色
+//        removeFlowerButton.backgroundColor = UIColor(red: 0.6523, green: 0.6992, blue: 0.5586, alpha: 1)
+//        removeFlowerButton.setTitle("删除", for: UIControl.State())
+//        removeFlowerButton.setTitleColor(UIColor.white,for: UIControl.State())//添加到当前视图
+//        self.view.addSubview(removeFlowerButton)
+//        removeFlowerButton.addTarget(
+//            context.coordinator,
+//            action: #selector(context.coordinator.removeChildByName),
+//            for: .touchUpInside
+//        )
         
         // 设置背景
         scene.background.contents=UIImage(named: "background-1.jpg")
@@ -325,16 +325,18 @@ struct ArrangeView: UIViewRepresentable {
         var lastPanLocation = SCNVector3()
         
         @objc func startFrontCamera() {
-            parent.view.pointOfView = parent.cameraFrontNode
             parent.view.allowsCameraControl = true
+            parent.view.pointOfView = parent.cameraFrontNode
+            
 //            parent.view.removeGestureRecognizer(parent.panGesture)
             
             print("startFrontCamera")
         }
         
         @objc func startSideCamera() {
-            parent.view.pointOfView = parent.cameraSideNode
             parent.view.allowsCameraControl = true
+            parent.view.pointOfView = parent.cameraSideNode
+            
 //            parent.view.addGestureRecognizer(parent.panGesture)
             
             print("startSideCamera")

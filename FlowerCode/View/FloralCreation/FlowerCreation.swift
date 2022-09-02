@@ -47,7 +47,7 @@ let vImageUrlSet: [String] = [
 ]
 
 let bkImageUrlSet: [String] = [
-    "background-1", "background-2", "background-3", "background-4", "background-5"
+    "background-1", "background-2", "background-3", "background-4"
 ]
 
 struct FlowerCreation: View {
@@ -76,10 +76,10 @@ struct FlowerCreation: View {
     
     
     // 花材编辑窗口
-    @State var selectionScene: SCNScene = SCNScene(named: "flowerSet.dae")!
+    @State var selectionScene: SCNScene = SCNScene(named: "flowerSet_meigui.dae")!
     
-    @State var selectNode: SCNNode = SCNScene(named: "flowerSet.dae")!
-        .rootNode.childNode(withName: "AnShu-1", recursively: true)!
+    @State var selectNode: SCNNode = SCNScene(named: "flowerSet_meigui.dae")!
+        .rootNode.childNode(withName: "MeiGui-1", recursively: true)!
     
     @State var selectKind: String = "MeiGui" {
         didSet {
@@ -140,12 +140,29 @@ struct FlowerCreation: View {
                 VStack(spacing: 0) {
                     ZStack {
                         ArrangeView(scene: $scene) // 传入
+                        
+                        // 退出
                         Button {
                             self.isTabViewHidden = false
                         } label: {
-                            Image("basic_design_back")
+                            Image("white-close")
                         }
-                        .offset(x: -widthOfFatherView * 0.4, y: -heightOfFatherView * 0.4)
+                        .offset(x: -widthOfFatherView * 0.4, y: -heightOfFatherView * 0.39)
+                        
+                        // AR展示
+                        Button {
+                            showARView = true
+                        } label: {
+                            Image("AR-display")
+                        }
+                        .offset(x: -widthOfFatherView * 0.38, y: -heightOfFatherView * 0.25) // 修改位置偏移量
+                        .sheet(isPresented: $showARView) {
+                            VStack {
+                                ARFlowerView()
+                            }
+                        }
+                        
+                        // 保存
                         Button {
                             print("开始保存")
                             for user in users {
@@ -162,46 +179,26 @@ struct FlowerCreation: View {
                                 }
                             }
                         } label: {
-                            Text("保存")
-                                .padding(6)
-                                .padding(.horizontal, 10)
-                                .font(.system(size: 15))
-                                .foregroundColor(Color.white)
-                                .background(Color(red: 0.6523, green: 0.6992, blue: 0.5586))
+                            Image("save")
                         }
-                        .offset(x: -widthOfFatherView * 0.2, y: -heightOfFatherView * 0.405) // 修改位置偏移量
+                        .offset(x: widthOfFatherView * 0.38, y: -heightOfFatherView * 0.36) // 修改位置偏移量
                         
-                        Button {
-                            showARView = true
-                        } label: {
-                            Text("AR展示")
-                                .padding(6)
-                                .padding(.horizontal, 10)
-                                .font(.system(size: 15))
-                                .foregroundColor(Color.white)
-                                .background(Color(red: 0.6523, green: 0.6992, blue: 0.5586))
-                        }
-                        .offset(x: -widthOfFatherView * 0.2, y: -heightOfFatherView * 0.35) // 修改位置偏移量
-                        .sheet(isPresented: $showARView) {
-                            VStack {
-                                ARFlowerView()
-                                Text("HELLOWORLD")
-                            }
-                        }
                         
+                        // 拍照识别
                         Button {
                             self.showIdentificationView = true
                         } label: {
                             Image("flower_identification")
                         }
-                        .offset(x: widthOfFatherView * 0.38, y: -heightOfFatherView * 0.28)
+                        .offset(x: widthOfFatherView * 0.38, y: -heightOfFatherView * 0.25)
                         .sheet(isPresented: $showIdentificationView) {
                             FlowerIdentificationView(
 //                                scene: $scene,
                                 showIdentificationView: $showIdentificationView)
                         }
+                        
+                        // 自动生成
                         Button {
-                            // 自动生成
                             document.autoGenerate()
                             let setNotFlower: Set<String> = ["side-light", "front-light"]
                             for child in scene.rootNode.childNodes {
@@ -215,8 +212,19 @@ struct FlowerCreation: View {
                         } label: {
                             Image("auto_generate")
                         }
-                        .offset(x: widthOfFatherView * 0.38, y: -heightOfFatherView * 0.15)
+                        .offset(x: widthOfFatherView * 0.38, y: -heightOfFatherView * 0.13)
 
+                        Button {
+                            let node = scene.rootNode.childNode(withName: document.selectedNodeName, recursively: true)
+                            if node != nil {
+                                node!.removeFromParentNode()
+                                document.removeChildByName(node!.name!)
+                            }
+                        } label: {
+                            Image("delete")
+                        }
+                        .offset(x: widthOfFatherView * 0.38, y: heightOfFatherView * 0.4)
+                        
                     }
                     HStack {
                         Button {
