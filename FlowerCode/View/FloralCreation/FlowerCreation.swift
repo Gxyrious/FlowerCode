@@ -13,11 +13,13 @@ let material_scale_in_3d: [String:Float] = ["baihe": 2, "youjiali":0.3]
 let material_position_in_3d: [String:SCNVector3] = ["baihe": SCNVector3(0,0,-0.5), "youjiali": SCNVector3(0,0,0)]
 let material_position_in_modification: [String:SCNVector3] = ["baihe": SCNVector3(0.2,0,0), "youjiali": SCNVector3(-1.1,0.2,0)]
 
-let picSide: CGFloat = 40
+let picSide: CGFloat = 70
 
 let kImageUrlList: [String] = [
     "MeiGui", "BaiZhang", "YuJinXiang", "AnShu", "ManTianXing", "HeiZhongCao", "DaXingQin"
 ]
+
+var FlowerNameDict:[String:String] = ["MeiGui":"玫瑰", "BaiZhang":"白掌", "YuJinXiang":"郁金香","AnShu":"桉树","ManTianXing":"铃兰","HeiZhongCao":"黑种草","DaXingQin":"大星芹"]
 
 let fImageUrlSet: [String:[String]] = [
     "MeiGui": ["MeiGui-1", "MeiGui-2", "MeiGui-3", "MeiGui-4", "MeiGui-5", "MeiGui-6"],
@@ -79,7 +81,7 @@ struct FlowerCreation: View {
     @State var selectNode: SCNNode = SCNScene(named: "flowerSet.dae")!
         .rootNode.childNode(withName: "AnShu-1", recursively: true)!
     
-    @State var selectKind: String = "AnShu" {
+    @State var selectKind: String = "MeiGui" {
         didSet {
             // 先选定哪个文件
             let daeFileName = FlowerKind2FileName[selectKind]!
@@ -225,16 +227,27 @@ struct FlowerCreation: View {
                         .sheet(isPresented: $showFlowerChoice) {
                             VStack(spacing: 5) {
                                 ScrollView(.horizontal) {
-                                    HStack(spacing: 10) {
+                                    HStack(spacing: 20) {
                                         // 添加新的花材
                                         ForEach(kImageUrlList, id: \.self) { kImageUrl in
                                             Button {
                                                 selectKind = kImageUrl
                                             } label: {
-                                                Image(kImageUrl)
-                                                    .resizable()
-                                                    .frame(width: picSide,height: picSide)
-                                                    .padding(10)
+//                                                Image(kImageUrl)
+//                                                    .resizable()
+//                                                    .frame(width: picSide,height: picSide)
+//                                                    .padding(10)
+                                                VStack(alignment: .center){
+                                                    Image(FlowerNameDict[kImageUrl]!)
+                                                        .resizable()
+                                                        .clipShape(Circle())
+                                                        .frame(width: picSide,height: picSide)
+                                                        .padding(15)
+                                                    Text(FlowerNameDict[kImageUrl]!)
+                                                        .font(.caption)
+                                                        .foregroundColor(.secondary)
+                                                }
+                                                
                                             }
                                         }
                                     }

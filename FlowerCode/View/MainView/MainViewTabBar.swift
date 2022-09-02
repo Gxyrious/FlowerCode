@@ -79,7 +79,7 @@ struct MainViewTabBar: View {
                             else {
                                 Image("community_discussion_unselected")
                             }
-                            Text("桌面组件")
+                            Text("社区交流")
                                 .foregroundColor(Color(red: 0.404, green: 0.533, blue: 0.477))
                                 .font(.system(size: 12))
                         }
