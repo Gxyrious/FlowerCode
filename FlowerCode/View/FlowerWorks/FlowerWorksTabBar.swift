@@ -44,20 +44,20 @@ struct FlowerWorksTabBar: View {
                 }
             }
 
-            Button {
-                curTab = .topDesignList
-            } label: {
-                if curTab == FlowerWorksTap.topDesignList {
-                    Text(FlowerWorksTap.topDesignList.rawValue)
-                        .font(.bold(.system(size: textSize))())
-                        .foregroundColor(Color(white: 0))
-                }
-                else {
-                    Text(FlowerWorksTap.topDesignList.rawValue)
-                        .font(.system(size: textSize))
-                        .foregroundColor(Color(white: 0.7))
-                }
-            }
+//            Button {
+//                curTab = .topDesignList
+//            } label: {
+//                if curTab == FlowerWorksTap.topDesignList {
+//                    Text(FlowerWorksTap.topDesignList.rawValue)
+//                        .font(.bold(.system(size: textSize))())
+//                        .foregroundColor(Color(white: 0))
+//                }
+//                else {
+//                    Text(FlowerWorksTap.topDesignList.rawValue)
+//                        .font(.system(size: textSize))
+//                        .foregroundColor(Color(white: 0.7))
+//                }
+//            }
 
             Button {
                 self.showSearchPost.toggle()

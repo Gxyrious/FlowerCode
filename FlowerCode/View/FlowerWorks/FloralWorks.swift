@@ -30,9 +30,9 @@ struct FloralWorks: View {
                 WorkList(isTabBarHidden:$isTabBarHidden, isTabViewHidden: $isTabViewHidden,items:advancedworks)
                     .ignoresSafeArea(.all)
                     .tag(FlowerWorksTap.advancedDesign)
-                WorkList(isTabBarHidden:$isTabBarHidden, isTabViewHidden: $isTabViewHidden,items:basicworks)
-                    .tag(FlowerWorksTap.topDesignList)
-                    .ignoresSafeArea(.all)
+//                WorkList(isTabBarHidden:$isTabBarHidden, isTabViewHidden: $isTabViewHidden,items:basicworks)
+//                    .tag(FlowerWorksTap.topDesignList)
+//                    .ignoresSafeArea(.all)
             }
             .ignoresSafeArea(.all)
 

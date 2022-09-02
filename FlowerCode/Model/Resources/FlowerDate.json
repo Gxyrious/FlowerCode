@@ -1,72 +1,183 @@
 [
     {
         "category":"团状花材",
-        "name": "郁金香",
+        "name":"玫瑰",
         "id": 101,
-        "description": "插花艺术是一种艺术创作，为了表现作品的主题思想和造型效果，首先要进行构图。构图实际上是一个思维过程，它从自然存在的纷杂事物之中找出秩序：构",
-        "imageName": "构图原理",
+        "description": "玫瑰花辦厚实，每片花瓣上都布满了细细的绒毛，更耐损耗。",
+        "imageName": "mgh",
         "smell":"无味",
         "humidity":"50%",
         "maintenance":"适中"
     },
     {
         "category":"团状花材",
-        "name": "菊花",
+        "name": "郁金香",
         "id": 102,
-        "description": "插花艺术是一种艺术创作，为了表现作品的主题思想和造型效果，首先要进行构图。构图实际上是一个思维过程，它从自然存在的纷杂事物之中找出秩序：构图也是一个组织过程。",
-        "imageName": "构图原理",
+        "description": "郁金香是百合科郁金香属植物，栽种历史久远，品种多达8000多种。花语：真挚的祝福、爱的表白。",
+        "imageName": "yjxh",
         "smell":"无味",
         "humidity":"50%",
         "maintenance":"适中"
     },
     {
-        "category":"线状花材",
-        "name": "雪柳",
-        "id": 201,
-        "description": "插花艺术是一种艺术创作，为了表现作品的主题思想和造型效果，首先要进行构图。",
-        "imageName": "构图原理",
+        "category":"团状花材",
+        "name": "康乃馨",
+        "id": 103,
+        "description": "进口哥伦比亚，康乃馨被誉为“母亲之花”，象征对母亲的爱。",
+        "imageName": "knxh",
+        "smell":"无味",
+        "humidity":"40%",
+        "maintenance":"易"
+    },
+    {
+        "category":"团状花材",
+        "name": "百合",
+        "id": 104,
+        "description": "百合谐音百年好合，以表达对亲友的深深祝福。",
+        "imageName": "bhh",
         "smell":"无味",
         "humidity":"50%",
+        "maintenance":"易"
+    },
+    {
+        "category":"团状花材",
+        "name": "非洲菊",
+        "id": 105,
+        "description": "非洲菊又叫太阳花，花色丰富。花语为神秘、不畏艰难、狂野的爱。",
+        "imageName": "fzjh",
+        "smell":"无味",
+        "humidity":"40%",
         "maintenance":"适中"
+    },
+    {
+        "category":"团状花材",
+        "name": "绣球",
+        "id": 106,
+        "description": "日本品种，花朵直径较大，花球紧凌，代表圆满、团圆。",
+        "imageName": "xqh",
+        "smell":"无味",
+        "humidity":"60%",
+        "maintenance":"难"
     },
     {
         "category":"线状花材",
         "name": "尤加利",
+        "id": 201,
+        "description": "尤加利叶是按树的叶子，原产地澳大利亚，为当地人提供了经济和生活来源，所以花语意为：来自大地的恩赐。",
+        "imageName": "yjl",
+        "smell":"微醺",
+        "humidity":"50%",
+        "maintenance":"易"
+    },
+    {
+        "category":"线状花材",
+        "name": "沙棘果",
         "id": 202,
-        "description": "插花艺术是一种艺术创作，为了表现作品的主题思想和造型效果，首先要进行构图。",
-        "imageName": "构图原理",
+        "description": "沙棘果是珍贵的经济林树种，可作为切果和切枝材料使用。",
+        "imageName": "sjg",
         "smell":"无味",
         "humidity":"50%",
-        "maintenance":"适中"
+        "maintenance":"无味"
+    },
+    {
+        "category":"线状花材",
+        "name": "海棠枝",
+        "id": 203,
+        "description": "海棠枝是常见的切枝材料，可以做中式插花或用于架构",
+        "imageName": "htz",
+        "smell":"无味",
+        "humidity":"30%",
+        "maintenance":"易"
+    },
+    {
+        "category":"线状花材",
+        "name": "春兰叶",
+        "id": 204,
+        "description": "春兰叶的叶片有非常漂亮的线条，在花艺作品中常用来呈现作品的动态曲线。",
+        "imageName": "cly",
+        "smell":"无味",
+        "humidity":"40%",
+        "maintenance":"易"
     },
     {
         "category":"散状花材",
-        "name": "黄莺",
+        "name": "丁香",
         "id": 301,
-        "description": "插花艺术是一种艺术创作，为了表现作品的主题思想和造型效果。",
-        "imageName": "构图原理",
-        "smell":"无味",
+        "description": "丁香花以白色和紫色居多，花语为初恋、光荣、友情。",
+        "imageName": "dx",
+        "smell":"微醺",
         "humidity":"50%",
         "maintenance":"适中"
     },
     {
         "category":"散状花材",
-        "name": "雏菊",
+        "name": "白萍菊花",
         "id": 302,
-        "description": "插花艺术是一种艺术创作，为了表现作品的主题思想和造型效果，首先要进行构图。构图实际上是一个思维过程，它从自然存在的纷杂事物之中找出秩序：构图也是一个组织过程，把散乱的构图元素组织成一个统一的整体。画家把点、线、面、颜色、明暗，在画布上按空间位置把它们组织起来。音乐家把乐器、节奏、旋律，按时间、顺序把它们组织起来。",
-        "imageName": "构图原理",
+        "description": "古代文人菊代表自己清白坚韧的气节，后演变成长寿之花。",
+        "imageName": "bbjh",
+        "smell":"微香",
+        "humidity":"40%",
+        "maintenance":"易"
+    },
+    {
+        "category":"散状花材",
+        "name": "跳舞兰",
+        "id": 303,
+        "description": "代表忘记忧伤、快乐无忧之意。被风一吹就像翩翩起舞的女郎，有很高的观赏价值。",
+        "imageName": "twl",
         "smell":"无味",
         "humidity":"50%",
-        "maintenance":"适中"
+        "maintenance":"无味"
     },
     {
         "category":"特殊形状花材",
-        "name": "散尾葵",
+        "name": "红掌",
         "id": 401,
-        "description": "插花艺术是一种艺术创作，为了表现作品的主题思想和造型效果，首先要进行构图。构图实际上是一个思维过程，它从自然存在的纷杂事物之中找出秩序：构图也是一个组织过程，把散乱的构图元素组织成一个统一的整体。",
-        "imageName": "构图原理",
+        "description": "火鹤又名红掌，南天星科的一类植物，阿莫红掌的佛焰苞鲜红色，象征热烈的祝福。",
+        "imageName": "hz",
         "smell":"无味",
-        "humidity":"50%",
+        "humidity":"40%",
+        "maintenance":"易"
+    },
+    {
+        "category":"特殊形状花材",
+        "name": "排风藤",
+        "id": 402,
+        "description": "排风藤线条分明，可以为作品增加动态曲线，果实脱落风千后的毛絮也能增加作品的体量。",
+        "imageName": "pft",
+        "smell":"无味",
+        "humidity":"30%",
+        "maintenance":"易"
+    },
+    {
+        "category":"特殊形状花材",
+        "name": "贯众蕨",
+        "id": 403,
+        "description": "贯众蕨叶片微微卷曲，灰调的绿色自带高级感，花语为干净、冷淡。",
+        "imageName": "gzj",
+        "smell":"无味",
+        "humidity":"40%",
+        "maintenance":"易"
+    },
+    {
+        "category":"特殊形状花材",
+        "name": "荷叶尖",
+        "id": 404,
+        "description": "夏季特有的配叶，叶片翠绿，微卷的质感。",
+        "imageName": "hyj",
+        "smell":"无味",
+        "humidity":"40%",
         "maintenance":"适中"
+    }
+    ,
+    {
+        "category":"特殊形状花材",
+        "name": "高山羊齿",
+        "id": 405,
+        "description": "蕨类植物，常做基盘叶。",
+        "imageName": "gsyc",
+        "smell":"无味",
+        "humidity":"40%",
+        "maintenance":"易"
     }
 ]

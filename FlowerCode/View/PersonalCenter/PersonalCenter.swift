@@ -14,19 +14,19 @@ struct PersonalCenter: View {
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
-                let widthOfFatherView = geometry.size.width // 390px
+                let widthOfFatherView = UIScreen.screenWidth // 390px
 //                let heightOfFatherView = geometry.size.height // 844px
-                VStack(spacing: 0) {
+                VStack(alignment: .center) {
                     ZStack {
                         Image("person_center_background")
+                            .resizable()
+                            .frame(width: widthOfFatherView,height: 265,alignment: .center)
                         VStack {
                             Image("user_head_portrait")
                                 .padding(.top, 30)
                             Text(document.username)
                                 .foregroundColor(Color(white: 1))
                                 .padding(.vertical, 2)
-                            Text(document.signature)
-                                .foregroundColor(Color(white: 0.7))
                         }
                     }
                     
@@ -55,7 +55,7 @@ struct PersonalCenter: View {
                             .padding(.vertical, 5)
                         }
                     }
-                    .padding(8)
+                    //.padding(8)
                     .foregroundColor(Color(white: 0))
                     .background(Color(white: 1))
                     .cornerRadius(15)
@@ -97,11 +97,11 @@ struct PersonalCenter: View {
                     }
                     
                     NavigationLink {
-                        Text("帮助界面")
+                        Text("@团队来自同济大学\n团队成员\n蔡明宏 刘畅 刘筱科\n指导老师\n朱宏明 钱洁")
                     } label: {
                         HStack {
                             Image("help")
-                            Text("帮助")
+                            Text("帮助中心")
                             Spacer()
                             Image("goto")
                         }
@@ -132,17 +132,22 @@ struct PersonalCenter: View {
 
                     Spacer()
                 }
-                .background(Color(red: 0.906, green: 0.910, blue: 0.882))
             }
+            .background(Color(red: 0.906, green: 0.910, blue: 0.882))
             .navigationBarHidden(true)
             .ignoresSafeArea()
         }
     }
 }
 
-struct PersonalCenter_Previews: PreviewProvider {
-    static var previews: some View {
-        PersonalCenter()
-            .previewInterfaceOrientation(.portrait)
-    }
+//struct PersonalCenter_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PersonalCenter()
+//            .previewInterfaceOrientation(.portrait)
+//    }
+//}
+extension UIScreen{
+   static let screenWidth = UIScreen.main.bounds.size.width
+   static let screenHeight = UIScreen.main.bounds.size.height
+   static let screenSize = UIScreen.main.bounds.size
 }

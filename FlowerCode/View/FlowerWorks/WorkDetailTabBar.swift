@@ -23,7 +23,7 @@ struct WorkDetailTabBar: View {
                     .font(.system(size: textSize))
                     .frame(width: textWidth, height: textHeight * 1.4, alignment: .bottom)
                     .padding(.bottom, 30)
-                    .padding([.leading, .trailing],25)
+                    .padding([.leading, .trailing],20)
             }
             
             Spacer()
@@ -35,7 +35,7 @@ struct WorkDetailTabBar: View {
                     .font(.system(size: textSize))
                     .frame(width: textWidth, height: textHeight)
                     .padding([.top, .bottom], 20)
-                    .padding([.leading, .trailing],25)
+                    .padding([.leading, .trailing],20)
             }
             
             Spacer()
@@ -47,7 +47,7 @@ struct WorkDetailTabBar: View {
                     .font(.system(size: textSize))
                     .frame(width: textWidth, height: textHeight)
                     .padding([.top, .bottom], 20)
-                    .padding([.leading, .trailing],25)
+                    .padding([.leading, .trailing],20)
             }
             
         }

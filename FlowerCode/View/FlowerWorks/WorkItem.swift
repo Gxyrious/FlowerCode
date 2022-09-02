@@ -34,11 +34,13 @@ struct WorkItem: View {
         ZStack(alignment: .center)
         {
             Image("workItemBg")
-                .frame(width: 130, height: 220)
+                .resizable()
+                .frame(width: 160, height: 210)
+                .padding(.bottom,10)
             VStack(alignment: .center){
                 work.image
                     .resizable()
-                    .frame(width: 120, height: 160)
+                    .frame(width: 140, height: 140)
                 VStack(alignment: .leading){
                     Text(work.name)
                         .font(.subheadline)
@@ -46,16 +48,17 @@ struct WorkItem: View {
                     HStack{
                         ForEach(work.floNames,id: \.self){name in
                             Text(name)
-                                .font(.caption)
+                                .font(.caption2)
                                 .foregroundColor(.secondary)
                         }
                     }
                 }
                 .padding(.leading,-22)
+                .padding(.top,10)
             }
 
         }
-        .frame(width: 130, height: 200)
+        .frame(width: 160, height: 200)
     }
 }
 

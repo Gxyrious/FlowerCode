@@ -49,8 +49,7 @@ struct WorkIntro: View {
                     work.image
                         .resizable()
                         .frame(width: 250, height: 250)
-                        .padding(.top,70)
-                        .padding(.leading,30)
+                        .padding(.top,90)
                 }
             }
             .padding(.bottom, 666)

@@ -906,7 +906,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FlowerCode/Preview Content\"";
-				DEVELOPMENT_TEAM = TXH6MFC7F9;
+				DEVELOPMENT_TEAM = N3B92UGB8Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "花间小作想使用你的摄像头";
@@ -924,7 +924,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tongji.edu.cn.FlowerCode;
+				PRODUCT_BUNDLE_IDENTIFIER = tongji.edu.cn.FlowerCode.lxk;
 				PRODUCT_NAME = FlowerCode;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -940,7 +940,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FlowerCode/Preview Content\"";
-				DEVELOPMENT_TEAM = TXH6MFC7F9;
+				DEVELOPMENT_TEAM = N3B92UGB8Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "花间小作想使用你的摄像头";
@@ -958,7 +958,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tongji.edu.cn.FlowerCode;
+				PRODUCT_BUNDLE_IDENTIFIER = tongji.edu.cn.FlowerCode.lxk;
 				PRODUCT_NAME = FlowerCode;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
