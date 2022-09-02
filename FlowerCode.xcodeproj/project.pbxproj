@@ -58,7 +58,6 @@
 		AF3540E028748AEE00A39E33 /* CameraViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409D28748AEE00A39E33 /* CameraViewControllerDelegate.swift */; };
 		AF3540E128748AEE00A39E33 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409E28748AEE00A39E33 /* CameraView.swift */; };
 		AF3540E228748AEE00A39E33 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35409F28748AEE00A39E33 /* ImagePicker.swift */; };
-		AF3540E328748AEE00A39E33 /* Flower5.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A028748AEE00A39E33 /* Flower5.mlmodel */; };
 		AF3540E428748AEE00A39E33 /* FlowerIdentificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A128748AEE00A39E33 /* FlowerIdentificationView.swift */; };
 		AF3540E528748AEE00A39E33 /* MyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A228748AEE00A39E33 /* MyImageView.swift */; };
 		AF3540E628748AEE00A39E33 /* CameraInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3540A328748AEE00A39E33 /* CameraInterfaceView.swift */; };
@@ -108,6 +107,7 @@
 		AF52599528C0AF0700110173 /* Vases_Base_Color.png.001.png in Resources */ = {isa = PBXBuildFile; fileRef = AF52599028C0AF0700110173 /* Vases_Base_Color.png.001.png */; };
 		AF52599628C0AF0700110173 /* Image_3.002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF52599128C0AF0700110173 /* Image_3.002.jpg */; };
 		AF52599728C0AF0700110173 /* Image_0.002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF52599228C0AF0700110173 /* Image_0.002.jpg */; };
+		AF80190128C206E50080E4B7 /* Flower5.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AF80190028C206E50080E4B7 /* Flower5.mlmodel */; };
 		AF9F715428BFD46100143639 /* CreateScene.dae in Resources */ = {isa = PBXBuildFile; fileRef = AF9F715328BFD46100143639 /* CreateScene.dae */; };
 		AFD8ECC928C161A500D11971 /* background-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFD8ECC428C161A500D11971 /* background-2.jpg */; };
 		AFD8ECCA28C161A500D11971 /* background-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFD8ECC528C161A500D11971 /* background-5.jpg */; };
@@ -176,7 +176,6 @@
 		AF35409D28748AEE00A39E33 /* CameraViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewControllerDelegate.swift; sourceTree = "<group>"; };
 		AF35409E28748AEE00A39E33 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		AF35409F28748AEE00A39E33 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		AF3540A028748AEE00A39E33 /* Flower5.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Flower5.mlmodel; sourceTree = "<group>"; };
 		AF3540A128748AEE00A39E33 /* FlowerIdentificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerIdentificationView.swift; sourceTree = "<group>"; };
 		AF3540A228748AEE00A39E33 /* MyImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyImageView.swift; sourceTree = "<group>"; };
 		AF3540A328748AEE00A39E33 /* CameraInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraInterfaceView.swift; sourceTree = "<group>"; };
@@ -226,6 +225,7 @@
 		AF52599028C0AF0700110173 /* Vases_Base_Color.png.001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vases_Base_Color.png.001.png; sourceTree = "<group>"; };
 		AF52599128C0AF0700110173 /* Image_3.002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_3.002.jpg; sourceTree = "<group>"; };
 		AF52599228C0AF0700110173 /* Image_0.002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image_0.002.jpg; sourceTree = "<group>"; };
+		AF80190028C206E50080E4B7 /* Flower5.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Flower5.mlmodel; sourceTree = "<group>"; };
 		AF9F715328BFD46100143639 /* CreateScene.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = CreateScene.dae; sourceTree = "<group>"; };
 		AFD8ECC428C161A500D11971 /* background-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-2.jpg"; sourceTree = "<group>"; };
 		AFD8ECC528C161A500D11971 /* background-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-5.jpg"; sourceTree = "<group>"; };
@@ -393,7 +393,7 @@
 			children = (
 				AF35409928748AEE00A39E33 /* Camera */,
 				AF35409F28748AEE00A39E33 /* ImagePicker.swift */,
-				AF3540A028748AEE00A39E33 /* Flower5.mlmodel */,
+				AF80190028C206E50080E4B7 /* Flower5.mlmodel */,
 				AF3540A128748AEE00A39E33 /* FlowerIdentificationView.swift */,
 				AF3540A228748AEE00A39E33 /* MyImageView.swift */,
 				AF3540A328748AEE00A39E33 /* CameraInterfaceView.swift */,
@@ -753,6 +753,7 @@
 				9FD5F56528B21A3700983E1C /* WorkItem.swift in Sources */,
 				AF3540E828748AEE00A39E33 /* CommunityDiscovery.swift in Sources */,
 				AF3540DF28748AEE00A39E33 /* CameraViewController.swift in Sources */,
+				AF80190128C206E50080E4B7 /* Flower5.mlmodel in Sources */,
 				AF3540DC28748AEE00A39E33 /* ARView.swift in Sources */,
 				AF3540DB28748AEE00A39E33 /* FlowerCreation.swift in Sources */,
 				9F29DDEC28AF689500D7175C /* FCModel.swift in Sources */,
@@ -761,7 +762,6 @@
 				9F29DDDF28AEA7EC00D7175C /* Info.swift in Sources */,
 				9FE5DB5328B28134004AE5FB /* WorkDetail.swift in Sources */,
 				AF3540C528748AEE00A39E33 /* WorkList.swift in Sources */,
-				AF3540E328748AEE00A39E33 /* Flower5.mlmodel in Sources */,
 				9FE5DB5528B28B4D004AE5FB /* WorkIntro.swift in Sources */,
 				AF3540E428748AEE00A39E33 /* FlowerIdentificationView.swift in Sources */,
 				9F0E502C28B0EF2D00B87B11 /* FlowerList.swift in Sources */,

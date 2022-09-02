@@ -9,17 +9,13 @@ import SwiftUI
 import CoreImage
 import SceneKit
 
-//var className: String?
-//var confidence: Double?
-
-fileprivate let flower_name: [String:String] = ["baihe":"百合", "youjiali":"尤加利"]
-fileprivate let flower_scale: [String:Float] = ["baihe":2.5, "youjiali":0.15]
-fileprivate let flower_position: [String:SCNVector3] = ["baihe":SCNVector3(-0.675,1,0.1), "youjiali":SCNVector3(-0.6,1,0.1)]
-fileprivate let flower_discription: [String:String] = ["baihe":"适宜温度12～18℃，喜光畏湿","youjiali":"适宜温度15-25℃，注意定期修剪"]
+let flower_name: [String:String] = [
+    "MeiGui":"玫瑰", "BaiZhang":"白掌", "YuJinXiang": "郁金香", "AnShu": "桉树", "ManTianXing": "满天星", "HeiZhongCao": "黑种草", "DaXingQin": "大星芹"
+]
+let flower_discription: [String:String] = ["MeiGui":"适宜温度12～18℃，喜光畏湿","youjiali":"适宜温度15-25℃，注意定期修剪"]
 struct MLResultView: View {
     
     @EnvironmentObject var document: FCDocument
-    @Binding var scene: SCNScene
     @Binding var showIdentificationView: Bool
     
     var result: Flower5Output {
@@ -69,10 +65,10 @@ struct MLResultView: View {
                             .frame(width: 50, height: 50)
                             .padding(.leading, 20)
                         VStack {
-                            Text(flower_name[className] ?? "无法识别")
+                            Text(flower_name[className] ?? className)
                                 .font(.system(size: 20))
                                 .foregroundColor(Color(red: 0.446, green: 0.44, blue: 0.44))
-                            Text(flower_discription[className] ?? "")
+                            Text(flower_discription[className] ?? className)
                                 .font(.system(size: 15))
                                 .foregroundColor(Color(red: 0.708, green: 0.708, blue: 0.708))
                         }

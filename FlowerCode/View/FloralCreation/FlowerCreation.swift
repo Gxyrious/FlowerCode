@@ -183,7 +183,7 @@ struct FlowerCreation: View {
                         .offset(x: widthOfFatherView * 0.38, y: -heightOfFatherView * 0.28)
                         .sheet(isPresented: $showIdentificationView) {
                             FlowerIdentificationView(
-                                scene: $scene,
+//                                scene: $scene,
                                 showIdentificationView: $showIdentificationView)
                         }
                         Button {
