@@ -42,21 +42,12 @@ struct FlowerCodeWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        GeometryReader { geometry in
-            let fWidth = geometry.size.width
-            let fHeight = geometry.size.height
-            VStack {
-                HStack {
-                    Image("head")
-                        .resizable()
-                        .frame(width: fHeight / 4, height: fHeight / 4)
-                        .padding([.top, .leading], 5)
-                    Text("我的插花日记")
-                }
+        GeometryReader { _ in
+            HStack {
                 Image("usdz")
                     .resizable()
-                    .frame(width: fHeight / 1.5, height: fHeight / 1.5)
-                    .padding([.top, .leading], 5)
+                    .frame(width: 105.513699, height: 158)
+                    .offset(x: 30)
             }
         }
         .background(Color("grass"))
